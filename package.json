@@ -6,14 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "run-script": "yarn ts-node",
+    "prepare:env": "yarn run-script scripts/prepare-env.js"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "next": "14.0.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "__comment": "Yargs helps you build interactive command line tools, by parsing arguments and generating an elegant user interface.",
+    "yargs": "^17.1.1-candidate.0"
   },
   "devDependencies": {
     "@types/node": "^20",
