@@ -1,5 +1,9 @@
-import Header from '@components/_common/Header'
+import { HomePage } from '@layouts/index'
 
-export default function Home() {
-  return <Header />
+interface IProps {
+  children: React.ReactElement
+}
+
+export default function Home({ children }: IProps) {
+  return <HomePage>{children}</HomePage>
 }
