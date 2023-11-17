@@ -5,5 +5,5 @@ interface IProps {
 }
 
 export const HomePage = ({ children }: IProps) => {
-  return <Header title="TEMPLATE-ONE">{children}</Header>
+  return <Header title="TEMPLATE-TWO">{children}</Header>
 }
