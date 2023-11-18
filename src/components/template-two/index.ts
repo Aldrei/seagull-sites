@@ -1,1 +1,1 @@
-export * from '../_common';
+export { Header } from './Header'

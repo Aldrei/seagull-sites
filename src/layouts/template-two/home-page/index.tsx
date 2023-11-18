@@ -1,4 +1,4 @@
-import Header from '@components/_common/Header'
+import { Header } from '@components/template-two/Header'
 
 interface IProps {
   children: React.ReactElement
