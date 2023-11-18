@@ -30,6 +30,9 @@
       ],
       "@layouts/*": [
         "./src/layouts/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
       ]
     },
     "incremental": true,

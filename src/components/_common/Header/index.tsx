@@ -1,15 +1,14 @@
-"use client"
-
 import React from 'react'
 
 interface IProps {
   title: string;
-  children: React.ReactElement
+  children?: React.ReactElement;
+  className: string;
 }
 
-import { HeaderContainer } from './styles'
+import { HeaderContainer, Title } from './styles'
 
-const Header = ({ title }: IProps): React.ReactElement => {
+const Header = ({ title, className }: IProps): React.ReactElement => {
   const navigation = [
     { name: title, href: '#', current: true },
     { name: 'Team', href: '#', current: false },
@@ -18,7 +17,9 @@ const Header = ({ title }: IProps): React.ReactElement => {
   ]
 
   return (
-    <HeaderContainer />
+    <HeaderContainer className={className}>
+      <Title>HeaderContainer INHERITED</Title>
+    </HeaderContainer>
   )
 }
 

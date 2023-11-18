@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
-import { HeaderContainer } from "@/components/_common/Header/styles"
+import Header from "@/components/_common/Header"
 
-export const HeaderStyled = styled(HeaderContainer)`
-  border: 5px solid blue;
+export const HeaderStyled = styled(Header)`
+    border: 5px solid blue;
+
 `
