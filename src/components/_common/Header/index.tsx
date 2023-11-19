@@ -1,3 +1,5 @@
+import { HeaderContainer, Title } from './styles'
+
 import React from 'react'
 
 interface IProps {
@@ -6,7 +8,6 @@ interface IProps {
   className?: string;
 }
 
-import { HeaderContainer, Title } from './styles'
 
 const Header = ({ title, className }: IProps): React.ReactElement => {
   const navigation = [

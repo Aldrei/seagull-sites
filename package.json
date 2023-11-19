@@ -25,6 +25,7 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.2",
+    "eslint-plugin-import": "^2.29.0",
     "postcss": "^8",
     "ts-node": "^10.9.1",
     "typescript": "^5"
