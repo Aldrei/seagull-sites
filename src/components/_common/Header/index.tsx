@@ -3,7 +3,7 @@ import React from 'react'
 interface IProps {
   title: string;
   children?: React.ReactElement;
-  className: string;
+  className?: string;
 }
 
 import { HeaderContainer, Title } from './styles'

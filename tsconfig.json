@@ -33,6 +33,9 @@
       ],
       "@styles/*": [
         "./src/styles/*"
+      ],
+      "@types": [
+        "./src/types/*"
       ]
     },
     "incremental": true,

@@ -5,5 +5,5 @@ export const HeaderContainer = styled.div`
 `
 
 export const Title = styled.h1`
-  color: ${props => props.theme.propertiesTitle}
+  color: ${(props) => props.theme.slide.banner.title.color}
 `
