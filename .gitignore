@@ -37,3 +37,13 @@ next-env.d.ts
 
 # project
 .env
+
+/src/styles/colors/index.ts
+/src/images/index.ts
+/src/styles/button-variants/index.ts
+/src/fonts/index.ts
+/src/layouts/index.ts
+/src/components/index.ts
+/src/strings/index.ts
+/src/constants/index.ts
+/src/icons/index.ts
