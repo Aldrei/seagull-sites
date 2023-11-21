@@ -9,7 +9,6 @@ const flavoredFiles = [
   'src/layouts/index.ts',
   'src/components/index.ts',
   'src/strings/index.ts',
-  'src/layouts/components/index.ts',
   'src/constants/index.ts',
   'src/icons/index.ts',
 ]
