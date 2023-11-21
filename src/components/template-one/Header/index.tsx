@@ -4,7 +4,7 @@ import React from "react";
 import { HeaderStyled } from './styles'
 
 interface IProps {
-  children: React.ReactElement
+  children?: React.ReactElement
   title: string
 }
 

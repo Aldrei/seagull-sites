@@ -7,6 +7,8 @@
 
 import { useRouter } from 'next/router'
 
+import { PropertyPage } from '@/layouts'
+
 interface IProps {
   data: any
 }
@@ -30,5 +32,5 @@ export default function Property({ data }: IProps) {
   console.log('DEBUG seo:', seo);
   
 
-  return <p>Property: {router.query.id}</p>
+  return <PropertyPage />
 }

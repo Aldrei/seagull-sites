@@ -3,17 +3,17 @@ import Head from 'next/head'
 import { Header } from '@components/template-one/Header'
 
 interface IProps {
-  children: React.ReactElement
+  children?: React.ReactElement
 }
 
-export const HomePage = ({ children }: IProps) => {
+export const PropertyPage = ({ children }: IProps) => {
   return (
     <>
       <Head>
-        <title>My HOME page</title>
+        <title>My PROPERTY page</title>
         <meta property="og:title" content="My page title" key="title" />
       </Head>
-      <Header title="TEMPLATE-ONE">{children}</Header>
+      <Header title="TEMPLATE-ONE" />
     </>
   )
 }
