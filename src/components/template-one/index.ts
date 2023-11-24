@@ -1,1 +1,2 @@
-export * from '../_common';
+import { Header } from './Header'
+import { SlideOne } from './Slide'
