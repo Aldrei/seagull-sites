@@ -35,7 +35,7 @@ const Header = ({ title, className }: IProps): React.ReactElement => {
           <Bar />
         </MenuIcon>
       </HeaderWrapper>
-      <MobileMenu isOpen={isMenuOpen}>
+      <MobileMenu $isOpen={isMenuOpen}>
         <CloseIcon onClick={() => setMenuOpen(false)}>X</CloseIcon>
         <NavLink href="#">Product</NavLink>
         <NavLink href="#">Features</NavLink>
