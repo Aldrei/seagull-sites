@@ -1,15 +1,16 @@
-import { Bar, CloseIcon, HeaderWrapper, Logo, MenuIcon, MobileMenu, Nav, NavLink } from './styles'
+import { Bar, CloseIcon, HeaderWrapper, Logo, MenuIcon, MobileMenu, Nav, NavLink } from './styles';
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-interface IProps {
+export interface IPropsHeaderCommon {
   title: string;
   children?: React.ReactElement;
   className?: string;
+  logo?: any
 }
 
 
-const Header = ({ title, className }: IProps): React.ReactElement => {
+const Header = ({ title, className, logo }: IPropsHeaderCommon): React.ReactElement => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   
   const navigation = [
@@ -22,7 +23,7 @@ const Header = ({ title, className }: IProps): React.ReactElement => {
   return (
     <>
       <HeaderWrapper>
-        <Logo src="/path-to-your-logo.png" alt="Logo" />
+        <Logo src={logo} alt="Logo" />
         <Nav>
           <NavLink href="#">Product</NavLink>
           <NavLink href="#">Features</NavLink>

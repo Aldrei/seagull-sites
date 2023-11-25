@@ -39,6 +39,9 @@
       ],
       "@hooks": [
         "./src/hooks/*"
+      ],
+      "@images": [
+        "./src/images/*"
       ]
     },
     "incremental": true,

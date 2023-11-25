@@ -1,17 +1,13 @@
-// import HeaderCommon from "@/components/_common/Header"
 import React from "react";
 
-import { HeaderStyled } from './styles'
+import { IPropsHeaderCommon } from "@/components/_common/Header";
 
-interface IProps {
-  children?: React.ReactElement
-  title: string
-}
+import { HeaderStyled } from './styles';
 
-export const Header = ({ children, title }: IProps): React.ReactElement => {
+export const Header = (props: IPropsHeaderCommon): React.ReactElement => {
   return (
-    <HeaderStyled title="TEMPLATE TWO">
-      {children}
+    <HeaderStyled {...props} title="TEMPLATE TWO" logo={props.logo}>
+      {props.children}
     </HeaderStyled>
   )
 }

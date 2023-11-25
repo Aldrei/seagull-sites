@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import Image from 'next/image';
+
 // Styled components
 export const HeaderWrapper = styled.header`
   display: flex;
@@ -14,8 +16,8 @@ export const HeaderWrapper = styled.header`
   }
 `;
 
-export const Logo = styled.img`
-  // Add styles for your logo
+export const Logo = styled(Image)`
+  max-width: 250px;
 `;
 
 export const Nav = styled.nav`
@@ -51,12 +53,13 @@ export const MenuIcon = styled.div`
 export const MobileMenu = styled.div<{ $isOpen: boolean }>`
   display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
   position: absolute;
-  top: 60px; // Adjust based on actual header height
+  top: 54px; // Adjust based on actual header height
   left: 0;
   right: 0;
   background: white;
   border-top: 1px solid #eaeaea;
   padding: 16px;
+  z-index: 9;
 
   @media (min-width: 769px) {
     display: none;
