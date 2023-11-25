@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app'
 
 import { DefaultTheme, ThemeProvider } from 'styled-components'
 import { templateDefault } from '@/styles/themes/default'
-import useThemeCostumer from '@/hooks/Theme'
+import useThemeCostumer from '@/hooks/useThemeCostumer'
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }: AppProps) {
