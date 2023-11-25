@@ -6,7 +6,7 @@ export const HeaderStyled = styled(Header)`
     border: 5px solid white;
 
     h1 {
-      color: white;
+      color: ${(props) => props.theme.color.first};
     }
 
 `

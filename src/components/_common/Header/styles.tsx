@@ -6,7 +6,7 @@ export const HeaderWrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 16px 32px;
-  background: white;
+  background: ${(props) => props.theme.color.first};
   border-bottom: 1px solid #eaeaea;
 
   @media (max-width: 768px) {
@@ -48,8 +48,8 @@ export const MenuIcon = styled.div`
   }
 `;
 
-export const MobileMenu = styled.div<{ isOpen: boolean }>`
-  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+export const MobileMenu = styled.div<{ $isOpen: boolean }>`
+  display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
   position: absolute;
   top: 60px; // Adjust based on actual header height
   left: 0;
