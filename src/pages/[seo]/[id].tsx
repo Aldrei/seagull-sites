@@ -11,6 +11,7 @@ import { PropertyPage } from '@/layouts'
 
 interface IProps {
   data: any
+  repos: any
 }
 
 // This gets called on every request
@@ -31,6 +32,5 @@ export default function Property({ data }: IProps) {
   const seo = router.query.seo
   console.log('DEBUG seo:', seo);
   
-
   return <PropertyPage />
 }
