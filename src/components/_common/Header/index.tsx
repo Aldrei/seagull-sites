@@ -9,7 +9,6 @@ export interface IPropsHeaderCommon {
   logo?: any
 }
 
-
 const Header = ({ title, className, logo }: IPropsHeaderCommon): React.ReactElement => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   

@@ -76,7 +76,7 @@ const useCustomer = (): ICustomer => {
    * TODO:
    * 
    *  - Make the request to get data customer.
-   *    But for now return mock: .
+   *    But for now return by .env: .
    * 
   */
   const customerDataMock: ICustomer = {
