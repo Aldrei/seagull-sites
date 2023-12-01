@@ -1,3 +1,5 @@
-import { Header } from './Header'
-import { SlideOne } from './Slide'
-import { Tab } from './Tab'
+export { Header } from './Header'
+export { SlideOne } from './Slide'
+export { Tab } from './Tab'
+export { SelectOne } from './Select'
+export { FilterAdvanced } from './filter/Advanced'

@@ -1,3 +1,4 @@
-export * from './Header'
-export * from './Slide'
-export * from './Tab'
+export { HeaderCommon } from './Header'
+export { SlideCommon } from './Slide'
+export { TabCommon } from './Tab'
+export { SelectCommon } from './Select'

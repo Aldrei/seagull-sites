@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import CommonTab from '@/components/_common/Tab'
+import { TabCommon } from '@/components/_common'
 
-export const StyledTab = styled(CommonTab)`
+export const StyledTab = styled(TabCommon)`
   ul {
     li {
       color: #000;

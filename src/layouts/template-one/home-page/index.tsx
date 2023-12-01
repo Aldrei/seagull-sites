@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import { PropsWithChildren } from 'react'
 
-import { Tab } from '@/components/template-one/Tab'
-import { Header } from '@components/template-one/Header'
-import { SlideOne } from '@components/template-one/Slide'
+import { Tab } from '@/components/template-one'
+import { Header } from '@components/template-one'
+import { SlideOne } from '@components/template-one'
 
 import { TabType } from '@/components/_common/Tab/types'
+import { FilterAdvanced } from '@/components/template-one'
 import { IMAGES } from '@/images/template-one'
 
 interface IProps {}
@@ -15,7 +16,8 @@ export const HomePage: React.FC<PropsWithChildren<IProps>> = ({}: PropsWithChild
     {
       id: 0,
       title: 'Tab 1',
-      content: <div>Content of Tab 1</div>,
+      content: <FilterAdvanced />,
+      // content: <div>Content of Tab 1</div>,
     },
     {
       id: 1,

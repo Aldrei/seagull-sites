@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Content, Tab, TabList, TabsWrapper } from './styles';
 import { ITabComponent } from './types';
 
-const TabComponent: React.FC<ITabComponent> = ({ tabs, ...props }: ITabComponent) => {
+export const TabCommon: React.FC<ITabComponent> = ({ tabs, ...props }: ITabComponent) => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   return (
@@ -25,5 +25,3 @@ const TabComponent: React.FC<ITabComponent> = ({ tabs, ...props }: ITabComponent
     </TabsWrapper>
   );
 };
-
-export default TabComponent;

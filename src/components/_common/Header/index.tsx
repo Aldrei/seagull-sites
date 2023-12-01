@@ -9,7 +9,7 @@ export interface IPropsHeaderCommon {
   logo?: any
 }
 
-const Header = ({ title, className, logo }: IPropsHeaderCommon): React.ReactElement => {
+export const HeaderCommon = ({ title, className, logo }: IPropsHeaderCommon): React.ReactElement => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   
   const navigation = [
@@ -45,5 +45,3 @@ const Header = ({ title, className, logo }: IPropsHeaderCommon): React.ReactElem
     </>
   );
 }
-
-export default Header;

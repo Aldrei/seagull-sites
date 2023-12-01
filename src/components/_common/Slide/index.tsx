@@ -7,7 +7,7 @@ import {
   KeenSliderInstance,
 } from "keen-slider/react"
 
-const Slide = () => {
+export const SlideCommon = () => {
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     initial: 0,
   })
@@ -80,5 +80,3 @@ const Slide = () => {
     </>
   )
 }
-
-export default Slide

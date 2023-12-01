@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Slide from '@/components/_common/Slide'
+import { SlideCommon } from '@/components/_common'
 
 export const SlideOne = () => {
-  return <Slide />
+  return <SlideCommon />
 }
