@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { PropsWithChildren } from 'react'
 
-import { Tab } from '@/components/template-one'
+import { PropertyRowOne, Tab } from '@/components/template-one'
 import { Header } from '@components/template-one'
 import { SlideOne } from '@components/template-one'
 
@@ -35,6 +35,13 @@ export const HomePage: React.FC<PropsWithChildren<IProps>> = ({}: PropsWithChild
       <Header title="TEMPLATE-ONE" logo={IMAGES.LOGO} />
       <SlideOne />
       <Tab tabs={tabs} />
+      <PropertyRowOne
+        title="CASA ALVENARIA, 2 DORMITÓRIOS, METZLER"
+        location="Metzler - Campo Bom"
+        description="Ótima casa em bairro nobre pronta para morar, esse imóvel conta com; São 77 m2 de área construída com uma área total de terreno de 150 m2..."
+        imageUrl="https://imobmobile.com.br/photos/thumb/b00057c0b108eeb706b560044c885714.jpeg"
+        price="Cód CAA002 - R$ 399.000,00"
+      />
     </>
   )
 }
