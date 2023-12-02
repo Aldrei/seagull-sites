@@ -2,7 +2,7 @@ import React from 'react';
 
 import { SelectCommon } from '@/components/_common'
 
-import { FormWrapper, Row, Button } from './styled';
+import { FormWrapper, Row, Column } from './styled';
 
 export const FilterAdvanced: React.FC = (): React.ReactElement => {
   const options = [
@@ -16,7 +16,17 @@ export const FilterAdvanced: React.FC = (): React.ReactElement => {
       <Row>
         <SelectCommon options={options} />
       </Row>
-      <Button>Filtrar</Button>
+      <Row>
+        <SelectCommon options={options} />
+      </Row>
+      <Row>
+        <Column>
+          <SelectCommon options={options} />
+        </Column>
+        <Column>
+          <SelectCommon options={options} />
+        </Column>
+      </Row>
     </FormWrapper>
   );
 };
