@@ -7,6 +7,7 @@ import { SlideOne } from '@components/template-one'
 
 import { TabType } from '@/components/_common/Tab/types'
 import { FilterAdvanced } from '@/components/template-one'
+import { SearchOne } from '@/components/template-one/filter/Search'
 import { IMAGES } from '@/images/template-one'
 
 interface IProps {}
@@ -17,12 +18,11 @@ export const HomePage: React.FC<PropsWithChildren<IProps>> = ({}: PropsWithChild
       id: 0,
       title: 'Tab 1',
       content: <FilterAdvanced />,
-      // content: <div>Content of Tab 1</div>,
     },
     {
       id: 1,
       title: 'Tab 2',
-      content: <div>Content of Tab 2</div>,
+      content: <SearchOne />,
     },
   ];
 
