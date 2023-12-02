@@ -13,7 +13,6 @@ export const Column = styled.div`
   flex-direction: row;
   width: 50%;
   justify-content: space-between;
-  margin-bottom: 10px;
 
   &:nth-child(1) {
     margin-right: 5px;
