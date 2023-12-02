@@ -2,14 +2,15 @@ import React, { useId } from 'react'
 
 import Select from "react-select"
 
+import { Container, Label } from './styles'
 import { ISelect } from './types'
-import { Container } from './styles'
 
-export const SelectCommon: React.FC<ISelect> = ({ options, ...props }: ISelect): React.ReactElement => {
+export const SelectCommon: React.FC<ISelect> = ({ options, name, label, ...props }: ISelect): React.ReactElement => {
   
   return (
     <Container>
-      <Select instanceId={useId()} options={options} {...props} />
+      <Label htmlFor={name}>{label}</Label>
+      <Select name={name} className='select-common' instanceId={useId()} options={options} {...props} />
     </Container>
   )
 }
