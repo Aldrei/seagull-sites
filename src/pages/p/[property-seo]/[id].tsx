@@ -29,7 +29,7 @@ export default function Property({ data }: IProps) {
 
   const router = useRouter()
 
-  const seo = router.query.seo
+  const seo = router.query['property-seo']
   console.log('DEBUG seo:', seo);
   
   return <PropertyPage />
