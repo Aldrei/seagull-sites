@@ -8,6 +8,7 @@ import { SlideOne } from '@components/template-one'
 import { TabType } from '@/components/_common/Tab/types'
 import { FilterAdvanced } from '@/components/template-one'
 import { SearchOne } from '@/components/template-one/filter/Search'
+import { FooterOne } from '@/components/template-one'
 import { IMAGES } from '@/images/template-one'
 
 interface IProps {}
@@ -42,6 +43,7 @@ export const HomePage: React.FC<PropsWithChildren<IProps>> = ({}: PropsWithChild
         imageUrl="https://imobmobile.com.br/photos/thumb/b00057c0b108eeb706b560044c885714.jpeg"
         price="Cód CAA002 - R$ 399.000,00"
       />
+      <FooterOne />
     </>
   )
 }

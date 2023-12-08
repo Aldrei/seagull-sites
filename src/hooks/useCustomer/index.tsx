@@ -7,6 +7,8 @@ interface ICustomer {
   domain?: string
   name?: string
   abbr?: string
+  logo?: string
+  times?: string
   limitPhotosShow?: number
   recaptcha?: {
     api_public_key?: string,
@@ -83,6 +85,8 @@ const useCustomer = (): ICustomer => {
     domain: process.env.NEXT_PUBLIC_CUSTOMER_DOMAIN,
     name: process.env.NEXT_PUBLIC_CUSTOMER_NAME,
     abbr: process.env.NEXT_PUBLIC_CUSTOMER_ABBR,
+    logo: process.env.NEXT_PUBLIC_CUSTOMER_LOGO,
+    times: process.env.NEXT_PUBLIC_CUSTOMER_TIMES,
     limitPhotosShow: 4,
     recaptcha: {
       api_public_key: process.env.NEXT_PUBLIC_GOOGLE_RECAPTHA,
