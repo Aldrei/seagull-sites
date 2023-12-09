@@ -1,16 +1,22 @@
+import { GalleryOne, Header } from '@/components/template-one'
+import { IMAGES } from '@/images'
 import Head from 'next/head'
+import { PhotoProps } from 'react-photo-gallery'
 
 interface IProps {
   children?: React.ReactElement
+  photos?: PhotoProps[]
 }
 
-export const PropertyPage = ({ children }: IProps) => {
+export const PropertyPage = ({ photos }: IProps) => {
   return (
     <>
       <Head>
         <title>My PROPERTY page</title>
         <meta property="og:title" content="My page title" key="title" />
       </Head>
+      <Header title="TEMPLATE-ONE" logo={IMAGES.LOGO} />
+      <GalleryOne photos={photos} />
     </>
   )
 }
