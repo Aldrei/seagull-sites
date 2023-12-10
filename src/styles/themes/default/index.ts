@@ -83,6 +83,13 @@ const BOX_SHADOW = {
   third: '',
 }
 
+/**
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/background
+*/
+const BACKGROUND = {
+  whatsapp: 'http://sgimoveis.imb.br/site/whats-bg.png'
+}
+
 const templateDefault = {
   slide: {
     banner: {
@@ -102,6 +109,9 @@ const templateDefault = {
   },
   boxShadow: {
     ...BOX_SHADOW
+  },
+  background: {
+    ...BACKGROUND
   }
 }
 

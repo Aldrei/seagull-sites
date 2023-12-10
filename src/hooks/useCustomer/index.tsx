@@ -13,6 +13,7 @@ interface ICustomer {
   recaptcha?: {
     api_public_key?: string,
   }
+  broker_1_picture?: string
   social?: {
     instagram?: {
       desc?: string
@@ -91,6 +92,7 @@ const useCustomer = (): ICustomer => {
     recaptcha: {
       api_public_key: process.env.NEXT_PUBLIC_GOOGLE_RECAPTHA,
     },
+    broker_1_picture: process.env.NEXT_PUBLIC_CUSTOMER_BROKER_1_PICTURE,
     social: {
       instagram: {
         title: process.env.NEXT_PUBLIC_INSTAGRAM_TITLE,

@@ -1,16 +1,9 @@
-
-/**
- * /tipo-dorminio-cidade-status/id
- * 
- * Ex: /casa-alvenaria-2-dorm-campo-bom-comprar/{id}
-*/
-
 import { useRouter } from 'next/router'
 
 import { PropertyPage } from '@/layouts'
 import { PhotoProps } from 'react-photo-gallery'
 
-interface IProps {
+interface IPageProps {
   data: any
   repos: any
   photos: PhotoProps[]
@@ -114,7 +107,7 @@ export async function getServerSideProps() {
   return { props: { data, photos } }
 }
 
-export default function Property({ data, photos }: IProps) {
+export default function Page({ data, photos }: IPageProps) {
   console.log('DEBUG data:', data);
 
   const router = useRouter()

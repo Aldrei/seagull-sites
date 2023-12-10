@@ -1,4 +1,5 @@
 import { GalleryOne, Header } from '@/components/template-one'
+import { WhatsAppOne } from '@/components/template-one/contact/Whatsapp'
 import { IMAGES } from '@/images'
 import Head from 'next/head'
 import { PhotoProps } from 'react-photo-gallery'
@@ -16,6 +17,7 @@ export const PropertyPage = ({ photos }: IProps) => {
         <meta property="og:title" content="My page title" key="title" />
       </Head>
       <Header title="TEMPLATE-ONE" logo={IMAGES.LOGO} />
+      <WhatsAppOne />
       <GalleryOne photos={photos} />
     </>
   )
