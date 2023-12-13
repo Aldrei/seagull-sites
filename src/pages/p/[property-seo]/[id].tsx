@@ -1,13 +1,9 @@
 import { useRouter } from 'next/router'
 
 import { PropertyPage } from '@/layouts'
-import { PhotoProps } from 'react-photo-gallery'
+import { IPageProps } from './types'
 
-interface IPageProps {
-  data: any
-  repos: any
-  photos: PhotoProps[]
-}
+import { propertyMock } from '@/mocks/property'
 
 // This gets called on every request
 export async function getServerSideProps() {
@@ -104,10 +100,10 @@ export async function getServerSideProps() {
   ];
  
   // Pass data to the page via props
-  return { props: { data, photos } }
+  return { props: { data, photos, property: propertyMock } }
 }
 
-export default function Page({ data, photos }: IPageProps) {
+export default function Page({ data, photos, property }: IPageProps) {
   console.log('DEBUG data:', data);
 
   const router = useRouter()
@@ -118,5 +114,5 @@ export default function Page({ data, photos }: IPageProps) {
   const id = router.query['id']
   console.log('DEBUG id:', id);
   
-  return <PropertyPage photos={photos} />
+  return <PropertyPage photos={photos} property={property} />
 }

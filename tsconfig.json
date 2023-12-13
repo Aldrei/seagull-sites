@@ -42,6 +42,9 @@
       ],
       "@images": [
         "./src/images/*"
+      ],
+      "@mocks": [
+        "./src/mocks/*"
       ]
     },
     "incremental": true,
