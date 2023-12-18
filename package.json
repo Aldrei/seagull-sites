@@ -13,10 +13,12 @@
   },
   "dependencies": {
     "keen-slider": "^6.8.6",
+    "leaflet": "^1.9.4",
     "next": "14.0.2",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
+    "react-leaflet": "^4.2.1",
     "react-photo-gallery": "^8.0.0",
     "react-select": "^5.8.0",
     "styled-components": "^6.1.1",
@@ -26,6 +28,7 @@
   "devDependencies": {
     "@commitlint/cli": "^18.4.2",
     "@commitlint/config-conventional": "^18.4.2",
+    "@types/leaflet": "^1.9.8",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

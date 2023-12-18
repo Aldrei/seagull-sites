@@ -1,4 +1,4 @@
-import { GalleryOne, Header, InfosDetailsOne } from '@/components/template-one'
+import { GalleryOne, Header, InfosDetailsOne, MapOne } from '@/components/template-one'
 import { WhatsAppOne } from '@/components/template-one/contact/Whatsapp'
 import { IMAGES } from '@/images'
 import Head from 'next/head'
@@ -15,6 +15,7 @@ export const PropertyPage: React.FC<IPropertyPage> = ({ photos, property }) => {
       <InfosDetailsOne property={property} />
       <WhatsAppOne />
       <GalleryOne photos={photos} />
+      <MapOne property={property} />
     </>
   )
 }
