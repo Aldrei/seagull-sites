@@ -1,13 +1,14 @@
-import Link from 'next/link'
-import { BusinessInfo, ContactInfo, FooterContainer, Title, Text, Image } from './styles'
-import useCustomer, { CustomerContext } from '@/hooks/useCustomer'
-import { useContext } from 'react'
+import { CustomerContext } from '@/hooks/useCustomer';
+import Link from 'next/link';
+import { useContext } from 'react';
+import { BusinessInfo, ContactInfo, FooterContainer, Image, Text, Title } from './styles';
+import { IFooterCommon } from './types';
 
-export const FooterCommon: React.FC = (): React.ReactElement => {
+export const FooterCommon: React.FC<IFooterCommon> = ({ ...props }): React.ReactElement => {
   const customerData = useContext(CustomerContext)
 
   return (
-    <FooterContainer>
+    <FooterContainer {...props}>
       <BusinessInfo>
         <Title>HORÁRIOS DE FUNCIONAMENTO</Title>
         <Text>{String(customerData?.times)}</Text>

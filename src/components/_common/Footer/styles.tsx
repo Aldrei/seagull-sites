@@ -7,6 +7,7 @@ export const FooterContainer = styled.footer`
   padding: 20px;
   background-color: #EFEFEF;
   color: #333;
+  margin-top: 50px;
 
   @media (max-width: 767px) {
     flex-direction: column;
