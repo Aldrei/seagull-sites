@@ -2,7 +2,7 @@ import React from 'react';
 
 import { SelectCommon } from '@/components/_common';
 
-import { ButtonOne } from '../../Button/styles';
+import { ButtonOne } from '../../Button';
 import { Column, FormWrapper, Row } from './styled';
 
 export const FilterAdvanced: React.FC = (): React.ReactElement => {

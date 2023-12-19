@@ -1,5 +1,5 @@
 // TypeScript Props for the button
-export interface ButtonProps {
+export interface IButtonCommon {
   text: string;
   handleClick: () => void;
 }
