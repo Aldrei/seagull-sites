@@ -5,9 +5,9 @@ import { LiaLocationArrowSolid } from "react-icons/lia";
 import { WrapperImage, Actions, Description, PriceTag, PropertyCol, PropertyContainer, PropertyInfos, PropertyWrapper, Title, Location, Image, Button } from './styles';
 import { IPropertyRowCommon } from './types';
 
-export const PropertyRowCommon: React.FC<IPropertyRowCommon> = ({ title, description, imageUrl, price, location }): React.ReactElement => {
+export const PropertyRowCommon: React.FC<IPropertyRowCommon> = ({ title, description, imageUrl, price, location, ...props }): React.ReactElement => {
   return (
-    <PropertyContainer>
+    <PropertyContainer {...props}>
       <PropertyWrapper>
         <PropertyCol>
           <PropertyInfos>

@@ -6,8 +6,8 @@ export const InfosDetailsCommon: React.FC<IInfosDetailsCommon> = ({property, ...
   return (
     <PropertyContainer {...props}>
       <Header>
-        <Title>{property.type}</Title>
-        <Price>{property.price}</Price>
+        <Title>{property.tipo}</Title>
+        <Price>{property.valor}</Price>
       </Header>
       <InfoSection>
         <InfoBlock>
@@ -16,22 +16,22 @@ export const InfosDetailsCommon: React.FC<IInfosDetailsCommon> = ({property, ...
         </InfoBlock>
         <InfoBlock>
           <Icon>📏</Icon>
-          <InfoText>{property.frontArea} (frente)</InfoText>
+          <InfoText>{property.areaEsquerda} (frente)</InfoText>
         </InfoBlock>
         <InfoBlock>
           <Icon>📏</Icon>
-          <InfoText>{property.backArea} (fundos)</InfoText>
+          <InfoText>{property.areaFundos} (fundos)</InfoText>
         </InfoBlock>
         <InfoBlock>
           <Icon>📏</Icon>
-          <InfoText>{property.leftArea} (esquerda)</InfoText>
+          <InfoText>{property.areaFrente} (esquerda)</InfoText>
         </InfoBlock>
         <InfoBlock>
           <Icon>📏</Icon>
-          <InfoText>{property.rightArea} (direita)</InfoText>
+          <InfoText>{property.areaDireita} (direita)</InfoText>
         </InfoBlock>
       </InfoSection>
-      <Footer>{property.location}</Footer>
+      <Footer>{property.city?.data.long_desc}</Footer>
     </PropertyContainer>
   );
 };

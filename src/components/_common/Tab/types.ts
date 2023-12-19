@@ -1,4 +1,4 @@
-export interface ITabComponent {
+export interface ITabCommon {
   tabs: TabType[]
 }
 

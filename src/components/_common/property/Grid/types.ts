@@ -1,1 +1,1 @@
-export interface IGridCommonProps {}
+export interface IGridCommon {}

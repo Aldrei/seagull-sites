@@ -1,27 +1,27 @@
 import React from 'react';
 import { Button, Card, Content, Description, Icon, Info, InfoItem, Price, Subtitle, Title, Image } from './styles';
-import { IBoxCommonProps } from './types';
+import { IBoxCommon } from './types';
 
-export const BoxCommon: React.FC<IBoxCommonProps> = ({ property }) => {
+export const BoxCommon: React.FC<IBoxCommon> = ({ property, ...props }) => {
   if (!property) return null
 
   return (
-    <Card>
-      <Image src={property.imageUrl} alt={property.title} />
-      <Price>{`Cód ${property.code} - ${property.price}`}</Price>
+    <Card {...props}>
+      <Image src={property.photo?.data.thumb} alt={property.title} />
+      <Price>{`Cód ${property.code} - ${property.valor}`}</Price>
       <Content>
         <Title>{property.title}</Title>
-        <Subtitle>{property.location}</Subtitle>
-        <Description>{property.description}</Description>
+        <Subtitle>{property.neighborhood?.data.nome}</Subtitle>
+        <Description>{property.descGeral}</Description>
         <Info>
           <InfoItem>
-            <Icon>🏠</Icon>{property.area}
+            <Icon>🏠</Icon>{property.areaConstruida}
           </InfoItem>
           <InfoItem>
-            <Icon>🚗</Icon>{property.cars} carro(s)
+            <Icon>🚗</Icon>{property.garagem} carro(s)
           </InfoItem>
           <InfoItem>
-            <Icon>🛏️</Icon>{property.bedrooms} dorm(s)
+            <Icon>🛏️</Icon>{property.dormitorio} dorm(s)
           </InfoItem>
         </Info>
         <Button>Conhecer +</Button>

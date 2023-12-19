@@ -1,15 +1,9 @@
 import { Bar, CloseIcon, HeaderWrapper, Logo, MenuIcon, MobileMenu, Nav, NavLink } from './styles';
 
 import React, { useState } from 'react';
+import { IHeaderCommon } from './types';
 
-export interface IPropsHeaderCommon {
-  title: string;
-  children?: React.ReactElement;
-  className?: string;
-  logo?: any
-}
-
-export const HeaderCommon = ({ title, className, logo }: IPropsHeaderCommon): React.ReactElement => {
+export const HeaderCommon: React.FC<IHeaderCommon> = ({ title, className, logo, ...props }): React.ReactElement => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   
   const navigation = [
@@ -21,7 +15,7 @@ export const HeaderCommon = ({ title, className, logo }: IPropsHeaderCommon): Re
 
   return (
     <>
-      <HeaderWrapper>
+      <HeaderWrapper {...props}>
         <Logo src={logo} alt="Logo" />
         <Nav>
           <NavLink href="#">Product</NavLink>

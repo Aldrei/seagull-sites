@@ -1,5 +1,5 @@
 import { IProperty } from "@/types/property";
 
-export interface IBoxCommonProps {
+export interface IBoxCommon {
   property: IProperty
 }

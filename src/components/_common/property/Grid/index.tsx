@@ -1,9 +1,9 @@
 import React, { PropsWithChildren } from 'react';
 import { ListingsContainer } from './styles';
-import { IGridCommonProps } from './types';
+import { IGridCommon } from './types';
 
-export const GridCommon: React.FC<PropsWithChildren<IGridCommonProps>> = ({ children }): React.ReactElement => {
+export const GridCommon: React.FC<PropsWithChildren<IGridCommon>> = ({ children, ...props }): React.ReactElement => {
   return (
-    <ListingsContainer>{children}</ListingsContainer>
+    <ListingsContainer {...props}>{children}</ListingsContainer>
   );
 };

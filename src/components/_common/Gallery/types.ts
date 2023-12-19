@@ -1,5 +1,5 @@
 import { PhotoProps } from "react-photo-gallery"
 
-export interface IGalleryProps {
+export interface IGalleryCommon {
   photos?: PhotoProps[]
 }

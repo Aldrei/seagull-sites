@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import { Content, Tab, TabList, TabsWrapper } from './styles';
-import { ITabComponent } from './types';
+import { ITabCommon } from './types';
 
-export const TabCommon: React.FC<ITabComponent> = ({ tabs, ...props }: ITabComponent) => {
+export const TabCommon: React.FC<ITabCommon> = ({ tabs, ...props }) => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   return (

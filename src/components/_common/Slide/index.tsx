@@ -2,12 +2,14 @@ import React, { MutableRefObject } from 'react'
 // import KeenSlider from 'keen-slider'
 
 import {
-  useKeenSlider,
-  KeenSliderPlugin,
   KeenSliderInstance,
+  KeenSliderPlugin,
+  useKeenSlider,
 } from "keen-slider/react"
+import { Container } from './styles'
+import { ISlideCommon } from './types'
 
-export const SlideCommon = () => {
+export const SlideCommon: React.FC<ISlideCommon> = ({ ...props }) => {
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     initial: 0,
   })
@@ -59,7 +61,7 @@ export const SlideCommon = () => {
   )
 
   return (
-    <>
+    <Container {...props}>
       <div ref={sliderRef} className="keen-slider">
         <div className="keen-slider__slide number-slide1">1</div>
         <div className="keen-slider__slide number-slide2">2</div>
@@ -77,6 +79,6 @@ export const SlideCommon = () => {
         <div className="keen-slider__slide number-slide5">5</div>
         <div className="keen-slider__slide number-slide6">6</div>
       </div>
-    </>
+    </Container>
   )
 }

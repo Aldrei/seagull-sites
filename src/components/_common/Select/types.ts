@@ -1,4 +1,4 @@
-export interface ISelect {
+export interface ISelectCommon {
   options: IOptions[]
   name?: string
   label?: string
