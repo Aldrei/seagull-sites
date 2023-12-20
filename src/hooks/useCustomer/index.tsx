@@ -10,6 +10,7 @@ interface ICustomer {
   logo?: string
   times?: string
   limitPhotosShow?: number
+  adornment?: string
   recaptcha?: {
     api_public_key?: string,
   }
@@ -88,6 +89,7 @@ const useCustomer = (): ICustomer => {
     abbr: process.env.NEXT_PUBLIC_CUSTOMER_ABBR,
     logo: process.env.NEXT_PUBLIC_CUSTOMER_LOGO,
     times: process.env.NEXT_PUBLIC_CUSTOMER_TIMES,
+    adornment: process.env.NEXT_PUBLIC_CUSTOMER_ADORNMENT,
     limitPhotosShow: 4,
     recaptcha: {
       api_public_key: process.env.NEXT_PUBLIC_GOOGLE_RECAPTHA,

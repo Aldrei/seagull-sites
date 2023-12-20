@@ -45,6 +45,9 @@
       ],
       "@mocks": [
         "./src/mocks/*"
+      ],
+      "@utils": [
+        "./src/utils/*"
       ]
     },
     "incremental": true,

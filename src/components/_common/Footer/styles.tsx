@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
@@ -10,7 +11,7 @@ export const FooterContainer = styled.footer`
   margin-top: 50px;
 
   @media (max-width: 767px) {
-    flex-direction: column;
+    /* flex-direction: column; */
   }
 `;
 
@@ -46,3 +47,14 @@ export const Image = styled.img`
   max-width: 175px;
   height: auto;
 `
+export const InfosContainer = styled.div``
+
+export const CopyContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+export const Adornment = styled.img``
+
+export const CopyText = styled.p``
