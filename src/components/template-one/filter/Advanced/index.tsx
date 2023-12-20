@@ -15,18 +15,27 @@ export const FilterAdvanced: React.FC = (): React.ReactElement => {
   return (
     <FormWrapper>
       <Row>
-        <SelectCommon options={options} />
-      </Row>
-      <Row>
-        <SelectCommon options={options} />
+        <SelectCommon options={options} label='Tipo(opcional)' />
       </Row>
       <Row>
         <Column>
-          <SelectCommon options={options} />
+          <SelectCommon options={options} label='Dormitório(opcional)' />
         </Column>
         <Column>
-          <SelectCommon options={options} />
+          <SelectCommon options={options} label='Garagem(opcional)' />
         </Column>
+      </Row>
+      <Row>
+        <SelectCommon options={options} label='Estado(opcional)' />
+      </Row>
+      <Row>
+        <SelectCommon options={options} label='Cidades(opcional)' />
+      </Row>
+      <Row>
+        <SelectCommon options={options} label='Bairro(opcional)' />
+      </Row>
+      <Row>
+        <SelectCommon options={options} label='Faixa de preço' />
       </Row>
       <Row>
         <ButtonOne text='Filtrar' handleClick={() => {}} />
