@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { ITabComponent } from '@/components/_common/Tab/types'
+import { ITabCommon } from '@/components/_common/Tab/types'
 import { StyledTab } from './styles'
 
-export const Tab: React.FC<ITabComponent> = ({ tabs }: ITabComponent) => {
+export const Tab: React.FC<ITabCommon> = ({ tabs }: ITabCommon) => {
   return <StyledTab tabs={tabs} />
 }

@@ -1,5 +1,5 @@
 import { FaPaperPlane } from 'react-icons/fa'
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 
 export const ContactWhatsContainer = styled('div')`
   display: flex;

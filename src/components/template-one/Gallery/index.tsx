@@ -1,8 +1,8 @@
 import React from 'react'
 import { GalleryStyled } from './styles'
-import { IGalleryProps } from '@/components/_common/Gallery/types'
+import { IGalleryCommon } from '@/components/_common/Gallery/types'
 
-export const GalleryOne = ({ photos }: IGalleryProps) => {
+export const GalleryOne = ({ photos }: IGalleryCommon) => {
   if (!photos) return null
 
   return <GalleryStyled photos={photos} />

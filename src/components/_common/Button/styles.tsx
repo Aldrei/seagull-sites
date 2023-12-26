@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 // Styled-components button
 export const GradientButton = styled.button`

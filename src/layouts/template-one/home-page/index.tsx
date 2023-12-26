@@ -1,14 +1,10 @@
 import Head from 'next/head'
 import { PropsWithChildren } from 'react'
 
-import { PropertyRowOne, Tab } from '@/components/template-one'
-import { Header } from '@components/template-one'
-import { SlideOne } from '@components/template-one'
+import { PropertyRowOne, Tab , Header , SlideOne , FilterAdvanced , FooterOne } from '@/components/template-one'
 
 import { TabType } from '@/components/_common/Tab/types'
-import { FilterAdvanced } from '@/components/template-one'
 import { SearchOne } from '@/components/template-one/filter/Search'
-import { FooterOne } from '@/components/template-one'
 import { IMAGES } from '@/images/template-one'
 
 interface IProps {}

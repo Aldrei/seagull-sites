@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 export const WrapperImage = styled(Link)`
   height: auto;

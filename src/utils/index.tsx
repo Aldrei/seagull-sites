@@ -22,7 +22,6 @@ export const getYear = () => {
 export const getPhotoProperty = (property: IProperty, size: keyof IPhoto) => {
   const src_default = "/property-default.png";
 
-  const typeSize = size as keyof typeof property
   if (property?.photo?.data?.[size]) return property?.photo?.data?.[size]
 
   return src_default;
