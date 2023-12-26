@@ -121,13 +121,13 @@ export interface IProperty {
 }
 
 export interface IPhoto {
-  id: number;
-  property_id: number;
-  name: string;
-  ordem: number;
-  rotate: number;
-  thumb: string;
-  normal: string;
+  id?: number;
+  property_id?: number;
+  name?: string;
+  ordem?: number;
+  rotate?: number;
+  thumb?: string;
+  normal?: string;
 }
 
 export interface IVideo {
@@ -151,9 +151,9 @@ export interface IState {
 }
 
 export interface ICity {
-  id: number;
-  state_id: number;
-  name: string;
+  id?: number;
+  state_id?: number;
+  name?: string;
   long_desc?: string;
   state?: IState;
 }

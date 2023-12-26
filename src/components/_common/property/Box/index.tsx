@@ -1,5 +1,6 @@
+import { getPhotoProperty } from '@/utils';
 import React from 'react';
-import { Button, Card, Content, Description, Icon, Info, InfoItem, Price, Subtitle, Title, Image } from './styles';
+import { Button, Card, Content, Description, Icon, Image, Info, InfoItem, Price, Subtitle, Title } from './styles';
 import { IBoxCommon } from './types';
 
 export const BoxCommon: React.FC<IBoxCommon> = ({ property, ...props }) => {
@@ -7,7 +8,7 @@ export const BoxCommon: React.FC<IBoxCommon> = ({ property, ...props }) => {
 
   return (
     <Card {...props}>
-      <Image src={property.photo?.data.thumb} alt={property.title} />
+      <Image src={String(getPhotoProperty(property, 'thumb'))} alt={property.title} />
       <Price>{`Cód ${property.code} - ${property.valor}`}</Price>
       <Content>
         <Title>{property.title}</Title>

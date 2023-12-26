@@ -1,13 +1,12 @@
-import { BoxOne, GridOne, } from '@/components/template-one'
+import { BoxOne, FilterAdvanced, GridOne,  Header } from '@/components/template-one'
 import Head from 'next/head'
 
-import { Header } from '@/components/template-one'
 import { IPropertiesPageProps } from './types'
 
 import { IMAGES } from '@/images/template-one'
+import { FilterContainer, PageContainer, ResultContainer } from './styles'
 
 export const PropertiesPage: React.FC<IPropertiesPageProps> = ({ properties }) => {
-
   return (
     <>
       <Head>
@@ -15,11 +14,18 @@ export const PropertiesPage: React.FC<IPropertiesPageProps> = ({ properties }) =
         <meta property="og:title" content="My PROPERTIES TITLE PAGE" key="title" />
       </Head>
       <Header title="TEMPLATE-ONE" logo={IMAGES.LOGO} />
-      <GridOne>
-        {properties && properties.map((item: any, i: number) => (
-          <BoxOne key={String(i)} property={item} />
-        ))}
-      </GridOne>
+      <PageContainer>
+        <FilterContainer>
+          <FilterAdvanced />
+        </FilterContainer>
+        <ResultContainer>
+          <GridOne>
+            {properties && properties.map((item: any, i: number) => (
+              <BoxOne key={String(i)} property={item} />
+            ))}
+          </GridOne>
+        </ResultContainer>
+      </PageContainer>
     </>
   )
 }

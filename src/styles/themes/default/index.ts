@@ -90,6 +90,22 @@ const BACKGROUND = {
   whatsapp: 'http://sgimoveis.imb.br/site/whats-bg.png'
 }
 
+/**
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/@media
+ * 
+ * The next devices are the references:
+ * 
+ * iPad Mini: 768px x 1024px 
+ * iPad Air: 820px x 1180px
+ * iPad Pro: 1024px x 1366px
+ * 
+*/
+const MEDIA = {
+  IPAD_MINI: '@media screen and (min-width: 1024px)',
+  IPAD_AIR: '@media screen and (min-width: 1180px)',
+  IPAD_PRO: '@media screen and (min-width: 1366px)'
+}
+
 const templateDefault = {
   slide: {
     banner: {
@@ -112,6 +128,9 @@ const templateDefault = {
   },
   background: {
     ...BACKGROUND
+  },
+  media: {
+    ...MEDIA
   }
 }
 

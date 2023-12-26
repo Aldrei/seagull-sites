@@ -1,3 +1,5 @@
+import { IPhoto, IProperty } from "@/types/property";
+
 export const isServer = () => typeof window === 'undefined'
 
 export const getDateNow = () => new Date().toLocaleDateString(
@@ -16,3 +18,36 @@ export const getYear = () => {
   }
   return "----";
 };
+
+export const getPhotoProperty = (property: IProperty, size: keyof IPhoto) => {
+  const src_default = "/property-default.png";
+
+  const typeSize = size as keyof typeof property
+  if (property?.photo?.data?.[size]) return property?.photo?.data?.[size]
+
+  return src_default;
+};
+
+interface IPropertiesPage {
+  params: any
+}
+
+export const propertiesPage = ({ params }: IPropertiesPage) => {
+  console.log('DEBUG params:', params);
+
+  const city = params?.['city-seo']
+  const type = params?.['type-seo']
+  const bed = params?.['bed-seo']
+
+  console.log('DEBUG city:', city);
+  console.log('DEBUG type:', type);
+  console.log('DEBUG bed:', bed);
+
+  const filterOptions = {
+    city: city || '',
+    type: type || '',
+    bed: bed || ''
+  }
+
+  return { filterOptions }
+}
