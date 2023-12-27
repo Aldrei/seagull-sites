@@ -2,14 +2,14 @@ import { styled } from 'styled-components'
 
 import Image from 'next/image'
 
+export const Container = styled.div``
+
 // Styled components
 export const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px 32px;
-  background: ${props => props.theme.color.first};
-  border-bottom: 1px solid #eaeaea;
 
   @media (max-width: 768px) {
     // Adjust styles for mobile view

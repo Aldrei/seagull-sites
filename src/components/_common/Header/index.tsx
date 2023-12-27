@@ -1,6 +1,7 @@
 import {
   Bar,
   CloseIcon,
+  Container,
   HeaderWrapper,
   Logo,
   MenuIcon,
@@ -28,8 +29,8 @@ export const HeaderCommon: React.FC<IHeaderCommon> = ({
   ]
 
   return (
-    <>
-      <HeaderWrapper {...props}>
+    <Container className={className} {...props}>
+      <HeaderWrapper>
         <Logo src={logo} alt="Logo" />
         <Nav>
           <NavLink href="#">Product</NavLink>
@@ -50,6 +51,6 @@ export const HeaderCommon: React.FC<IHeaderCommon> = ({
         <NavLink href="#">Marketplace</NavLink>
         <NavLink href="#">Company</NavLink>
       </MobileMenu>
-    </>
+    </Container>
   )
 }

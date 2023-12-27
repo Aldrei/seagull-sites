@@ -83,11 +83,21 @@ const BOX_SHADOW = {
   third: '',
 }
 
+const GRADIENT = {
+  first: `linear-gradient(
+    to right,
+    var(${COLOR.fourth}) 0%,
+    var(${COLOR.first}) 100%
+  )`,
+  second: `linear-gradient(to right, ${COLOR.second} 7%, ${COLOR.fifth} 100%)`,
+}
+
 /**
  * https://developer.mozilla.org/en-US/docs/Web/CSS/background
  */
 const BACKGROUND = {
   whatsapp: 'http://sgimoveis.imb.br/site/whats-bg.png',
+  header: GRADIENT.second
 }
 
 /**
