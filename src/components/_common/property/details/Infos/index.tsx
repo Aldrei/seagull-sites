@@ -1,8 +1,21 @@
-import React from 'react';
-import { Footer, Header, Icon, InfoBlock, InfoSection, InfoText, Price, PropertyContainer, Title } from './styles';
-import { IInfosDetailsCommon } from './types';
+import React from 'react'
+import {
+  Footer,
+  Header,
+  Icon,
+  InfoBlock,
+  InfoSection,
+  InfoText,
+  Price,
+  PropertyContainer,
+  Title,
+} from './styles'
+import { IInfosDetailsCommon } from './types'
 
-export const InfosDetailsCommon: React.FC<IInfosDetailsCommon> = ({property, ...props }) => {
+export const InfosDetailsCommon: React.FC<IInfosDetailsCommon> = ({
+  property,
+  ...props
+}) => {
   return (
     <PropertyContainer {...props}>
       <Header>
@@ -33,5 +46,5 @@ export const InfosDetailsCommon: React.FC<IInfosDetailsCommon> = ({property, ...
       </InfoSection>
       <Footer>{property.city?.data.long_desc}</Footer>
     </PropertyContainer>
-  );
-};
+  )
+}

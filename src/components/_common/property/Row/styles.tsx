@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
-import { styled } from 'styled-components';
+import { styled } from 'styled-components'
 
 export const WrapperImage = styled(Link)`
   height: auto;
@@ -8,9 +8,9 @@ export const WrapperImage = styled(Link)`
 `
 
 export const PropertyContainer = styled.div`
-  background: #EEEEEE;
+  background: #eeeeee;
   margin: 50px 0;
-`;
+`
 
 export const PropertyWrapper = styled.div`
   display: flex;
@@ -21,7 +21,7 @@ export const PropertyWrapper = styled.div`
     flex-direction: row;
     padding: 50px 50px;
   }
-`;
+`
 
 export const PropertyCol = styled.div`
   position: relative;
@@ -33,14 +33,14 @@ export const PropertyCol = styled.div`
   @media (min-width: 768px) {
     flex-basis: 50%;
   }
-`;
+`
 
 export const PropertyInfos = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-right: 10px;
-`;
+`
 
 export const Title = styled.h2`
   margin: 0;
@@ -49,7 +49,7 @@ export const Title = styled.h2`
   color: #000;
   font-weight: bold;
   text-transform: uppercase;
-`;
+`
 
 export const Location = styled.p`
   margin-top: 12px;
@@ -58,12 +58,12 @@ export const Location = styled.p`
   flex-direction: row;
   align-items: center;
   color: #000;
-`;
+`
 
 export const Description = styled.p`
   margin: 22px 0;
   color: #000;
-`;
+`
 
 export const Actions = styled.div`
   display: flex;
@@ -72,7 +72,7 @@ export const Actions = styled.div`
   @media (min-width: 768px) {
     justify-content: flex-start;
   }
-`;
+`
 
 export const Button = styled(Link)`
   padding: 15px 35px;
@@ -83,13 +83,13 @@ export const Button = styled(Link)`
   border: #fff;
   border-top: #fff;
   border-left: #fff;
-`;
+`
 
 export const Image = styled.img`
   max-width: 100%;
   max-height: 300px;
   box-shadow: 3px 3px 15px 0px rgba(0, 0, 0, 0.75);
-`;
+`
 
 export const PriceTag = styled.span`
   display: flex;
@@ -106,4 +106,4 @@ export const PriceTag = styled.span`
   z-index: 10;
   right: 0;
   background: #fff;
-`;
+`

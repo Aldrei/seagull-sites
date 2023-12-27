@@ -1,12 +1,12 @@
-import { styled } from 'styled-components';
+import { styled } from 'styled-components'
 
-export const FormWrapper = styled.div``;
+export const FormWrapper = styled.div``
 
 export const Row = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-`;
+`
 
 export const Column = styled.div`
   display: flex;

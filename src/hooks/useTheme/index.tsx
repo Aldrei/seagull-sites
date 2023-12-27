@@ -8,7 +8,7 @@ import { ThemeProvider as ThemeProviderStyled } from 'styled-components'
 
 /**
  * Hook
-*/
+ */
 interface IProps {
   templateDefault: TTheme
 }
@@ -18,7 +18,7 @@ const useThemeCostumer = ({ templateDefault }: IProps) => {
 
   /**
    * TODO: Make the costumer client right below.
-  */
+   */
   // Request...
 
   // Set colors right below...
@@ -33,17 +33,21 @@ export default useThemeCostumer
 
 /**
  * Provider
-*/
+ */
 interface IThemeProvider {}
 
-export const ThemeProvider = ({ children }: PropsWithChildren<IThemeProvider>) => {
+export const ThemeProvider = ({
+  children,
+}: PropsWithChildren<IThemeProvider>) => {
   // TODO: Make request to get data customer
   const customerData = useContext(CustomerContext)
-  console.log('DEBUG customerData:', customerData);
-  
+  console.log('DEBUG customerData:', customerData)
+
   useThemeCostumer({ templateDefault })
 
   return (
-    <ThemeProviderStyled theme={templateDefault}>{children}</ThemeProviderStyled>
+    <ThemeProviderStyled theme={templateDefault}>
+      {children}
+    </ThemeProviderStyled>
   )
 }

@@ -23,7 +23,7 @@ function readFlavorConfig(flavor) {
 }
 
 function writeToFlavorFiles(export_string) {
-  flavoredFiles.forEach((flavorFile) => {
+  flavoredFiles.forEach(flavorFile => {
     writeFile(flavorFile, export_string)
   })
 }

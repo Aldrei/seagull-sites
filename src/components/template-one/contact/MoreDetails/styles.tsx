@@ -5,6 +5,6 @@ export const Container = styled.div`
   margin: 50px auto 0 auto;
 
   > div {
-    margin: 5px 0
+    margin: 5px 0;
   }
 `

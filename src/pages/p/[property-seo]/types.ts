@@ -1,5 +1,5 @@
-import { IProperty } from "@/types/property"
-import { PhotoProps } from "react-photo-gallery"
+import { IProperty } from '@/types/property'
+import { PhotoProps } from 'react-photo-gallery'
 
 export interface IPageProps {
   data: any

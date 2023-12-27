@@ -8,7 +8,7 @@ import { ThemeProvider } from '@/hooks/useTheme'
 type AppOwnProps = { example: any }
 
 MyApp.getInitialProps = async (
-  context: AppContext
+  context: AppContext,
 ): Promise<AppOwnProps & AppInitialProps> => {
   const ctx = await App.getInitialProps(context)
 
@@ -20,12 +20,16 @@ MyApp.getInitialProps = async (
   }
 
   const repos = await getClient()
- 
+
   return { ...ctx, example: repos }
 }
 
 // This default export is required in a new `pages/_app.js` file.
-export default function MyApp({ Component, pageProps, example }: AppProps & AppOwnProps) {
+export default function MyApp({
+  Component,
+  pageProps,
+  example,
+}: AppProps & AppOwnProps) {
   return (
     <CustomerProvider>
       <ThemeProvider>

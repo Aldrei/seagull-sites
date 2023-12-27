@@ -1,11 +1,25 @@
-import { Bar, CloseIcon, HeaderWrapper, Logo, MenuIcon, MobileMenu, Nav, NavLink } from './styles';
+import {
+  Bar,
+  CloseIcon,
+  HeaderWrapper,
+  Logo,
+  MenuIcon,
+  MobileMenu,
+  Nav,
+  NavLink,
+} from './styles'
 
-import React, { useState } from 'react';
-import { IHeaderCommon } from './types';
+import React, { useState } from 'react'
+import { IHeaderCommon } from './types'
 
-export const HeaderCommon: React.FC<IHeaderCommon> = ({ title, className, logo, ...props }): React.ReactElement => {
-  const [isMenuOpen, setMenuOpen] = useState(false);
-  
+export const HeaderCommon: React.FC<IHeaderCommon> = ({
+  title,
+  className,
+  logo,
+  ...props
+}): React.ReactElement => {
+  const [isMenuOpen, setMenuOpen] = useState(false)
+
   const navigation = [
     { name: 'About', href: '#', current: true },
     { name: 'Team', href: '#', current: false },
@@ -37,5 +51,5 @@ export const HeaderCommon: React.FC<IHeaderCommon> = ({ title, className, logo, 
         <NavLink href="#">Company</NavLink>
       </MobileMenu>
     </>
-  );
+  )
 }

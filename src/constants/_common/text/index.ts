@@ -1,3 +1,3 @@
 export const TEXT = {
-  EMAIL_BUTTON: 'Enviar'
+  EMAIL_BUTTON: 'Enviar',
 }

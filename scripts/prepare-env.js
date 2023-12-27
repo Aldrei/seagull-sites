@@ -3,21 +3,26 @@ import { setFlavor } from './set-flavor'
 import { availableEnvironments, availableFlavors } from './utils'
 
 const argsParams = require('yargs').argv
-console.log('ARGS ', argsParams);
+console.log('ARGS ', argsParams)
 
 const { flavor, env, local } = require('yargs')
-  .command('Prepare starting...', 'Prepare start options', (yargs) => {
-    // return yargs
-    //   .positional('port', {
-    //     describe: 'port to bind on',
-    //     default: 5000
-    //   })
-    console.info(`Option env: ${argv.env}`)
-  }, (argv) => {
-    // if (argv.verbose) console.info(`start server on :${argv.port}`)
-    // serve(argv.port)
-    console.info(`Option env: ${argv.env}`)
-  })
+  .command(
+    'Prepare starting...',
+    'Prepare start options',
+    yargs => {
+      // return yargs
+      //   .positional('port', {
+      //     describe: 'port to bind on',
+      //     default: 5000
+      //   })
+      console.info(`Option env: ${argv.env}`)
+    },
+    argv => {
+      // if (argv.verbose) console.info(`start server on :${argv.port}`)
+      // serve(argv.port)
+      console.info(`Option env: ${argv.env}`)
+    },
+  )
   .option('flavor', {
     alias: 'f',
     describe: 'Flavor name',
@@ -37,8 +42,8 @@ const { flavor, env, local } = require('yargs')
   .help()
   .version(false).argv
 
-console.log("-f ", flavor)
-console.log("-e ", env)
+console.log('-f ', flavor)
+console.log('-e ', env)
 
 setFlavor(flavor)
 setEnvironment(flavor, env, local)

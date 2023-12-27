@@ -1,3 +1,1 @@
-export interface IMoreDetailsCommon {
-
-}
+export interface IMoreDetailsCommon {}

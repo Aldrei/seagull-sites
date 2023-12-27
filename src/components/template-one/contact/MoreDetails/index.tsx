@@ -5,7 +5,9 @@ import { Container } from './styles'
 
 import { ButtonOne } from '@components/template-one'
 
-export const MoreDetailsOne: React.FC<IMoreDetailsCommon> = (): React.ReactElement => {
+export const MoreDetailsOne: React.FC<
+  IMoreDetailsCommon
+> = (): React.ReactElement => {
   return (
     <Container>
       <InputCommon />
@@ -13,7 +15,7 @@ export const MoreDetailsOne: React.FC<IMoreDetailsCommon> = (): React.ReactEleme
       <InputCommon />
       <InputCommon />
 
-      <ButtonOne text='Send' handleClick={() => {}} />
+      <ButtonOne text="Send" handleClick={() => {}} />
     </Container>
   )
 }

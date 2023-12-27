@@ -3,7 +3,7 @@ export interface ITabCommon {
 }
 
 export type TabType = {
-  id: number;
-  title: string;
-  content: React.ReactNode;
-};
+  id: number
+  title: string
+  content: React.ReactNode
+}

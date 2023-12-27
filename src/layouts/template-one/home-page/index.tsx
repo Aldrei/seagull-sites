@@ -1,7 +1,14 @@
 import Head from 'next/head'
 import { PropsWithChildren } from 'react'
 
-import { PropertyRowOne, Tab , Header , SlideOne , FilterAdvanced , FooterOne } from '@/components/template-one'
+import {
+  PropertyRowOne,
+  Tab,
+  Header,
+  SlideOne,
+  FilterAdvanced,
+  FooterOne,
+} from '@/components/template-one'
 
 import { TabType } from '@/components/_common/Tab/types'
 import { SearchOne } from '@/components/template-one/filter/Search'
@@ -9,7 +16,9 @@ import { IMAGES } from '@/images/template-one'
 
 interface IProps {}
 
-export const HomePage: React.FC<PropsWithChildren<IProps>> = ({}: PropsWithChildren<IProps>) => {
+export const HomePage: React.FC<
+  PropsWithChildren<IProps>
+> = ({}: PropsWithChildren<IProps>) => {
   const tabs: TabType[] = [
     {
       id: 0,
@@ -21,7 +30,7 @@ export const HomePage: React.FC<PropsWithChildren<IProps>> = ({}: PropsWithChild
       title: 'Tab 2',
       content: <SearchOne />,
     },
-  ];
+  ]
 
   return (
     <>

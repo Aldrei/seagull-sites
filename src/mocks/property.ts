@@ -1,4 +1,4 @@
-import { IProperty } from "@/types/property";
+import { IProperty } from '@/types/property'
 
 export const propertyMock: IProperty = {
   id: 1,

@@ -6,14 +6,12 @@ const colors = {
   green: '\x1b[32m',
 }
 const flavorConfigPath = 'src/config/flavors'
-const availableFlavors = fs
-  .readdirSync(flavorConfigPath)
-  .map((f) => {
-    console.log("TEST f:", f)
-    return f.replace(/\.[^/.]+$/, '')
-  })
+const availableFlavors = fs.readdirSync(flavorConfigPath).map(f => {
+  console.log('TEST f:', f)
+  return f.replace(/\.[^/.]+$/, '')
+})
 
-console.log("FLAVOR availableFlavors:", availableFlavors)
+console.log('FLAVOR availableFlavors:', availableFlavors)
 
 const availableEnvironments = ['dev', 'hml', 'hyb', 'prd', 'stg', 'hot']
 const dotEnvFilePath = '.env'

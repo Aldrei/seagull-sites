@@ -5,7 +5,7 @@ import {
   KeenSliderInstance,
   KeenSliderPlugin,
   useKeenSlider,
-} from "keen-slider/react"
+} from 'keen-slider/react'
 import { Container } from './styles'
 import { ISlideCommon } from './types'
 
@@ -15,31 +15,31 @@ export const SlideCommon: React.FC<ISlideCommon> = ({ ...props }) => {
   })
 
   function ThumbnailPlugin(
-    mainRef: MutableRefObject<KeenSliderInstance | null>
+    mainRef: MutableRefObject<KeenSliderInstance | null>,
   ): KeenSliderPlugin {
-    return (slider) => {
+    return slider => {
       function removeActive() {
-        slider.slides.forEach((slide) => {
-          slide.classList.remove("active")
+        slider.slides.forEach(slide => {
+          slide.classList.remove('active')
         })
       }
       function addActive(idx: number) {
-        slider.slides[idx].classList.add("active")
+        slider.slides[idx].classList.add('active')
       }
-  
+
       function addClickEvents() {
         slider.slides.forEach((slide, idx) => {
-          slide.addEventListener("click", () => {
+          slide.addEventListener('click', () => {
             if (mainRef.current) mainRef.current.moveToIdx(idx)
           })
         })
       }
-  
-      slider.on("created", () => {
+
+      slider.on('created', () => {
         if (!mainRef.current) return
         addActive(slider.track.details.rel)
         addClickEvents()
-        mainRef.current.on("animationStarted", (main) => {
+        mainRef.current.on('animationStarted', main => {
           removeActive()
           const next = main.animator.targetIdx || 0
           addActive(main.track.absToRel(next))
@@ -57,7 +57,7 @@ export const SlideCommon: React.FC<ISlideCommon> = ({ ...props }) => {
         spacing: 10,
       },
     },
-    [ThumbnailPlugin(instanceRef)]
+    [ThumbnailPlugin(instanceRef)],
   )
 
   return (

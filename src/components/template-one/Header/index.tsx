@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
-import { IHeaderCommon } from "@/components/_common/Header/types";
+import { IHeaderCommon } from '@/components/_common/Header/types'
 
-import { HeaderStyled } from './styles';
+import { HeaderStyled } from './styles'
 
 export const Header = (props: IHeaderCommon): React.ReactElement => {
   return (

@@ -1,3 +1,1 @@
-export interface ISearchCommon {
-
-}
+export interface ISearchCommon {}

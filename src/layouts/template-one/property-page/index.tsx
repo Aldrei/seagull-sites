@@ -1,4 +1,10 @@
-import { FooterOne , GalleryOne, Header, InfosDetailsOne, MapOne } from '@/components/template-one'
+import {
+  FooterOne,
+  GalleryOne,
+  Header,
+  InfosDetailsOne,
+  MapOne,
+} from '@/components/template-one'
 import { MoreDetailsOne } from '@/components/template-one/contact/MoreDetails'
 import { WhatsAppOne } from '@/components/template-one/contact/Whatsapp'
 import { IMAGES } from '@/images'

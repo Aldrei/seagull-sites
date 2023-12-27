@@ -1,7 +1,7 @@
 import logoCommon from './next.svg'
 
 const IMAGES_COMMON = {
-  LOGO: logoCommon
+  LOGO: logoCommon,
 }
 
 export default IMAGES_COMMON

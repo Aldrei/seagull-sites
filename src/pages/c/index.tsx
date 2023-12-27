@@ -8,7 +8,7 @@ export async function getServerSideProps(context: any) {
   const params = context.params || null
 
   const dataRoute = propertiesPage({ params })
-  console.log('DEBUG dataRoute:', dataRoute);
+  console.log('DEBUG dataRoute:', dataRoute)
 
   const data: IProperty[] = []
 
@@ -29,9 +29,9 @@ export async function getServerSideProps(context: any) {
 }
 
 export default function Page({ data, dataRoute, params }: ICPage) {
-  console.log('DEBUG data:', data);
-  console.log('DEBUG dataRoute:', dataRoute);
-  console.log('DEBUG params:', params);
-  
+  console.log('DEBUG data:', data)
+  console.log('DEBUG dataRoute:', dataRoute)
+  console.log('DEBUG params:', params)
+
   return <PropertiesPage properties={data} />
 }

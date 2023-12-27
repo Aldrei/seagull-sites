@@ -47,17 +47,17 @@ export const ContactWhatsHeaderDescTitle = styled('h2')`
   margin: 0;
   margin-bottom: 4px;
   font-size: 18px;
-  color: #000
+  color: #000;
 `
 
 export const ContactWhatsHeaderDescStatus = styled('p')`
   margin: 0;
   font-size: 15px;
-  color: #000
+  color: #000;
 `
 
 export const ContactWhatsBody = styled('div')`
-  background-image: url(${(props) => props.theme.background.whatsapp});
+  background-image: url(${props => props.theme.background.whatsapp});
   background-size: auto;
   display: flex;
   align-items: center;

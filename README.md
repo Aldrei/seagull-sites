@@ -28,26 +28,26 @@ Next step...
 
 ## Commit Message Convention
 
-  - Type: This describes the purpose or nature of the commit. Common types include:
+- Type: This describes the purpose or nature of the commit. Common types include:
 
-  ```bash
-    feat: A new feature or enhancement.
-    fix: A bug fix.
-    docs: Documentation changes.
-    chore: Routine tasks, maintenance, or tooling changes.
-    style: Code style and formatting improvements (no code change).
-    refactor: Code refactoring without changing functionality.
-    test: Adding or modifying tests.
-    perf: Performance improvements.
-    build: Changes related to the build process or dependencies.
-  ```
+```bash
+  feat: A new feature or enhancement.
+  fix: A bug fix.
+  docs: Documentation changes.
+  chore: Routine tasks, maintenance, or tooling changes.
+  style: Code style and formatting improvements (no code change).
+  refactor: Code refactoring without changing functionality.
+  test: Adding or modifying tests.
+  perf: Performance improvements.
+  build: Changes related to the build process or dependencies.
+```
 
-  - Scope (Optional): This indicates the part of the codebase that the commit affects. It's often project-specific and can be omitted if not applicable. Ex. (properties), (auth), (filter), etc...
+- Scope (Optional): This indicates the part of the codebase that the commit affects. It's often project-specific and can be omitted if not applicable. Ex. (properties), (auth), (filter), etc...
 
-    - Use imperative mood for the subject (e.g., "Fix bug" instead of "Fixed bug").
+  - Use imperative mood for the subject (e.g., "Fix bug" instead of "Fixed bug").
 
-  - Subject: A concise and descriptive summary of the change. It should be written in the imperative mood (e.g., "Add feature" instead of "Added feature").
+- Subject: A concise and descriptive summary of the change. It should be written in the imperative mood (e.g., "Add feature" instead of "Added feature").
 
-  - Example
+- Example
 
-    - fix(auth): check life time token
+  - fix(auth): check life time token

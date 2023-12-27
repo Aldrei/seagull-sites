@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router'
 
 export const usePropertiesPage = () => {
   const route = useRouter()
@@ -7,9 +7,9 @@ export const usePropertiesPage = () => {
   const type = route.query['type-seo']
   const bed = route.query['bed-seo']
 
-  console.log('DEBUG city:', city);
-  console.log('DEBUG type:', type);
-  console.log('DEBUG bed:', bed);
+  console.log('DEBUG city:', city)
+  console.log('DEBUG type:', type)
+  console.log('DEBUG bed:', bed)
 
   return { filterOptions: city, type }
 }

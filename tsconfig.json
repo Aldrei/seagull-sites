@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -19,39 +15,17 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@config/*": [
-        "./src/config/*"
-      ],
-      "@components/*": [
-        "./src/components/*"
-      ],
-      "@layouts/*": [
-        "./src/layouts/*"
-      ],
-      "@styles/*": [
-        "./src/styles/*"
-      ],
-      "@types": [
-        "./src/types/*"
-      ],
-      "@hooks": [
-        "./src/hooks/*"
-      ],
-      "@images": [
-        "./src/images/*"
-      ],
-      "@mocks": [
-        "./src/mocks/*"
-      ],
-      "@utils": [
-        "./src/utils/*"
-      ],
-      "@pages": [
-        "./src/pages/*"
-      ]
+      "@/*": ["./src/*"],
+      "@config/*": ["./src/config/*"],
+      "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@types": ["./src/types/*"],
+      "@hooks": ["./src/hooks/*"],
+      "@images": ["./src/images/*"],
+      "@mocks": ["./src/mocks/*"],
+      "@utils": ["./src/utils/*"],
+      "@pages": ["./src/pages/*"]
     },
     "incremental": true,
     "plugins": [
@@ -60,19 +34,10 @@
       }
     ]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"],
   "ts-node": {
-    "require": [
-      "tsconfig-paths/register"
-    ],
+    "require": ["tsconfig-paths/register"],
     "compilerOptions": {
       "module": "commonjs"
     }
