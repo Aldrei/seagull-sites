@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import GlobalsStyle from '@/styles/globalStyle'
 
 import App, { AppContext, AppInitialProps, AppProps } from 'next/app'
 
@@ -35,6 +35,7 @@ export default function MyApp({
       <ThemeProvider>
         <Component {...pageProps} />
       </ThemeProvider>
+      <GlobalsStyle />
     </CustomerProvider>
   )
 }
