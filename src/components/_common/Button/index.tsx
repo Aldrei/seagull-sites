@@ -9,7 +9,11 @@ export const ButtonCommon: React.FC<IButtonCommon> = ({
   className,
   ...props
 }): React.ReactElement => (
-  <GradientButton onClick={handleClick} className={`button-common ${className}`} {...props}>
+  <GradientButton
+    onClick={handleClick}
+    className={`button-common ${className}`}
+    {...props}
+  >
     {text}
   </GradientButton>
 )

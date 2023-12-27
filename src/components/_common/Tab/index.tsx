@@ -3,7 +3,11 @@ import React, { useState } from 'react'
 import { Content, Tab, TabList, TabsWrapper } from './styles'
 import { ITabCommon } from './types'
 
-export const TabCommon: React.FC<ITabCommon> = ({ tabs, className, ...props }) => {
+export const TabCommon: React.FC<ITabCommon> = ({
+  tabs,
+  className,
+  ...props
+}) => {
   const [activeTab, setActiveTab] = useState<number>(0)
 
   return (
@@ -20,7 +24,9 @@ export const TabCommon: React.FC<ITabCommon> = ({ tabs, className, ...props }) =
           </Tab>
         ))}
       </TabList>
-      <Content className='tab-content'>{tabs.find(tab => tab.id === activeTab)?.content}</Content>
+      <Content className="tab-content">
+        {tabs.find(tab => tab.id === activeTab)?.content}
+      </Content>
     </TabsWrapper>
   )
 }

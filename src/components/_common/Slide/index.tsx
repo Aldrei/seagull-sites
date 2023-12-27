@@ -1,15 +1,15 @@
-import React, { MutableRefObject } from 'react';
+import React, { MutableRefObject } from 'react'
 
 import {
   KeenSliderInstance,
   KeenSliderPlugin,
   useKeenSlider,
-} from 'keen-slider/react';
+} from 'keen-slider/react'
 
-import 'keen-slider/keen-slider.min.css';
+import 'keen-slider/keen-slider.min.css'
 
-import { Container } from './styles';
-import { ISlideCommon } from './types';
+import { Container } from './styles'
+import { ISlideCommon } from './types'
 
 export const SlideCommon: React.FC<ISlideCommon> = ({ ...props }) => {
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({

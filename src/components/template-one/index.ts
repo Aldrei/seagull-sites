@@ -13,4 +13,3 @@ export { BoxOne } from './property/Box'
 export { GridOne } from './property/Grid'
 export { PropertyRowOne } from './property/Row'
 export { InfosDetailsOne } from './property/details/Infos'
-

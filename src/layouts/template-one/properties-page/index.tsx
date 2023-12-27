@@ -1,9 +1,4 @@
-import {
-  BoxOne,
-  FilterTabs,
-  GridOne,
-  Header,
-} from '@/components/template-one'
+import { BoxOne, FilterTabs, GridOne, Header } from '@/components/template-one'
 import Head from 'next/head'
 
 import { IPropertiesPageProps } from './types'

@@ -24,6 +24,4 @@ export const StyledTab = styled(TabCommon)`
       margin-top: 6px;
     }
   }
-
-  
 `

@@ -30,7 +30,7 @@ const COLOR = {
   firstRgb: '',
   firstRgba: '',
 
-  second: ' #97A2A8',
+  second: '#97A2A8',
   secondRgb: '',
   secondRgba: '',
 
@@ -42,7 +42,7 @@ const COLOR = {
   fourthRgb: '',
   fourthRgba: '',
 
-  fifth: '#4f4f4f',
+  fifth: '#4F4F4F',
   fifthRgb: '',
   fifthRgba: '',
 
@@ -50,12 +50,20 @@ const COLOR = {
   sixthRgb: '',
   sixthRgba: '',
 
-  seventh: '#d9d3cf',
+  seventh: '#D9D3Cf',
   seventhRgb: 'rgb(217, 211, 207)',
   seventhRgba: 'rgba(217, 211, 207, 0.98)',
 
+  eighth: '#EEE',
+  eighthRgb: '',
+  eighthRgba: '',
+
+  ninth: '#757575',
+  ninthRgb: '',
+  ninthRgba: '',
+
   black: '#000',
-  white: '#fff',
+  white: '#FFF',
 }
 
 /**
@@ -97,7 +105,10 @@ const GRADIENT = {
  */
 const BACKGROUND = {
   whatsapp: 'http://sgimoveis.imb.br/site/whats-bg.png',
-  header: GRADIENT.second
+  header: GRADIENT.second,
+  filter: COLOR.eighth,
+  tab_button: GRADIENT.second,
+  button: GRADIENT.second,
 }
 
 /**
@@ -114,6 +125,13 @@ const MEDIA = {
   IPAD_MINI: '@media screen and (min-width: 1024px)',
   IPAD_AIR: '@media screen and (min-width: 1180px)',
   IPAD_PRO: '@media screen and (min-width: 1366px)',
+}
+
+/**
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
+ */
+const FONT_SIZE = {
+  button: '.8rem',
 }
 
 const templateDefault = {
@@ -141,6 +159,9 @@ const templateDefault = {
   },
   media: {
     ...MEDIA,
+  },
+  fontSize: {
+    ...FONT_SIZE,
   },
 }
 

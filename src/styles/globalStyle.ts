@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
-import { FONTS } from '@/fonts';
+import { FONTS } from '@/fonts'
 
 const { NAME: FONT_NAME, CSS: FONT_CSS } = FONTS
 
@@ -8,10 +8,6 @@ const GlobalsStyle = createGlobalStyle`
   @import url(/css/reset.css);
 
   ${FONT_CSS}
-
-  a {
-    font-family: ${FONT_NAME};
-  }
 
   :root {
     --foreground-rgb: 0, 0, 0;
@@ -28,6 +24,7 @@ const GlobalsStyle = createGlobalStyle`
   }
 
   body {
+    font-family: ${FONT_NAME};
     color: rgb(var(--foreground-rgb));
     background: linear-gradient(
         to bottom,
