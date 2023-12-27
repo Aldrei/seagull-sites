@@ -1,6 +1,6 @@
 import {
   BoxOne,
-  FilterAdvanced,
+  FilterTabs,
   GridOne,
   Header,
 } from '@/components/template-one'
@@ -27,7 +27,7 @@ export const PropertiesPage: React.FC<IPropertiesPageProps> = ({
       <Header title="TEMPLATE-ONE" logo={IMAGES.LOGO} />
       <PageContainer>
         <FilterContainer>
-          <FilterAdvanced />
+          <FilterTabs />
         </FilterContainer>
         <ResultContainer>
           <GridOne>

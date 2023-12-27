@@ -9,4 +9,5 @@ export const Container = styled('div')`
 
 export const Label = styled('label')`
   margin-bottom: 6px;
+  color: ${props => props.theme.color.black}
 `

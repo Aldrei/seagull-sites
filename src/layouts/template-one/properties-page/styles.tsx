@@ -19,8 +19,6 @@ export const PageContainer = styled.div`
 `
 
 export const FilterContainer = styled.div`
-  border: 1px solid blue;
-
   ${props => props.theme.media.IPAD_MINI} {
     max-width: 375px;
     padding-right: 1rem;

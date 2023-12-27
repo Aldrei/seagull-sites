@@ -1,8 +1,8 @@
 import { TTheme } from '@/styles/themes/default/index.d'
-import React, { PropsWithChildren, useContext } from 'react'
+import { PropsWithChildren, useContext } from 'react'
 
-import { templateDefault } from '@/styles/themes/default'
 import { CustomerContext } from '@/hooks/useCustomer'
+import { templateDefault } from '@/styles/themes/default'
 
 import { ThemeProvider as ThemeProviderStyled } from 'styled-components'
 
@@ -22,7 +22,7 @@ const useThemeCostumer = ({ templateDefault }: IProps) => {
   // Request...
 
   // Set colors right below...
-  templateDefault.color.first = 'blue'
+  // templateDefault.color.first = 'blue'
 
   const themeCostumer = templateDefault as TTheme
 
