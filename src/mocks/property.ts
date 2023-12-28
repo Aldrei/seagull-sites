@@ -27,8 +27,8 @@ export const propertyMock: IProperty = {
   status: 'Alugando Temporada',
   aluguelPeriodoInicio: 'aluguelPeriodoInicio',
   aluguelPeriodoFim: 'aluguelPeriodoFim',
-  dormitorio: 'dormitorio',
-  garagem: 'garagem',
+  dormitorio: '3',
+  garagem: '2',
   lavanderia: 1,
   telhado: 'telhado',
   forro: 'forro',
@@ -40,7 +40,9 @@ export const propertyMock: IProperty = {
   cercaEletrica: 1,
   cameraDeVideo: 1,
   nascerDoSol: 'Frente',
-  descGeral: 'descGeral',
+  descGeral: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. 
+  
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
   dataAgenciamento: 'dataAgenciamento',
   dataVenda: 'dataVenda',
   apNomeCondominio: 'apNomeCondominio',
@@ -49,12 +51,12 @@ export const propertyMock: IProperty = {
   apTotalPavimentos: 'apTotalPavimentos',
   apApto: 'apApto',
   apElevador: 1,
-  areaTotal: 'areaTotal',
-  areaConstruida: 'areaConstruida',
-  areaFrente: 'areaFrente',
-  areaFundos: 'areaFundos',
-  areaDireita: 'areaDireita',
-  areaEsquerda: 'areaEsquerda',
+  areaTotal: '150.00',
+  areaConstruida: '205.00',
+  areaFrente: '10',
+  areaFundos: '20',
+  areaDireita: '5',
+  areaEsquerda: '5',
   valorPub: 'valorPub',
   valor: 'valor',
   valorCondicaoDeComissao: 'valorCondicaoDeComissao',
@@ -101,7 +103,27 @@ export const propertyMock: IProperty = {
   created_at: 'created_at',
   updated_at: 'updated_at',
   desc: 'desc',
-  title: 'title',
+  title: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet',
   hasExclusividade: true,
   site_url: 'site_url',
+  photo: {
+    data: {
+        id: 15456,
+        property_id: 1054,
+        name: "2caa36b4fba7074b39514c8bfa05602e.jpeg",
+        ordem: 1,
+        thumb: "https:\/\/imobmobile.com.br\/photos\/thumb\/2caa36b4fba7074b39514c8bfa05602e.jpeg",
+        normal: "https:\/\/imobmobile.com.br\/photos\/normal\/2caa36b4fba7074b39514c8bfa05602e.jpeg"
+    }
+  },
+  neighborhood: {
+    data: {
+      nome: 'adipisci velit',
+    }
+  },
+  city: {
+    data: {
+      name: 'Lorem ipsum dolor sit'
+    }
+  }
 }

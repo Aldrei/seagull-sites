@@ -5,13 +5,13 @@ import {
   Card,
   Content,
   Description,
-  Icon,
   Image,
   Info,
   InfoItem,
+  LocationIcon,
   Price,
   Subtitle,
-  Title,
+  Title
 } from './styles'
 import { IBoxCommon } from './types'
 
@@ -27,19 +27,18 @@ export const BoxCommon: React.FC<IBoxCommon> = ({ property, ...props }) => {
       <Price>{`Cód ${property.code} - ${property.valor}`}</Price>
       <Content>
         <Title>{property.title}</Title>
-        <Subtitle>{property.neighborhood?.data.nome}</Subtitle>
+        <Subtitle>
+          <LocationIcon /> {property?.city?.data?.name}, {property?.neighborhood?.data?.nome}
+        </Subtitle>
         <Description>{property.descGeral}</Description>
         <Info>
           <InfoItem>
-            <Icon>🏠</Icon>
-            {property.areaConstruida}
+            {property.areaTotal}<span>m²</span>
           </InfoItem>
           <InfoItem>
-            <Icon>🚗</Icon>
             {property.garagem} carro(s)
           </InfoItem>
           <InfoItem>
-            <Icon>🛏️</Icon>
             {property.dormitorio} dorm(s)
           </InfoItem>
         </Info>

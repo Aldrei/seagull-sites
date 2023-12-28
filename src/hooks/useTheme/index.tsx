@@ -17,7 +17,7 @@ const useThemeCostumer = ({ templateDefault }: IProps) => {
   // const templateDefault = useTheme()
 
   /**
-   * TODO: Make the costumer client right below.
+   * TODO: Make the costumer client request below.
    */
   // Request...
 

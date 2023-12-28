@@ -22,7 +22,7 @@ export const getPhotoProperty = (property: IProperty, size: keyof IPhoto) => {
 
   if (property?.photo?.data?.[size]) return property?.photo?.data?.[size]
 
-  return src_default
+  return process.env.NEXT_PUBLIC_API_BASE_URL + 'photos/thumb' + src_default
 }
 
 interface IPropertiesPage {

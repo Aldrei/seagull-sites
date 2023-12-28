@@ -1,10 +1,10 @@
 import { styled } from 'styled-components'
 
 export const PageContainer = styled.div`
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
-  padding: 0 2em;
+  padding: 0 ${props => props.theme.spaces.md};
+  background: ${props => props.theme.color.white};
 
   > div {
     display: flex;
@@ -25,6 +25,4 @@ export const FilterContainer = styled.div`
   }
 `
 
-export const ResultContainer = styled.div`
-  border: 1px solid white;
-`
+export const ResultContainer = styled.div``

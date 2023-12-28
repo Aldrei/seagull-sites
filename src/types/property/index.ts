@@ -159,14 +159,14 @@ export interface ICity {
 }
 
 export interface INeighborhood {
-  id: number
-  client_id: number
-  city_id: number
-  idBairro: string
-  nome: string
-  idCidade: string
-  created_at: string
-  updated_at: string
+  id?: number
+  client_id?: number
+  city_id?: number
+  idBairro?: string
+  nome?: string
+  idCidade?: string
+  created_at?: string
+  updated_at?: string
 }
 
 /**

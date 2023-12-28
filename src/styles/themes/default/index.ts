@@ -1,3 +1,11 @@
+const SIZES = {
+  xs: '.5rem',
+  sm: '.75rem',
+  md: '1rem',
+  lg: '1.25rem',
+  xl: '1.5rem',
+}
+
 /**
  * https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
  */
@@ -109,6 +117,7 @@ const BACKGROUND = {
   filter: COLOR.eighth,
   tab_button: GRADIENT.second,
   button: GRADIENT.second,
+  label_price: GRADIENT.second,
 }
 
 /**
@@ -131,7 +140,11 @@ const MEDIA = {
  * https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
  */
 const FONT_SIZE = {
-  button: '.8rem',
+  ...SIZES
+}
+
+const SPACES = {
+  ...SIZES
 }
 
 const templateDefault = {
@@ -163,6 +176,9 @@ const templateDefault = {
   fontSize: {
     ...FONT_SIZE,
   },
+  spaces: {
+    ...SPACES,
+  }
 }
 
 export { templateDefault }
