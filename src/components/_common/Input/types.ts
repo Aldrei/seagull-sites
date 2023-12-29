@@ -3,4 +3,5 @@ export interface IInputCommon {
   value?: any
   handChange?: () => void
   label?: string
+  placeholder?: string
 }

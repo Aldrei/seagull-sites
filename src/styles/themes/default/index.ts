@@ -118,6 +118,7 @@ const BACKGROUND = {
   tab_button: GRADIENT.second,
   button: GRADIENT.second,
   label_price: GRADIENT.second,
+  input: GRADIENT.second,
 }
 
 /**

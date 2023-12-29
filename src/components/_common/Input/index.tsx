@@ -6,12 +6,13 @@ import { IInputCommon } from './types'
 export const InputCommon: React.FC<IInputCommon> = ({
   name,
   label,
+  placeholder,
   ...props
 }: IInputCommon): React.ReactElement => {
   return (
     <Container {...props}>
       <Label htmlFor={name}>{label}</Label>
-      <Input name={name} />
+      <Input name={name} placeholder={placeholder} />
     </Container>
   )
 }

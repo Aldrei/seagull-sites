@@ -8,7 +8,7 @@ export const SearchCommon: React.FC<ISearchCommon> = ({
 }): React.ReactElement => {
   return (
     <Container {...props}>
-      <SearchInput />
+      <SearchInput placeholder="Ex: AP080" />
     </Container>
   )
 }
