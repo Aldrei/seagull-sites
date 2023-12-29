@@ -51,12 +51,14 @@ export const MenuIcon = styled.div`
 `
 
 export const MobileMenu = styled.div<{ $isOpen: boolean }>`
-  display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
+  display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
+  flex-direction: column;
+  justify-content: flex-end;
   position: absolute;
-  top: 54px; // Adjust based on actual header height
+  top: 111px;
   left: 0;
   right: 0;
-  background: white;
+  background: #007bff;
   border-top: 1px solid #eaeaea;
   padding: 16px;
   z-index: 9;

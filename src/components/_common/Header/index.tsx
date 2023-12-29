@@ -1,13 +1,12 @@
 import {
   Bar,
-  CloseIcon,
   Container,
   HeaderWrapper,
   Logo,
   MenuIcon,
   MobileMenu,
   Nav,
-  NavLink,
+  NavLink
 } from './styles'
 
 import React, { useState } from 'react'
@@ -45,7 +44,6 @@ export const HeaderCommon: React.FC<IHeaderCommon> = ({
         </MenuIcon>
       </HeaderWrapper>
       <MobileMenu $isOpen={isMenuOpen}>
-        <CloseIcon onClick={() => setMenuOpen(false)}>X</CloseIcon>
         <NavLink href="#">Product</NavLink>
         <NavLink href="#">Features</NavLink>
         <NavLink href="#">Marketplace</NavLink>
