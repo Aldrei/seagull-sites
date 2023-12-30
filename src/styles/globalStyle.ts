@@ -26,12 +26,7 @@ const GlobalsStyle = createGlobalStyle`
   body {
     font-family: ${FONT_NAME};
     color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgb(var(--background-end-rgb))
-      )
-      rgb(var(--background-start-rgb));
+    margin: 0;
   }
 
   /**

@@ -2,5 +2,5 @@ import { styled } from 'styled-components'
 
 export const Container = styled.div`
   background: ${props => props.theme.background.filter};
-  padding: 120px 50px 50px;
+  padding: calc(${props => props.theme.spaces.xl}*2) calc(${props => props.theme.spaces.xl}/2);
 `

@@ -2,14 +2,21 @@ import {
   Bar,
   Container,
   HeaderWrapper,
+  Info,
+  InfoLink,
+  InfosWrapper,
   Logo,
+  LogoWrapper,
   MenuIcon,
   MobileMenu,
   Nav,
-  NavLink
+  NavLink,
+  NavWrapper,
 } from './styles'
 
-import React, { useState } from 'react'
+import useCustomer from '@/hooks/useCustomer'
+import React, { Fragment, useState } from 'react'
+import { FaWhatsapp } from 'react-icons/fa'
 import { IHeaderCommon } from './types'
 
 export const HeaderCommon: React.FC<IHeaderCommon> = ({
@@ -18,37 +25,56 @@ export const HeaderCommon: React.FC<IHeaderCommon> = ({
   logo,
   ...props
 }): React.ReactElement => {
-  const [isMenuOpen, setMenuOpen] = useState(false)
+  const { customerData: customer, menuData } = useCustomer()
 
-  const navigation = [
-    { name: 'About', href: '#', current: true },
-    { name: 'Team', href: '#', current: false },
-    { name: 'Projects', href: '#', current: false },
-    { name: 'Calendar', href: '#', current: false },
-  ]
+  const [isMenuOpen, setMenuOpen] = useState(false)
 
   return (
     <Container className={className} {...props}>
       <HeaderWrapper>
-        <Logo src={logo} alt="Logo" />
-        <Nav>
-          <NavLink href="#">Product</NavLink>
-          <NavLink href="#">Features</NavLink>
-          <NavLink href="#">Marketplace</NavLink>
-          <NavLink href="#">Company</NavLink>
-        </Nav>
-        <MenuIcon onClick={() => setMenuOpen(!isMenuOpen)}>
-          <Bar />
-          <Bar />
-          <Bar />
-        </MenuIcon>
+        <LogoWrapper>
+          <Logo src={logo} alt="Logo" />
+        </LogoWrapper>
+        <NavWrapper>
+          {customer.social?.whatsapp?.desc && (<InfosWrapper>
+            <Info>
+              <InfoLink>
+                <FaWhatsapp href={customer.social?.whatsapp?.link} title={customer.social?.whatsapp?.alt} /> {customer.social?.whatsapp?.desc}
+              </InfoLink>
+            </Info>
+          </InfosWrapper>)}
+          {menuData.length && (
+            <Fragment>
+              <Nav>
+                {menuData.map((item, i) => (
+                  <NavLink 
+                    key={String(i)}
+                    target={item.link_external ? '_blank' : '_self'} 
+                    href={item.link_external || item.link} 
+                    title={item.title}>
+                      {item.icon} {item.desc}
+                  </NavLink>
+                ))}
+              </Nav>
+              <MenuIcon onClick={() => setMenuOpen(!isMenuOpen)}>
+                <Bar />
+                <Bar />
+                <Bar />
+              </MenuIcon>
+            </Fragment>
+          )}
+        </NavWrapper>
       </HeaderWrapper>
-      <MobileMenu $isOpen={isMenuOpen}>
-        <NavLink href="#">Product</NavLink>
-        <NavLink href="#">Features</NavLink>
-        <NavLink href="#">Marketplace</NavLink>
-        <NavLink href="#">Company</NavLink>
-      </MobileMenu>
+      {menuData.length && (
+        <MobileMenu $isOpen={isMenuOpen}>
+          {menuData.map((item, i) => (
+            <NavLink
+              key={String(i)}
+              target={item.link_external ? '_blank' : '_self'} 
+              href={item.link_external || item.link} 
+              title={item.title}>{item.desc}</NavLink>  
+          ))}
+        </MobileMenu>)}
     </Container>
   )
 }

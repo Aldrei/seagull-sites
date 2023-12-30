@@ -94,7 +94,7 @@ const BORDER = {
  * https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow
  */
 const BOX_SHADOW = {
-  first: '',
+  first: '3px 3px 15px 0 rgba(0,0,0,.75)',
   second: '',
   third: '',
 }

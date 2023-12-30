@@ -1,79 +1,6 @@
 import React, { PropsWithChildren, createContext } from 'react'
-
-/**
- * Hook
- */
-interface ICustomer {
-  domain?: string
-  name?: string
-  abbr?: string
-  logo?: string
-  times?: string
-  limitPhotosShow?: number
-  adornment?: string
-  recaptcha?: {
-    api_public_key?: string
-  }
-  broker_1_picture?: string
-  social?: {
-    instagram?: {
-      desc?: string
-      link?: string
-      link_device?: string
-      title?: string
-      alt?: string
-    }
-    facebook?: {
-      desc?: string
-      link?: string
-      link_device?: string
-      title?: string
-      alt?: string
-    }
-    linkedin?: {
-      desc?: string
-      link?: string
-      link_device?: string
-      title?: string
-      alt?: string
-    }
-    whatsapp?: {
-      desc?: string
-      link?: string
-      link_device?: string
-      title?: string
-      alt?: string
-    }
-    email_1?: {
-      desc?: string
-      link?: string
-      link_device?: string
-      title?: string
-      alt?: string
-    }
-    email_2?: {
-      desc?: string
-      link?: string
-      link_device?: string
-      title?: string
-      alt?: string
-    }
-    phone_1?: {
-      desc?: string
-      link?: string
-      link_device?: string
-      title?: string
-      alt?: string
-    }
-    phone_2?: {
-      desc?: string
-      link?: string
-      link_device?: string
-      title?: string
-      alt?: string
-    }
-  }
-}
+import { FaWhatsapp } from 'react-icons/fa'
+import { ICustomer, ICustomerData, IMenuData } from './types'
 
 const useCustomer = (): ICustomer => {
   /**
@@ -83,7 +10,7 @@ const useCustomer = (): ICustomer => {
    *    But for now return by .env: .
    *
    */
-  const customerDataMock: ICustomer = {
+  const customerData: ICustomerData = {
     domain: process.env.NEXT_PUBLIC_CUSTOMER_DOMAIN,
     name: process.env.NEXT_PUBLIC_CUSTOMER_NAME,
     abbr: process.env.NEXT_PUBLIC_CUSTOMER_ABBR,
@@ -139,9 +66,30 @@ const useCustomer = (): ICustomer => {
         alt: process.env.NEXT_PUBLIC_EMAIL_1_ALT,
       },
     },
+    layout: {
+      nav: 'layout_nav_1'
+    }
   }
 
-  return customerDataMock
+  const menuData: IMenuData[] = []
+
+  if (customerData.layout.nav === 'layout_nav_1') {
+    if (process.env.NEXT_PUBLIC_WHATSAPP_DESC)
+      menuData.push({
+        title: process.env.NEXT_PUBLIC_WHATSAPP_TITLE || '',
+        desc: process.env.NEXT_PUBLIC_WHATSAPP_DESC || '',
+        link_external: process.env.NEXT_PUBLIC_WHATSAPP_LINK_EXTERNAL || '',
+        icon: <FaWhatsapp />
+      })
+
+    menuData.push({
+      title: 'Imóveis',
+      desc: 'Imóveis',
+      link: '/c',
+    },)
+  }
+
+  return { customerData, menuData } as ICustomer
 }
 
 export default useCustomer
@@ -161,14 +109,14 @@ interface ICustomerProvider {
 export const CustomerProvider = ({
   children,
 }: PropsWithChildren<ICustomerProvider>): React.ReactNode => {
-  const costumerData = useCustomer()
-  console.log('DEBUG CustomerProvider > costumerData:', costumerData)
+  const { customerData, menuData } = useCustomer()
+  console.log('DEBUG CustomerProvider > customerData:', customerData)
 
   // TODO: Return a loading component here.
   // return <h1>loading...</h1>
 
   return (
-    <CustomerContext.Provider value={costumerData}>
+    <CustomerContext.Provider value={{ customerData, menuData }}>
       {children}
     </CustomerContext.Provider>
   )
