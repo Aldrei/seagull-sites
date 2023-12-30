@@ -2,23 +2,24 @@ import Head from 'next/head'
 import { PropsWithChildren } from 'react'
 
 import {
-  PropertyRowOne,
-  Tab,
-  Header,
-  SlideOne,
   FilterAdvanced,
   FooterOne,
+  Header,
+  PropertyRowOne,
+  SlideOne,
+  Tab,
 } from '@/components/template-one'
 
 import { TabType } from '@/components/_common/Tab/types'
 import { SearchOne } from '@/components/template-one/filter/Search'
 import { IMAGES } from '@/images/template-one'
-
-interface IProps {}
+import { IHomeProps } from '@/pages/types'
 
 export const HomePage: React.FC<
-  PropsWithChildren<IProps>
-> = ({}: PropsWithChildren<IProps>) => {
+  PropsWithChildren<IHomeProps>
+> = ({ slideData }: PropsWithChildren<IHomeProps>) => {
+  const { banners } = slideData || {}
+
   const tabs: TabType[] = [
     {
       id: 0,
@@ -39,7 +40,7 @@ export const HomePage: React.FC<
         <meta property="og:title" content="My page title" key="title" />
       </Head>
       <Header title="TEMPLATE-ONE" logo={IMAGES.LOGO} />
-      <SlideOne />
+      <SlideOne banners={banners} />
       <Tab tabs={tabs} />
       <PropertyRowOne
         title="CASA ALVENARIA, 2 DORMITÓRIOS, METZLER"

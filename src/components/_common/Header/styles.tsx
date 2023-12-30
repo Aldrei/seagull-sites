@@ -21,6 +21,7 @@ export const Logo = styled(Image)`
   top: 75px;
   max-width: 250px;
   box-shadow: ${props => props.theme.boxShadow.first};
+  z-index: 9;
 `
 
 export const NavWrapper = styled('div')``
