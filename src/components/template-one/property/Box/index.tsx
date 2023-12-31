@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { BoxStyled } from './styles'
 import { IBoxCommon } from '@/components/_common/property/Box/types'
+import { BoxStyled } from './styles'
 
-export const BoxOne: React.FC<IBoxCommon> = ({ property }) => {
-  return <BoxStyled property={property} />
+export const BoxOne: React.FC<IBoxCommon> = ({ property, orientation }) => {
+  return <BoxStyled property={property} orientation={orientation} />
 }

@@ -15,18 +15,18 @@ import {
 } from './styles'
 import { IBoxCommon } from './types'
 
-export const BoxCommon: React.FC<IBoxCommon> = ({ property, ...props }) => {
+export const BoxCommon: React.FC<IBoxCommon> = ({ property, orientation, ...props }) => {
   if (!property) return null
 
   return (
-    <Card {...props}>
+    <Card $orientation={orientation} {...props}>
       <Image
         src={String(getPhotoProperty(property, 'thumb'))}
         alt={property.title}
       />
-      <Price>{`Cód ${property.code} - ${property.valor}`}</Price>
+      <Price className='price'>{`Cód ${property.code} - ${property.valor}`}</Price>
       <Content>
-        <Title>{property.title}</Title>
+        <Title className='title'>{property.title}</Title>
         <Subtitle>
           <LocationIcon /> {property?.city?.data?.name}, {property?.neighborhood?.data?.nome}
         </Subtitle>
@@ -42,7 +42,7 @@ export const BoxCommon: React.FC<IBoxCommon> = ({ property, ...props }) => {
             {property.dormitorio} dorm(s)
           </InfoItem>
         </Info>
-        <Button>Conhecer +</Button>
+        <Button className='go-button'>Conhecer +</Button>
       </Content>
     </Card>
   )
