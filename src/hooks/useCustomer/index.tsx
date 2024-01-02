@@ -67,8 +67,8 @@ const useCustomer = (): ICustomer => {
       },
     },
     layout: {
-      nav: 'layout_nav_1'
-    }
+      nav: 'layout_nav_1',
+    },
   }
 
   const menuData: IMenuData[] = []
@@ -79,14 +79,14 @@ const useCustomer = (): ICustomer => {
         title: process.env.NEXT_PUBLIC_WHATSAPP_TITLE || '',
         desc: process.env.NEXT_PUBLIC_WHATSAPP_DESC || '',
         link_external: process.env.NEXT_PUBLIC_WHATSAPP_LINK_EXTERNAL || '',
-        icon: <FaWhatsapp />
+        icon: <FaWhatsapp />,
       })
 
     menuData.push({
       title: 'Imóveis',
       desc: 'Imóveis',
       link: '/c',
-    },)
+    })
   }
 
   return { customerData, menuData } as ICustomer

@@ -9,35 +9,38 @@ export const Card = styled('div')<{ $orientation?: 'column' | 'row' }>`
   overflow: hidden;
   box-shadow: 0 4px 8px ${props => props.theme.color.thirdRgba};
 
-  ${props => props.$orientation === 'row' && css`
-    ${props => props.theme.media.IPAD_MINI} {
-      flex-direction: row-reverse;
-      align-items: center;
-      padding: calc(${props => props.theme.spaces.md}*4) calc(${props => props.theme.spaces.md}*2);
-      box-shadow: none !important;
-      background: ${props => props.theme.color.eighth} !important;
+  ${props =>
+    props.$orientation === 'row' &&
+    css`
+      ${props => props.theme.media.IPAD_MINI} {
+        flex-direction: row-reverse;
+        align-items: center;
+        padding: calc(${props => props.theme.spaces.md}*4)
+          calc(${props => props.theme.spaces.md}*2);
+        box-shadow: none !important;
+        background: ${props => props.theme.color.eighth} !important;
 
-      img {
-        max-height: 300px;
-        margin-left: calc(${props => props.theme.spaces.md}*2.5);
-        box-shadow: 0 4px 8px ${props => props.theme.color.second};
-      }
+        img {
+          max-height: 300px;
+          margin-left: calc(${props => props.theme.spaces.md}*2.5);
+          box-shadow: 0 4px 8px ${props => props.theme.color.second};
+        }
 
-      .title {
-        margin-top: 0;
-        padding-top: 0;
-      }
+        .title {
+          margin-top: 0;
+          padding-top: 0;
+        }
 
-      .price {
-        right: unset;
-        left: 0;
-      }
+        .price {
+          right: unset;
+          left: 0;
+        }
 
-      .go-button {
-        align-self: center;
+        .go-button {
+          align-self: center;
+        }
       }
-    }
-  `}
+    `}
 `
 
 export const Image = styled.img`
@@ -66,7 +69,8 @@ export const Title = styled.h3`
   font-weight: bold;
   font-size: ${props => props.theme.fontSize.xl};
   color: #333;
-  border-bottom: calc(${props => props.theme.spaces.xs}/2) solid ${props => props.theme.color.second};
+  border-bottom: calc(${props => props.theme.spaces.xs} / 2) solid
+    ${props => props.theme.color.second};
   padding: ${props => props.theme.spaces.md};
   margin: ${props => props.theme.spaces.md};
   margin-bottom: calc(${props => props.theme.spaces.md}*2);
@@ -136,5 +140,5 @@ export const Button = styled.button`
 export const LocationIcon = styled(LiaLocationArrowSolid)`
   transform: rotate(45deg);
   font-size: ${props => props.theme.spaces.xl};
-  margin-right: calc(${props => props.theme.spaces.xs}/2);
+  margin-right: calc(${props => props.theme.spaces.xs} / 2);
 `

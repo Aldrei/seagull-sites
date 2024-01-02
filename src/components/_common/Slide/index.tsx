@@ -27,7 +27,7 @@ export const SlideCommon: React.FC<ISlideCommon> = ({ banners, ...props }) => {
   React.useEffect(() => {
     const new_loaded = [...loaded] as any
     new_loaded[currentSlide] = true
-    
+
     setLoaded(new_loaded)
   }, [currentSlide])
 
@@ -88,11 +88,11 @@ export const SlideCommon: React.FC<ISlideCommon> = ({ banners, ...props }) => {
       <div ref={sliderRef} className="keen-slider banners">
         {banners.map((banner, i) => (
           <Banner
-            key={i} 
-            className={`keen-slider__slide lazy__slide number-slide${i}`} 
-            style={{ 
-              background: `url(${banner.normal})`
-             }}  
+            key={i}
+            className={`keen-slider__slide lazy__slide number-slide${i}`}
+            style={{
+              background: `url(${banner.normal})`,
+            }}
           />
         ))}
       </div>

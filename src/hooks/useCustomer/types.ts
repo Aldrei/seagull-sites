@@ -72,7 +72,7 @@ export interface ICustomerData {
       title?: string
       alt?: string
     }
-  },
+  }
   layout: {
     nav: string
   }

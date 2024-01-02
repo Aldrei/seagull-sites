@@ -141,11 +141,11 @@ const MEDIA = {
  * https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
  */
 const FONT_SIZE = {
-  ...SIZES
+  ...SIZES,
 }
 
 const SPACES = {
-  ...SIZES
+  ...SIZES,
 }
 
 const templateDefault = {
@@ -179,7 +179,7 @@ const templateDefault = {
   },
   spaces: {
     ...SPACES,
-  }
+  },
 }
 
 export { templateDefault }

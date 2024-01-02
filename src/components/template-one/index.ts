@@ -12,4 +12,3 @@ export { Tabs as FilterTabs } from './filter/Tabs'
 export { BoxOne } from './property/Box'
 export { GridOne } from './property/Grid'
 export { InfosDetailsOne } from './property/details/Infos'
-

@@ -11,7 +11,8 @@ export const HeaderWrapper = styled.header`
   align-items: center;
   padding: 16px 32px;
 
-  @media (max-width: 768px) {}
+  @media (max-width: 768px) {
+  }
 `
 
 export const LogoWrapper = styled('div')``
@@ -53,7 +54,7 @@ export const NavLink = styled.a`
   }
 
   > svg {
-    margin-right: calc(${props => props.theme.spaces.xs}/2);
+    margin-right: calc(${props => props.theme.spaces.xs} / 2);
     font-size: ${props => props.theme.spaces.lg};
     color: inherit;
   }
@@ -122,7 +123,7 @@ export const InfoLink = styled('a')`
   color: inherit;
 
   > svg {
-    margin-right: calc(${props => props.theme.spaces.xs}/2);
+    margin-right: calc(${props => props.theme.spaces.xs} / 2);
     font-size: ${props => props.theme.spaces.lg};
     color: inherit;
   }

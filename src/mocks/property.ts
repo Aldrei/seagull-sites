@@ -108,22 +108,22 @@ export const propertyMock: IProperty = {
   site_url: 'site_url',
   photo: {
     data: {
-        id: 15456,
-        property_id: 1054,
-        name: "2caa36b4fba7074b39514c8bfa05602e.jpeg",
-        ordem: 1,
-        thumb: `${process.env.NEXT_PUBLIC_API_BASE_URL}\/photos\/thumb\/2caa36b4fba7074b39514c8bfa05602e.jpeg`,
-        normal: `${process.env.NEXT_PUBLIC_API_BASE_URL}\/photos\/normal\/2caa36b4fba7074b39514c8bfa05602e.jpeg`,
-    }
+      id: 15456,
+      property_id: 1054,
+      name: '2caa36b4fba7074b39514c8bfa05602e.jpeg',
+      ordem: 1,
+      thumb: `${process.env.NEXT_PUBLIC_API_BASE_URL}\/photos\/thumb\/2caa36b4fba7074b39514c8bfa05602e.jpeg`,
+      normal: `${process.env.NEXT_PUBLIC_API_BASE_URL}\/photos\/normal\/2caa36b4fba7074b39514c8bfa05602e.jpeg`,
+    },
   },
   neighborhood: {
     data: {
       nome: 'adipisci velit',
-    }
+    },
   },
   city: {
     data: {
-      name: 'Lorem ipsum dolor sit'
-    }
-  }
+      name: 'Lorem ipsum dolor sit',
+    },
+  },
 }

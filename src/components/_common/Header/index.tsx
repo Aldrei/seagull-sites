@@ -36,23 +36,30 @@ export const HeaderCommon: React.FC<IHeaderCommon> = ({
           <Logo src={logo} alt="Logo" />
         </LogoWrapper>
         <NavWrapper>
-          {customer.social?.whatsapp?.desc && (<InfosWrapper>
-            <Info>
-              <InfoLink>
-                <FaWhatsapp href={customer.social?.whatsapp?.link} title={customer.social?.whatsapp?.alt} /> {customer.social?.whatsapp?.desc}
-              </InfoLink>
-            </Info>
-          </InfosWrapper>)}
+          {customer.social?.whatsapp?.desc && (
+            <InfosWrapper>
+              <Info>
+                <InfoLink>
+                  <FaWhatsapp
+                    href={customer.social?.whatsapp?.link}
+                    title={customer.social?.whatsapp?.alt}
+                  />{' '}
+                  {customer.social?.whatsapp?.desc}
+                </InfoLink>
+              </Info>
+            </InfosWrapper>
+          )}
           {menuData.length && (
             <Fragment>
               <Nav>
                 {menuData.map((item, i) => (
-                  <NavLink 
+                  <NavLink
                     key={String(i)}
-                    target={item.link_external ? '_blank' : '_self'} 
-                    href={item.link_external || item.link} 
-                    title={item.title}>
-                      {item.icon} {item.desc}
+                    target={item.link_external ? '_blank' : '_self'}
+                    href={item.link_external || item.link}
+                    title={item.title}
+                  >
+                    {item.icon} {item.desc}
                   </NavLink>
                 ))}
               </Nav>
@@ -70,11 +77,15 @@ export const HeaderCommon: React.FC<IHeaderCommon> = ({
           {menuData.map((item, i) => (
             <NavLink
               key={String(i)}
-              target={item.link_external ? '_blank' : '_self'} 
-              href={item.link_external || item.link} 
-              title={item.title}>{item.desc}</NavLink>  
+              target={item.link_external ? '_blank' : '_self'}
+              href={item.link_external || item.link}
+              title={item.title}
+            >
+              {item.desc}
+            </NavLink>
           ))}
-        </MobileMenu>)}
+        </MobileMenu>
+      )}
     </Container>
   )
 }

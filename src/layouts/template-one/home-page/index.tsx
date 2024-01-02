@@ -6,7 +6,7 @@ import {
   FilterTabs,
   FooterOne,
   Header,
-  SlideOne
+  SlideOne,
 } from '@/components/template-one'
 
 import { IMAGES } from '@/images/template-one'
@@ -15,9 +15,9 @@ import { IHomeProps } from '@/pages/types'
 import { propertyMock } from '@/mocks/property'
 import { FeaturesContainer, FilterTabsContainer } from './styles'
 
-export const HomePage: React.FC<
-  PropsWithChildren<IHomeProps>
-> = ({ slideData }: PropsWithChildren<IHomeProps>) => {
+export const HomePage: React.FC<PropsWithChildren<IHomeProps>> = ({
+  slideData,
+}: PropsWithChildren<IHomeProps>) => {
   const { banners } = slideData || {}
 
   return (
@@ -32,7 +32,7 @@ export const HomePage: React.FC<
         <FilterTabs />
       </FilterTabsContainer>
       <FeaturesContainer>
-        <BoxOne property={propertyMock} orientation='row' />
+        <BoxOne property={propertyMock} orientation="row" />
       </FeaturesContainer>
       <FooterOne />
     </>
