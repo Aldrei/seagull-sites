@@ -3,38 +3,22 @@ import { PropsWithChildren } from 'react'
 
 import {
   BoxOne,
-  FilterAdvanced,
+  FilterTabs,
   FooterOne,
   Header,
-  SlideOne,
-  Tab
+  SlideOne
 } from '@/components/template-one'
 
-import { TabType } from '@/components/_common/Tab/types'
-import { SearchOne } from '@/components/template-one/filter/Search'
 import { IMAGES } from '@/images/template-one'
 import { IHomeProps } from '@/pages/types'
 
 import { propertyMock } from '@/mocks/property'
-import { FeaturesContainer } from './styles'
+import { FeaturesContainer, FilterTabsContainer } from './styles'
 
 export const HomePage: React.FC<
   PropsWithChildren<IHomeProps>
 > = ({ slideData }: PropsWithChildren<IHomeProps>) => {
   const { banners } = slideData || {}
-
-  const tabs: TabType[] = [
-    {
-      id: 0,
-      title: 'Tab 1',
-      content: <FilterAdvanced />,
-    },
-    {
-      id: 1,
-      title: 'Tab 2',
-      content: <SearchOne />,
-    },
-  ]
 
   return (
     <>
@@ -44,7 +28,9 @@ export const HomePage: React.FC<
       </Head>
       <Header title="TEMPLATE-ONE" logo={IMAGES.LOGO} />
       <SlideOne banners={banners} />
-      <Tab tabs={tabs} />
+      <FilterTabsContainer>
+        <FilterTabs />
+      </FilterTabsContainer>
       <FeaturesContainer>
         <BoxOne property={propertyMock} orientation='row' />
       </FeaturesContainer>
