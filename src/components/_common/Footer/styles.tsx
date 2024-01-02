@@ -26,35 +26,95 @@ export const ContactInfo = styled.div`
 `
 
 export const Title = styled.h3`
-  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 0;
+  font-size: calc(${props => props.theme.spaces.xs}*3);
   margin-bottom: 0.5em;
+  text-shadow: ${props => props.theme.textShadow.first};
+  color: ${props => props.theme.color.white};
+
+  svg {
+    margin-bottom: ${props => props.theme.spaces.xs};
+  }
+
+  ${props => props.theme.media.IPAD_MINI} {
+    align-items: center;
+  }
 `
 
 export const Text = styled.p`
+  height: 20px;
+  display: flex;
+  align-items: center;
   margin: 5px 0;
+  text-shadow: ${props => props.theme.textShadow.first};
+  color: ${props => props.theme.color.white};
+  font-size: calc(${props => props.theme.spaces.xl}/1.75);
+
+  svg {
+    margin-right: ${props => props.theme.spaces.xs};
+  }
 `
 
 export const Link = styled.a`
+  height: 20px;
+  display: flex;
+  align-items: center;
   color: inherit;
   text-decoration: none;
+  text-shadow: ${props => props.theme.textShadow.first};
+  color: ${props => props.theme.color.white};
+  font-size: calc(${props => props.theme.spaces.xl}/1.75);
 
   &:hover {
     text-decoration: underline;
   }
+
+  svg {
+    margin-right: ${props => props.theme.spaces.xs};
+  }
 `
 
 export const Image = styled.img`
-  max-width: 175px;
+  max-width: 125px;
   height: auto;
 `
-export const InfosContainer = styled.div``
+
+export const InfosContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  justify-content: space-between;
+
+  > div {
+    margin: ${props => props.theme.spaces.md};
+  }
+
+  ${props => props.theme.media.IPAD_MINI} {
+    flex-direction: row;
+  }
+`
+
+export const LogoContainer = styled.div`
+  margin: ${props => props.theme.spaces.md} auto !important;
+`
 
 export const CopyContainer = styled.div`
+  margin-top: calc(${props => props.theme.spaces.md}*2);
   display: flex;
   flex-direction: column;
   align-items: center;
 `
 
-export const Adornment = styled.img``
+export const Adornment = styled.img`
+  max-width: calc(${props => props.theme.spaces.xl}*5);
+  margin-bottom: ${props => props.theme.spaces.xs};
+`
 
-export const CopyText = styled.p``
+export const CopyText = styled.p`
+  color: ${props => props.theme.textOpacity.first};
+  font-size: ${props => props.theme.spaces.sm};
+`

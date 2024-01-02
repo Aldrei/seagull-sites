@@ -109,6 +109,17 @@ const GRADIENT = {
 }
 
 /**
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow
+*/
+const TEXT_SHADOW = {
+  first: '1px 1px 0 rgba(0,0,0,.9)'
+}
+
+const TEXT_OPACITY = {
+  first: 'rgba(217,211,207,.9)'
+}
+
+/**
  * https://developer.mozilla.org/en-US/docs/Web/CSS/background
  */
 const BACKGROUND = {
@@ -168,6 +179,12 @@ const templateDefault = {
   },
   boxShadow: {
     ...BOX_SHADOW,
+  },
+  textShadow: {
+    ...TEXT_SHADOW
+  },
+  textOpacity: {
+    ...TEXT_OPACITY
   },
   background: {
     ...BACKGROUND,

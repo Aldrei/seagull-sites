@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, createContext } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
-import { ICustomer, ICustomerData, IMenuData } from './types'
+import { IContactData, ICustomer, ICustomerData, IMenuData } from './types'
 
 const useCustomer = (): ICustomer => {
   /**
@@ -69,9 +69,13 @@ const useCustomer = (): ICustomer => {
     layout: {
       nav: 'layout_nav_1',
     },
+    infos: {
+      times: process.env.NEXT_PUBLIC_CUSTOMER_INFO_TIMES,
+    }
   }
 
   const menuData: IMenuData[] = []
+  const contactList: IContactData[] = []
 
   if (customerData.layout.nav === 'layout_nav_1') {
     if (process.env.NEXT_PUBLIC_WHATSAPP_DESC)
@@ -87,9 +91,31 @@ const useCustomer = (): ICustomer => {
       desc: 'Imóveis',
       link: '/c',
     })
+
+    if (process.env.NEXT_PUBLIC_PHONE_1_DESC)
+      contactList.push({
+        desc: process.env.NEXT_PUBLIC_PHONE_1_DESC
+      })
+
+    if (process.env.NEXT_PUBLIC_PHONE_2_DESC)
+      contactList.push({
+        desc: process.env.NEXT_PUBLIC_PHONE_2_DESC
+      })
+
+    if (process.env.NEXT_PUBLIC_EMAIL_1_DESC)
+      contactList.push({
+        desc: process.env.NEXT_PUBLIC_EMAIL_1_DESC,
+        link_external: process.env.NEXT_PUBLIC_EMAIL_1_DEVICE_LINK
+      })
+
+    if (process.env.NEXT_PUBLIC_EMAIL_2_DESC)
+      contactList.push({
+        desc: process.env.NEXT_PUBLIC_EMAIL_2_DESC,
+        link_external: process.env.NEXT_PUBLIC_EMAIL_2_DEVICE_LINK
+      })
   }
 
-  return { customerData, menuData } as ICustomer
+  return { customerData, menuData, contactList } as ICustomer
 }
 
 export default useCustomer
@@ -109,14 +135,14 @@ interface ICustomerProvider {
 export const CustomerProvider = ({
   children,
 }: PropsWithChildren<ICustomerProvider>): React.ReactNode => {
-  const { customerData, menuData } = useCustomer()
+  const { customerData, menuData, contactList } = useCustomer()
   console.log('DEBUG CustomerProvider > customerData:', customerData)
 
   // TODO: Return a loading component here.
   // return <h1>loading...</h1>
 
   return (
-    <CustomerContext.Provider value={{ customerData, menuData }}>
+    <CustomerContext.Provider value={{ customerData, menuData, contactList }}>
       {children}
     </CustomerContext.Provider>
   )

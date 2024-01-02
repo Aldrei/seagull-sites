@@ -1,6 +1,7 @@
 export interface ICustomer {
   customerData: ICustomerData
   menuData: IMenuData[]
+  contactList: IContactData[]
 }
 
 export interface ICustomerData {
@@ -75,13 +76,18 @@ export interface ICustomerData {
   }
   layout: {
     nav: string
+  },
+  infos?: {
+    times?: string
   }
 }
 
 export interface IMenuData {
-  title: string
-  desc: string
+  title?: string
+  desc?: string
   link?: string
   link_external?: string
   icon?: any
 }
+
+export interface IContactData extends IMenuData {}
