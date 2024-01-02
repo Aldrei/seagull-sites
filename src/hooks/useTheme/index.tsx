@@ -40,8 +40,9 @@ export const ThemeProvider = ({
   children,
 }: PropsWithChildren<IThemeProvider>) => {
   // TODO: Make request to get data customer
-  const customerData = useContext(CustomerContext)
+  const { customerData, menuData } = useContext(CustomerContext)
   console.log('DEBUG customerData:', customerData)
+  console.log('DEBUG menuData:', menuData)
 
   useThemeCostumer({ templateDefault })
 

@@ -15,7 +15,7 @@ import {
 } from './styles'
 
 export const WhatsAppCommon: React.FC = ({ ...props }): React.ReactElement => {
-  const customer = useContext(CustomerContext)
+  const { customerData: customer } = useContext(CustomerContext)
 
   return (
     <ContactWhatsContainer {...props}>

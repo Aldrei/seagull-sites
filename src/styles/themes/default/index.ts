@@ -119,6 +119,7 @@ const BACKGROUND = {
   button: GRADIENT.second,
   label_price: GRADIENT.second,
   input: GRADIENT.second,
+  footer: GRADIENT.second,
 }
 
 /**

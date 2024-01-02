@@ -20,34 +20,34 @@ import * as u from '@/utils'
 export const FooterCommon: React.FC<IFooterCommon> = ({
   ...props
 }): React.ReactElement => {
-  const customerData = useContext(CustomerContext)
+  const { customerData: customer } = useContext(CustomerContext)
 
   return (
     <FooterContainer {...props}>
       <InfosContainer>
         <BusinessInfo>
           <Title>HORÁRIOS DE FUNCIONAMENTO</Title>
-          <Text>{String(customerData?.times)}</Text>
+          <Text>{String(customer?.times)}</Text>
         </BusinessInfo>
 
         <ContactInfo>
           <Title>INFORMAÇÕES DE CONTATO</Title>
-          <Text>{String(customerData?.social?.phone_1?.desc)}</Text>
-          <Link href={`mailto:${String(customerData?.social?.email_1?.desc)}`}>
-            {String(customerData?.social?.email_1?.desc)}
+          <Text>{String(customer?.social?.phone_1?.desc)}</Text>
+          <Link href={`mailto:${String(customer?.social?.email_1?.desc)}`}>
+            {String(customer?.social?.email_1?.desc)}
           </Link>
         </ContactInfo>
 
         {/* Logo component should be imported and used here */}
         <Image
-          src={String(customerData?.logo)}
-          alt={String(customerData?.name)}
+          src={String(customer?.logo)}
+          alt={String(customer?.name)}
         />
       </InfosContainer>
       <CopyContainer>
-        <Adornment src={customerData?.adornment} />
+        <Adornment src={customer?.adornment} />
         <CopyText>
-          ©{u.getYear()} - {customerData?.name}
+          ©{u.getYear()} - {customer?.name}
         </CopyText>
       </CopyContainer>
     </FooterContainer>

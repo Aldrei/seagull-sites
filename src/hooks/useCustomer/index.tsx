@@ -97,7 +97,7 @@ export default useCustomer
 /**
  * Context
  */
-export const CustomerContext = createContext<ICustomer | null>(null)
+export const CustomerContext = createContext<ICustomer>({} as ICustomer)
 
 /**
  * Provider
