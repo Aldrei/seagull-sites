@@ -1,4 +1,3 @@
-import { usePropertiesPage } from '@/hooks/usePropertiesPage'
 import { PropertiesPage } from '@/layouts'
 import { getServerSideProps } from '@/pages/c'
 import { ICPage } from '@/pages/c/types'
