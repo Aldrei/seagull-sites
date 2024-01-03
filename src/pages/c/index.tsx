@@ -1,43 +1,31 @@
 import { PropertiesPage } from '@/layouts'
-import { propertyMock } from '@/mocks/property'
-import { IProperty } from '@/types/property'
-import { propertiesPage } from '@/utils'
+import { getHostname, setParamsUrl } from '@/utils'
+import { GetServerSideProps } from 'next'
 import { ICPage } from './types'
 
-export async function getServerSideProps(context: any) {
-  const params = context.params || null
+export const getProperties = async (url: string) => {
+  const response = await fetch(`
+      ${url}`,
+      { method: 'GET' }
+    );
 
-  const dataRoute = propertiesPage({ params })
-  console.log('DEBUG dataRoute:', dataRoute)
-
-  const data: IProperty[] = []
-
-  data.push(propertyMock)
-  data.push({
-    ...propertyMock,
-    descGeral: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.`,
-  })
-  data.push({
-    ...propertyMock,
-    descGeral: `Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.`,
-  })
-  data.push(propertyMock)
-  data.push(propertyMock)
-  data.push(propertyMock)
-  data.push(propertyMock)
-  data.push(propertyMock)
-  data.push(propertyMock)
-  data.push(propertyMock)
-  data.push(propertyMock)
-  data.push(propertyMock)
-
-  return { props: { data, dataRoute, params } }
+  return response.json();
 }
 
-export default function Page({ data, dataRoute, params }: ICPage) {
-  console.log('DEBUG data:', data)
-  console.log('DEBUG dataRoute:', dataRoute)
-  console.log('DEBUG params:', params)
+export const getServerSideProps: GetServerSideProps = async (context: any) => {
+  const query = context.query || null
 
-  return <PropertiesPage properties={data} />
+  const buildedPara = setParamsUrl({ query });
+  const buildedUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}pub/${getHostname()}/properties/filtered?${buildedPara.toString()}`
+
+  const response = await getProperties(buildedUrl);
+
+  return { props: { data: response || null, query, url: { buildedUrl } } }
+}
+
+export default function Page({ data, url }: ICPage) {
+  console.log('DEBUG url:', url)
+  console.log('DEBUG data(response):', data)
+
+  return <PropertiesPage properties={data?.length ? data : []} />
 }
