@@ -29,13 +29,13 @@ interface IPropertiesPage {
   query: any
 }
 
-export const setParamsUrl = ({ query }: IPropertiesPage): URLSearchParams => {
-  const states = setParam(query?.['states[]'] as string[]);
-  const cities = setParam(query?.['cities[]'] as string[]);
-  const neighborhoods = setParam(query?.['neighborhoods[]'] as string[]);
-  const types = setParam(query?.['types[]'] as string[]);
-  const bedrooms = setParam(query?.['bedrooms[]'] as string[]);
-  const garages = setParam(query?.['garages[]'] as string[]);
+export const buildPropertiesFilteredParams = ({ query }: IPropertiesPage): string => {
+  const states = buildParam(query?.['states[]'] as string[]);
+  const cities = buildParam(query?.['cities[]'] as string[]);
+  const neighborhoods = buildParam(query?.['neighborhoods[]'] as string[]);
+  const types = buildParam(query?.['types[]'] as string[]);
+  const bedrooms = buildParam(query?.['bedrooms[]'] as string[]);
+  const garages = buildParam(query?.['garages[]'] as string[]);
   const priceMin = query?.['priceMin'];
   const priceMax = query?.['priceMax'];
   const orderBy = query?.['orderBy'];
@@ -52,10 +52,10 @@ export const setParamsUrl = ({ query }: IPropertiesPage): URLSearchParams => {
   if (priceMax) queryString.append('priceMax', priceMax);
   if (orderBy) queryString.append('orderBy', orderBy);
 
-  return queryString
+  return queryString.toString()
 }
 
-export const setParam = (arr: string[]) => {
+export const buildParam = (arr: string[]) => {
   try {
     if (!arr) return [];
     return Array.from(!Array.isArray(arr) ? new Set([arr]) : new Set(arr));
