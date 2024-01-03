@@ -112,8 +112,8 @@ export const propertyMock: IProperty = {
       property_id: 1054,
       name: '2caa36b4fba7074b39514c8bfa05602e.jpeg',
       ordem: 1,
-      thumb: `${process.env.NEXT_PUBLIC_API_BASE_URL}\/photos\/thumb\/2caa36b4fba7074b39514c8bfa05602e.jpeg`,
-      normal: `${process.env.NEXT_PUBLIC_API_BASE_URL}\/photos\/normal\/2caa36b4fba7074b39514c8bfa05602e.jpeg`,
+      thumb: `${process.env.NEXT_PUBLIC_CDN_URL}\/photos\/thumb\/2caa36b4fba7074b39514c8bfa05602e.jpeg`,
+      normal: `${process.env.NEXT_PUBLIC_CDN_URL}\/photos\/normal\/2caa36b4fba7074b39514c8bfa05602e.jpeg`,
     },
   },
   neighborhood: {
