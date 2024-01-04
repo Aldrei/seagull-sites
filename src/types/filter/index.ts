@@ -19,10 +19,15 @@ export interface IFilterSelected {
 
 export interface IFilterOptions {
   states: IOption[]
-  cities: IOption[]
-  neighborhoods: IOption[]
+  cities: IGroupedOption[]
+  neighborhoods: IGroupedOption[]
   types: IOption[]
   bedrooms: IOption[]
   garages: IOption[]
   prices: IOption[]
+}
+
+export interface IGroupedOption {
+  label: string;
+  options: IOption[];
 }

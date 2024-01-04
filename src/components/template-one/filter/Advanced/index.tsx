@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { SelectCommon } from '@/components/_common'
 
-import { IOption } from '@/components/_common/Select/types'
 import { ButtonOne } from '@/components/template-one/Button'
-import { IFilterOptions, IFilterSelected } from '@/types/filter'
+import { listCitiesLocal, listNeighborhoodLocal } from '@/services'
+import { IFilterOptions, IFilterSelected, IGroupedOption } from '@/types/filter'
 import { useRouter } from 'next/router'
-import { Column, FormWrapper, Row } from './styled'
+import { Column, FormWrapper, Row, formatGroupLabel } from './styled'
 
 export const FilterAdvanced: React.FC<IFilterOptions> = ({ filterOptions: filterOptionsParams }): React.ReactElement => {
   console.log('DEBUG -> filterOptionsParams:', filterOptionsParams);
@@ -32,8 +32,8 @@ export const FilterAdvanced: React.FC<IFilterOptions> = ({ filterOptions: filter
 
   const [filterOptions, setFilterOptions] = useState<IFilterOptions>({
     states: states,
-    cities: [] as IOption[],
-    neighborhoods: [] as IOption[],
+    cities: [] as IGroupedOption[],
+    neighborhoods: [] as IGroupedOption[],
     bedrooms: bedrooms,
     garages: garages,
     types: types,
@@ -49,6 +49,76 @@ export const FilterAdvanced: React.FC<IFilterOptions> = ({ filterOptions: filter
   /**
    * Changing Options
   */
+  // Dynamic fields
+  useEffect(() => {
+    const handleListCities = async () => {
+      const response = await listCitiesLocal();
+
+      const groupedOptions: IGroupedOption[] = [];
+
+      if (response?.cities) {
+        Object.entries(response.cities.data).map((item) => {
+          groupedOptions.push({
+            label: item[0],
+            options: Array.from(item[1] as []).map((item: any) => ({ value: item.id, label: item.name }))
+          })
+        })
+      }
+      
+      setFilterOptions({ ...filterOptions, cities: groupedOptions, neighborhoods: [] });
+    }
+
+    if (filterSelected?.states?.length) handleListCities();
+    else setFilterOptions({ ...filterOptions, cities: [], neighborhoods: [] });
+  }, [filterSelected?.states]);
+
+  useEffect(() => {
+    const handleChange = async () => {
+      const response = await listNeighborhoodLocal();
+
+      const groupedOptions: IGroupedOption[] = [];
+
+      if (response?.neighborhoods) {
+        Object.entries(response.neighborhoods.data).map((item) => {
+          groupedOptions.push({
+            label: item[0],
+            options: Array.from(item[1] as []).map((item: any) => ({ value: item.id, label: item.name }))
+          })
+        })
+      }
+      
+      setFilterOptions({ ...filterOptions, neighborhoods: groupedOptions });
+    }
+
+    if (filterSelected?.cities?.length) handleChange();
+    else setFilterOptions({ ...filterOptions, neighborhoods: [] });
+  }, [filterSelected?.cities]);
+  
+  const handleChangeState = (newValue: any) => {
+    setFilterSelected({ 
+      ...filterSelected, 
+      states: newValue, 
+      cities: [], 
+      neighborhoods: [] 
+    } as unknown as IFilterSelected);
+  }
+
+  const handleChangeCity = (newValue: any) => {
+    setFilterSelected({ 
+      ...filterSelected, 
+      cities: newValue, 
+      neighborhoods: [] 
+    } as unknown as IFilterSelected);
+  }
+
+  const handleChangeNeighborhood = (newValue: any) => {
+    setFilterSelected({
+      ...filterSelected, 
+      neighborhoods: newValue
+    } as unknown as IFilterSelected);
+  }
+
+  // Statics fields
   const handleChangeType = (newValue: any) => {
     setFilterSelected({
       ...filterSelected, 
@@ -126,15 +196,40 @@ export const FilterAdvanced: React.FC<IFilterOptions> = ({ filterOptions: filter
             isMulti />
         </Column>
       </Row>
-      {/*<Row>
-        <SelectCommon name='state' onChange={handleChangeState} value={filterSelected?.state} options={states.map((item: any) => ({ value: item.id, label: item.abbr }))} label="Estado(opcional)" isMulti />
+      <Row>
+        <SelectCommon 
+          name='state' 
+          label="Estado(opcional)" 
+          onChange={handleChangeState} 
+          value={filterSelected?.states} 
+          options={filterOptions?.states} 
+          isMulti 
+        />
       </Row>
       <Row>
-        <SelectCommon name='city' options={[]} label="Cidades(opcional)" isMulti />
+        <SelectCommon 
+          name='city'
+          label="Cidades(opcional)"
+          onChange={handleChangeCity}
+          options={filterOptions?.cities}
+          value={filterSelected?.cities}
+          isMulti
+          formatGroupLabel={formatGroupLabel}
+          isDisabled={!filterSelected?.states?.length}
+        />
       </Row>
       <Row>
-        <SelectCommon name='neighborhood' options={[]} label="Bairro(opcional)" isMulti />
-      </Row> */}
+        <SelectCommon 
+          name='neighborhood' 
+          label="Bairro(opcional)"
+          onChange={handleChangeNeighborhood}
+          options={filterOptions?.neighborhoods}
+          value={filterSelected?.neighborhoods}
+          isMulti
+          formatGroupLabel={formatGroupLabel}
+          isDisabled={!filterSelected?.cities?.length}
+        />
+      </Row>
       <Row>
         <SelectCommon 
           name='price'

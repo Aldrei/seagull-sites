@@ -12,6 +12,7 @@ export const SelectCommon: React.FC<ISelectCommon & Props> = ({
   value,
   onChange,
   isMulti,
+  isDisabled,
   className
 }): React.ReactElement => {
   return (
@@ -25,6 +26,7 @@ export const SelectCommon: React.FC<ISelectCommon & Props> = ({
         onChange={onChange}
         value={value}
         isMulti={isMulti}
+        isDisabled={isDisabled}
         styles={{
           option: (styles) => ({
             ...styles,
