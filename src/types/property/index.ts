@@ -25,7 +25,7 @@ export interface IProperty {
   exclusividadePeriodoFim: string
   finalidade: string | null
   categoria: CategoriaProperty
-  tipo: TipoProperty
+  tipo: TypeProperty
   status: StatusProperty
   aluguelPeriodoInicio: string
   aluguelPeriodoFim: string
@@ -112,9 +112,6 @@ export interface IProperty {
   video?: {
     data: IVideo
   }
-  city?: {
-    data: ICity
-  }
   neighborhood?: {
     data: INeighborhood
   }
@@ -167,6 +164,9 @@ export interface INeighborhood {
   idCidade?: string
   created_at?: string
   updated_at?: string
+  city?: {
+    data: ICity
+  }
 }
 
 /**
@@ -179,29 +179,33 @@ type StatusProperty =
   | 'Suspenso'
   | 'Vendendo'
   | 'Vendido'
-  | 'Vendido por outro agente'
-type CategoriaProperty = 'Comercial' | 'Industrial' | 'Residencial' | 'Rural'
-type TipoProperty =
-  | 'Apartamento'
-  | 'Apartamento Cobertura'
-  | 'Área'
-  | 'Bangalô'
-  | 'Barracão'
-  | 'Casa Alvenaria/Sobrado'
-  | 'Casa Alvenaria'
-  | 'Casa Geminada'
-  | 'Casa Mista'
-  | 'Chácara'
-  | 'Chalé'
-  | 'Edícula'
-  | 'Flat'
-  | 'Fazenda'
-  | 'Galpão'
-  | 'Kitnet'
-  | 'Loft'
-  | 'Prédio'
-  | 'Sala Comercial'
-  | 'Sítio'
-  | 'Sobrado'
-  | 'Terreno'
-type NascerDoSolProperty = 'Frente' | 'Fundos' | 'Direita' | 'Esquerda'
+  | 'Vendido por outro agente';
+
+type CategoriaProperty = 'Comercial' | 'Industrial' | 'Residencial' | 'Rural';
+
+export enum TypeProperty {
+  Apartamento = 'Apartamento',
+  ApartamentoCobertura = 'Apartamento Cobertura',
+  Area = 'Área',
+  Bangalo = 'Bangalô',
+  Barracao = 'Barracão',
+  CasaAlvenariaSobrado = 'Casa Alvenaria/Sobrado',
+  CasaAlvenaria = 'Casa Alvenaria',
+  CasaGeminada = 'Casa Geminada',
+  CasaMista = 'Casa Mista',
+  Chacara = 'Chácara',
+  Chale = 'Chalé',
+  Edicula = 'Edícula',
+  Flat = 'Flat',
+  Fazenda = 'Fazenda',
+  Galpao = 'Galpão',
+  Kitnet = 'Kitnet',
+  Loft = 'Loft',
+  Predio = 'Prédio',
+  SalaComercial = 'Sala Comercial',
+  Sitio = 'Sítio',
+  Sobrado = 'Sobrado',
+  Terreno = 'Terreno',
+}
+
+type NascerDoSolProperty = 'Frente' | 'Fundos' | 'Direita' | 'Esquerda';
