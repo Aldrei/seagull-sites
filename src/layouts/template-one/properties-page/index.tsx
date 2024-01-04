@@ -7,8 +7,13 @@ import { IMAGES } from '@/images/template-one'
 import { FilterContainer, PageContainer, ResultContainer } from './styles'
 
 export const PropertiesPage: React.FC<IPropertiesPageProps> = ({
-  properties,
+  data
 }) => {
+  console.log('DEBUG data:', data);
+
+  const properties = data?.data?.paginate?.data;
+  console.log('DEBUG properties:', properties);
+
   return (
     <>
       <Head>
@@ -22,7 +27,7 @@ export const PropertiesPage: React.FC<IPropertiesPageProps> = ({
       <Header title="TEMPLATE-ONE" logo={IMAGES.LOGO} />
       <PageContainer>
         <FilterContainer>
-          <FilterTabs />
+          <FilterTabs filterOptions={{}} />
         </FilterContainer>
         <ResultContainer>
           <GridOne>

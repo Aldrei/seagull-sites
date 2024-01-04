@@ -25,7 +25,8 @@
       "@images": ["./src/images/*"],
       "@mocks": ["./src/mocks/*"],
       "@utils": ["./src/utils/*"],
-      "@pages": ["./src/pages/*"]
+      "@pages": ["./src/pages/*"],
+      "@services": ["./src/services/*"],
     },
     "incremental": true,
     "plugins": [

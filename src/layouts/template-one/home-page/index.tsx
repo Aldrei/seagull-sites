@@ -17,6 +17,7 @@ import { FeaturesContainer, FilterTabsContainer } from './styles'
 
 export const HomePage: React.FC<PropsWithChildren<IHomeProps>> = ({
   slideData,
+  filterOptions,
 }: PropsWithChildren<IHomeProps>) => {
   const { banners } = slideData || {}
 
@@ -29,7 +30,7 @@ export const HomePage: React.FC<PropsWithChildren<IHomeProps>> = ({
       <Header title="TEMPLATE-ONE" logo={IMAGES.LOGO} />
       <SlideOne banners={banners} />
       <FilterTabsContainer>
-        <FilterTabs />
+        <FilterTabs filterOptions={filterOptions} />
       </FilterTabsContainer>
       <FeaturesContainer>
         <BoxOne property={propertyMock} orientation="row" />
