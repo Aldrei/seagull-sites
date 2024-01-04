@@ -1,4 +1,4 @@
-import { getPhotoProperty } from '@/utils'
+import { getPhotoProperty, shouldShowBedroomInfo, shouldShowBuildedArea, shouldShowGarageInfo, shouldShowTotalArea } from '@/utils'
 import React from 'react'
 import {
   Button,
@@ -6,6 +6,7 @@ import {
   Content,
   Description,
   Image,
+  ImageContainer,
   Info,
   InfoItem,
   LocationIcon,
@@ -24,25 +25,33 @@ export const BoxCommon: React.FC<IBoxCommon> = ({
 
   return (
     <Card $orientation={orientation} {...props}>
-      <Image
-        src={String(getPhotoProperty(property, 'thumb'))}
-        alt={property.title}
-      />
       <Price className="price">{`Cód ${property.code} - ${property.valor}`}</Price>
+      <ImageContainer>
+        <Image
+          src={String(getPhotoProperty(property, 'thumb'))}
+          alt={property.title}
+        />
+      </ImageContainer>
       <Content>
         <Title className="title">{property.title}</Title>
         <Subtitle>
-          <LocationIcon /> {property?.city?.data?.name},{' '}
+          <LocationIcon /> {property?.neighborhood?.data?.city?.data?.long_desc},{' '}
           {property?.neighborhood?.data?.nome}
         </Subtitle>
         <Description>{property.descGeral}</Description>
         <Info>
-          <InfoItem>
+          {shouldShowTotalArea(property) && (<InfoItem>
             {property.areaTotal}
             <span>m²</span>
-          </InfoItem>
-          <InfoItem>{property.garagem} carro(s)</InfoItem>
-          <InfoItem>{property.dormitorio} dorm(s)</InfoItem>
+            <span className='total-area'>Total</span>
+          </InfoItem>)}
+          {shouldShowBuildedArea(property) && (<InfoItem>
+            {property.areaConstruida}
+            <span>m²</span>
+            <span className='total-area'>Const.</span>
+          </InfoItem>)}
+          {shouldShowGarageInfo(property) && (<InfoItem>{property.garagem} carro(s)</InfoItem>)}
+          {shouldShowBedroomInfo(property) && (<InfoItem>{property.dormitorio} dorm(s)</InfoItem>)}
         </Info>
         <Button className="go-button">Conhecer +</Button>
       </Content>

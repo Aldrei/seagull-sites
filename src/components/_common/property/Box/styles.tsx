@@ -8,6 +8,7 @@ export const Card = styled('div')<{ $orientation?: 'column' | 'row' }>`
   background: #fff;
   overflow: hidden;
   box-shadow: 0 4px 8px ${props => props.theme.color.thirdRgba};
+  justify-content: space-between;
 
   ${props =>
     props.$orientation === 'row' &&
@@ -43,13 +44,23 @@ export const Card = styled('div')<{ $orientation?: 'column' | 'row' }>`
     `}
 `
 
+export const ImageContainer = styled.div`
+  display: flex;
+  height: 265px;
+`
+
 export const Image = styled.img`
   width: 100%;
-  height: auto;
+  height: 265px;
   object-fit: cover;
 `
 
-export const Content = styled.div``
+export const Content = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`
 
 export const Price = styled.div`
   display: flex;
@@ -72,8 +83,8 @@ export const Title = styled.h3`
   border-bottom: calc(${props => props.theme.spaces.xs} / 2) solid
     ${props => props.theme.color.second};
   padding: ${props => props.theme.spaces.md};
-  margin: ${props => props.theme.spaces.md};
-  margin-bottom: calc(${props => props.theme.spaces.md}*2);
+  margin: ${props => props.theme.spaces.xs};
+  /* margin-bottom: calc(${props => props.theme.spaces.md}*2); */
 `
 
 export const Subtitle = styled.p`
@@ -81,8 +92,8 @@ export const Subtitle = styled.p`
   align-items: center;
   font-size: 16px;
   color: #666;
-  margin: ${props => props.theme.spaces.md};
-  margin-bottom: ${props => props.theme.spaces.md};
+  margin: 0 ${props => props.theme.spaces.md};
+  /* margin-bottom: ${props => props.theme.spaces.md}; */
 `
 
 export const Description = styled.p`
@@ -103,18 +114,26 @@ export const Info = styled.div`
   display: flex;
   justify-content: flex-start;
   padding: 8px 0;
-  border-bottom: 1px solid #eee;
 `
 
 export const InfoItem = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
+  justify-content: right;
   color: #000;
   font-weight: bold;
   font-size: calc(${props => props.theme.spaces.xs}*2);
   padding: ${props => props.theme.spaces.sm} ${props => props.theme.spaces.xs};
   border-top: 2px solid ${props => props.theme.color.first};
   margin-right: ${props => props.theme.spaces.xs};
+
+  span.total-area {
+    position: absolute;
+    bottom: 4px;
+    font-size: ${props => props.theme.spaces.xs};
+    color: ${props => props.theme.color.fifth};
+  }
 `
 
 export const Icon = styled.span`
