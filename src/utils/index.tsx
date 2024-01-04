@@ -1,4 +1,4 @@
-import { IPhoto, IProperty } from '@/types/property'
+import { IPhoto, IProperty, TypeProperty } from '@/types/property'
 
 export const isServer = () => typeof window === 'undefined'
 
@@ -73,4 +73,45 @@ export const getHostname = () => {
     console.log(error);
     
   }
+}
+
+export const shouldShowGarageInfo = (property: IProperty) => {
+  const invalidTypes = new Array<TypeProperty>();
+
+  invalidTypes.push(TypeProperty.Terreno);
+  invalidTypes.push(TypeProperty.Area);
+
+  if (invalidTypes.includes(property.tipo)) return false;
+  if (!Number(property?.garagem)) return false;
+
+  return true;
+}
+
+export const shouldShowBedroomInfo = (property: IProperty) => {
+  const invalidTypes = new Array<TypeProperty>();
+
+  invalidTypes.push(TypeProperty.Terreno);
+  invalidTypes.push(TypeProperty.Area);
+
+  if (invalidTypes.includes(property.tipo)) return false;
+  if (!Number(property?.dormitorio)) return false;
+  
+  return true;
+}
+
+export const shouldShowBuildedArea = (property: IProperty) => {
+  const invalidTypes = new Array<TypeProperty>();
+
+  invalidTypes.push(TypeProperty.Terreno);
+  invalidTypes.push(TypeProperty.Area);
+
+  if (invalidTypes.includes(property.tipo)) return false;
+  if (!property.areaConstruida) return false;
+  
+  return true;
+}
+
+export const shouldShowTotalArea = (property: IProperty) => {
+  if (!property.areaTotal) return false;
+  return true;
 }
