@@ -1,10 +1,9 @@
+
 export interface ISelectCommon {
-  options: IOptions[]
-  name?: string
   label?: string
 }
 
-type IOptions = {
+export type IOption = {
   label: string
   value: any
 }
