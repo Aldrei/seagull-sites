@@ -1,4 +1,5 @@
-import { IFilterSelected } from '@/types/filter'
+import { IOption } from '@/components/_common/Select/types'
+import { IFilterSelected, IGroupedOption } from '@/types/filter'
 import { IPhoto, IProperty, TypeProperty } from '@/types/property'
 
 export const isServer = () => typeof window === 'undefined'
@@ -32,7 +33,7 @@ interface IPropertiesPage {
 
 export const buildPropertiesFilteredParams = ({
   query,
-}: IPropertiesPage): string => {
+}: IPropertiesPage): URLSearchParams => {
   const states = buildParam(query?.['states[]'] as string[])
   const cities = buildParam(query?.['cities[]'] as string[])
   const neighborhoods = buildParam(query?.['neighborhoods[]'] as string[])
@@ -58,7 +59,7 @@ export const buildPropertiesFilteredParams = ({
   if (priceMax) queryString.append('priceMax', priceMax)
   if (orderBy) queryString.append('orderBy', orderBy)
 
-  return queryString.toString()
+  return queryString
 }
 
 export const buildParam = (arr: string[]) => {
@@ -150,4 +151,63 @@ export const shouldShowBuildedArea = (property: IProperty) => {
 export const shouldShowTotalArea = (property: IProperty) => {
   if (!property.areaTotal) return false
   return true
+}
+
+export const buildQueryStrToSelectedOptions = (queryParams: URLSearchParams) => {
+  try {
+    const queryParamsObj = {} as any
+
+    for (const [originalKey, value] of queryParams.entries()) {
+      const key = originalKey.replace('[]', '')
+      
+      if (!queryParamsObj?.[key]?.length) {
+        queryParamsObj[key] = [value]
+      } else {
+        queryParamsObj[key].push(value);
+      }
+    }
+
+    return queryParamsObj;
+  } catch (error) {
+    console.log(error);
+    return []
+  }
+}
+
+export const buildObjArrToGroupedSelect = (data: Object, labelFlag: any, valueFlag: any) => {
+  try {
+    const groupedOptions: IGroupedOption[] = []
+
+    if (data) {
+      Object.entries(data).map(item => {
+        groupedOptions.push({
+          label: item[0],
+          options: Array.from(item[1] as []).map((item: any) => ({
+            value: item[valueFlag],
+            label: item[labelFlag],
+          })),
+        })
+      })
+    }
+
+    return groupedOptions
+  } catch (error) {
+    console.log(error)
+    return []
+  }
+}
+
+export const buildOptionsFromSelectedOptionsByApi = (options: IOption[], selectedOptions: any[]) => {
+  return options.filter((item: any) => selectedOptions?.includes(String(item.value) as any))
+}
+
+export const buildGroupedOptionsFromSelectedOptionsByApi = (options: IGroupedOption[], selectedOptions: any[]) => {
+  const result: IOption[] = []
+  if (options)
+    options.forEach((item: IGroupedOption) => {
+      item.options.forEach((item) => {
+        if (selectedOptions?.includes(String(item.value) as any)) result.push(item);
+      })
+    })
+  return result
 }

@@ -3,6 +3,19 @@ import { IOption } from '@/components/_common/Select/types'
 export interface IFilterOptionsInitial {
   statesOptions?: any
   generalOptions?: any
+  selectedOptions?: IOptionsSelectedFromApi
+  options?: IFilterOptions
+}
+
+export interface IOptionsSelectedFromApi {
+  states: any[]
+  cities: any[]
+  neighborhoods: any[]
+  types: any[]
+  bedrooms: any[]
+  garages: any[]
+  priceMin: any
+  priceMax: any
 }
 
 export interface IFilterSelected {

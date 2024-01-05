@@ -10,10 +10,7 @@ export const PropertiesPage: React.FC<IPropertiesPageProps> = ({
   data,
   filterOptionsInitial,
 }) => {
-  console.log('DEBUG data:', data)
-
   const properties = data?.data?.paginate?.data
-  console.log('DEBUG properties:', properties)
 
   return (
     <>

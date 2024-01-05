@@ -4,8 +4,8 @@ import { SelectCommon } from '@/components/_common'
 
 import { ButtonOne } from '@/components/template-one/Button'
 import { listCitiesLocal, listNeighborhoodLocal } from '@/services'
-import { IFilterOptions, IFilterSelected, IGroupedOption } from '@/types/filter'
-import { buildFilterOptions } from '@/utils'
+import { IFilterOptions, IFilterSelected } from '@/types/filter'
+import { buildFilterOptions, buildGroupedOptionsFromSelectedOptionsByApi, buildObjArrToGroupedSelect, buildOptionsFromSelectedOptionsByApi } from '@/utils'
 import { useRouter } from 'next/router'
 import { Column, FormWrapper, Row, formatGroupLabel } from './styled'
 import { IFilterAdvancedOne } from './types'
@@ -20,17 +20,25 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
   /**
    * Initial Options
    */
-  const [filterSelected, setFilterSelected] = useState<IFilterSelected>()
-
-  const initialStates = filterOptionsInitial?.statesOptions?.data || []
   const {
+    states: initialStates,
+    cities: initialCities,
+    neighborhoods: initialNeighborhoods,
     types: initialTypes,
     bedrooms: initialBedrooms,
     garages: initialGarages,
-  } = filterOptionsInitial?.generalOptions?.data?.options || {}
+  } = filterOptionsInitial?.options || {}
 
-  const states = initialStates.length
+  const states = initialStates?.length
     ? initialStates.map((item: any) => ({ value: item.id, label: item.abbr }))
+    : []
+    // *Grouped options, doesn't have length flag
+  const cities = initialCities
+    ? buildObjArrToGroupedSelect(initialCities, 'name', 'id')
+    : []
+  // *Grouped options, doesn't have length flag
+  const neighborhoods = initialNeighborhoods
+    ? buildObjArrToGroupedSelect(initialNeighborhoods, 'name', 'id')
     : []
   const types = initialTypes?.length
     ? initialTypes.map((item: any) => ({ value: item.tipo, label: item.tipo }))
@@ -47,28 +55,53 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
         label: item.garagem,
       }))
     : []
+  const price = [
+    { value: '0-300000', label: 'até R$300.000,00' },
+    { value: '300000-1000000', label: 'dê R$300.000,00 até R$1.000.000,00' },
+    {
+      value: '1000000-1900000',
+      label: 'dê R$1.000.000,00 até R$1.900.000,00',
+    },
+    {
+      value: '1900000-2500000',
+      label: 'dê R$1.900.000,00 até R$2.500.000,00',
+    },
+    { value: '2500000-1000000000', label: 'acima de R$2.500.000,00' },
+  ]
 
   const [filterOptions, setFilterOptions] = useState<IFilterOptions>({
     states: states,
-    cities: [] as IGroupedOption[],
-    neighborhoods: [] as IGroupedOption[],
+    cities: cities,
+    neighborhoods: neighborhoods,
     bedrooms: bedrooms,
     garages: garages,
     types: types,
-    prices: [
-      { value: '0-300000', label: 'até R$300.000,00' },
-      { value: '300000-1000000', label: 'dê R$300.000,00 até R$1.000.000,00' },
-      {
-        value: '1000000-1900000',
-        label: 'dê R$1.000.000,00 até R$1.900.000,00',
-      },
-      {
-        value: '1900000-2500000',
-        label: 'dê R$1.900.000,00 até R$2.500.000,00',
-      },
-      { value: '2500000-1000000000', label: 'acima de R$2.500.000,00' },
-    ],
+    prices: price,
   } as IFilterOptions)
+
+  /**
+   * Initial Selected Options
+   */
+  const {
+    states: selectedStates,
+    cities: selectedCities,
+    neighborhoods: selectedNeighborhoods,
+    types: selectedTypes,
+    bedrooms: selectedBedrooms,
+    garages: selectedGarages,
+    priceMin: selectedPriceMin,
+    priceMax: selectedPriceMax,
+  } = filterOptionsInitial?.selectedOptions || {}
+
+  const [filterSelected, setFilterSelected] = useState<IFilterSelected>({
+    types: buildOptionsFromSelectedOptionsByApi(types, selectedTypes as any[]),
+    bedrooms: buildOptionsFromSelectedOptionsByApi(bedrooms, selectedBedrooms as any[]),
+    garages: buildOptionsFromSelectedOptionsByApi(garages, selectedGarages as any[]),
+    states: buildOptionsFromSelectedOptionsByApi(states, selectedStates as any[]),
+    cities: buildGroupedOptionsFromSelectedOptionsByApi(cities, selectedCities as any[]),
+    neighborhoods: buildGroupedOptionsFromSelectedOptionsByApi(neighborhoods, selectedNeighborhoods as any[]),
+    price: price.find((item) => item.value === `${selectedPriceMin}-${selectedPriceMax}`)
+  } as IFilterSelected)
 
   /**
    * Changing Options
@@ -78,23 +111,9 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
     const handleListCities = async () => {
       const response = await listCitiesLocal()
 
-      const groupedOptions: IGroupedOption[] = []
-
-      if (response?.cities) {
-        Object.entries(response.cities.data).map(item => {
-          groupedOptions.push({
-            label: item[0],
-            options: Array.from(item[1] as []).map((item: any) => ({
-              value: item.id,
-              label: item.name,
-            })),
-          })
-        })
-      }
-
       setFilterOptions({
         ...filterOptions,
-        cities: groupedOptions,
+        cities: buildObjArrToGroupedSelect(response?.cities?.data, 'name', 'id'),
         neighborhoods: [],
       })
     }
@@ -106,22 +125,7 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
   useEffect(() => {
     const handleChange = async () => {
       const response = await listNeighborhoodLocal()
-
-      const groupedOptions: IGroupedOption[] = []
-
-      if (response?.neighborhoods) {
-        Object.entries(response.neighborhoods.data).map(item => {
-          groupedOptions.push({
-            label: item[0],
-            options: Array.from(item[1] as []).map((item: any) => ({
-              value: item.id,
-              label: item.name,
-            })),
-          })
-        })
-      }
-
-      setFilterOptions({ ...filterOptions, neighborhoods: groupedOptions })
+      setFilterOptions({ ...filterOptions, neighborhoods: buildObjArrToGroupedSelect(response?.neighborhoods?.data, 'name', 'id') })
     }
 
     if (filterSelected?.cities?.length) handleChange()
@@ -181,16 +185,13 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
     } as IFilterSelected)
   }
 
-  console.log('DEBUG -> filterOptions:', filterOptions)
-  console.log('DEBUG -> filterSelected:', filterSelected)
-
   /**
    * Submit.
    */
   const handleSubmit = () => {
     try {
       const buildedUrl = buildFilterOptions(filterSelected as IFilterSelected)
-      router.push(`/c?${buildedUrl}`)
+      router.push(`/c${buildedUrl ? `?${buildedUrl}` : ''}`)
     } catch (error) {
       console.log(error)
     }

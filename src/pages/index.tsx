@@ -1,21 +1,24 @@
 import { HomePage } from '@layouts/index'
 
 import { mockedBanners } from '@/mocks/slide'
-import { listGeneralOptions, listStateOptions } from '@/services'
+import { listPropertiesFiltered } from '@/services'
 import { IHomeProps } from './types'
 
 export async function getServerSideProps() {
+  /**
+   * TODO: Get banner by API...
+  */
   const dataBanners = [...mockedBanners]
 
-  const [statesOptions, generalOptions] = await Promise.all([
-    listStateOptions(),
-    listGeneralOptions(),
-  ])
+  const propertiesList = await listPropertiesFiltered('')
+
+  const options = propertiesList?.data?.search?.options
+  const selectedOptions = propertiesList?.data?.search?.values_selected
 
   return {
     props: {
       slideData: { banners: dataBanners },
-      filterOptions: { statesOptions, generalOptions },
+      filterOptionsInitial: { options, selectedOptions },
     },
   }
 }

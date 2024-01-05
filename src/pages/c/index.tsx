@@ -1,28 +1,23 @@
 import { PropertiesPage } from '@/layouts'
 import {
-  listGeneralOptions,
-  listPropertiesFiltered,
-  listStateOptions,
+  listPropertiesFiltered
 } from '@/services'
 import { buildPropertiesFilteredParams } from '@/utils'
 import { GetServerSideProps } from 'next'
 import { ICPage } from './types'
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
-  const buildedUrl = buildPropertiesFilteredParams({ query: context.query })
+  const queryParams = buildPropertiesFilteredParams({ query: context.query }) 
 
-  const [statesOptions, generalOptions, responseProperties] = await Promise.all(
-    [
-      listStateOptions(),
-      listGeneralOptions(),
-      listPropertiesFiltered(buildedUrl),
-    ],
-  )
+  const propertiesList = await listPropertiesFiltered(queryParams.toString())
+
+  const options = propertiesList?.data?.search?.options
+  const selectedOptions = propertiesList?.data?.search?.values_selected
 
   return {
     props: {
-      data: responseProperties || null,
-      filterOptions: { statesOptions, generalOptions },
+      data: propertiesList || null,
+      filterOptionsInitial: {  options, selectedOptions },
     },
   }
 }
