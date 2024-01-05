@@ -7,7 +7,8 @@ import { IMAGES } from '@/images/template-one'
 import { FilterContainer, PageContainer, ResultContainer } from './styles'
 
 export const PropertiesPage: React.FC<IPropertiesPageProps> = ({
-  data
+  data,
+  filterOptionsInitial
 }) => {
   console.log('DEBUG data:', data);
 
@@ -27,7 +28,7 @@ export const PropertiesPage: React.FC<IPropertiesPageProps> = ({
       <Header title="TEMPLATE-ONE" logo={IMAGES.LOGO} />
       <PageContainer>
         <FilterContainer>
-          <FilterTabs filterOptions={{}} />
+          <FilterTabs filterOptionsInitial={filterOptionsInitial} />
         </FilterContainer>
         <ResultContainer>
           <GridOne>

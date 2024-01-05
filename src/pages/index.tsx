@@ -2,7 +2,6 @@ import { HomePage } from '@layouts/index';
 
 import { mockedBanners } from '@/mocks/slide';
 import { listGeneralOptions, listStateOptions } from '@/services';
-import { IGlobalPage } from '@/types/pages';
 import { IHomeProps } from './types';
 
 export async function getServerSideProps() {
@@ -19,9 +18,9 @@ export async function getServerSideProps() {
   } }
 }
 
-export default function Home({ children, slideData, filterOptions }: IHomeProps & IGlobalPage) {
+export default function Home({ children, slideData, filterOptionsInitial }: IHomeProps) {
   console.log('DEBUG Home page slideData:', slideData);
-  console.log('DEBUG Home filterOptions:', filterOptions);
+  console.log('DEBUG Home filterOptionsInitial:', filterOptionsInitial);
 
-  return <HomePage slideData={slideData} filterOptions={filterOptions}>{children}</HomePage>
+  return <HomePage slideData={slideData} filterOptionsInitial={filterOptionsInitial}>{children}</HomePage>
 }

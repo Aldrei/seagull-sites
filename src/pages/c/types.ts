@@ -1,5 +1,6 @@
+import { IFilterOptionsInitial } from "@/types/filter"
+
 export interface ICPage {
   data?: any
-  url?: any
-  anyFuckingProps: any
+  filterOptionsInitial: IFilterOptionsInitial
 }

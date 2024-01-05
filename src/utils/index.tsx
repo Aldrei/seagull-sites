@@ -1,3 +1,4 @@
+import { IFilterSelected } from '@/types/filter'
 import { IPhoto, IProperty, TypeProperty } from '@/types/property'
 
 export const isServer = () => typeof window === 'undefined'
@@ -63,6 +64,25 @@ export const buildParam = (arr: string[]) => {
     console.log(error);
     return [];
   }
+}
+
+export const buildFilterOptions = (filterSeleted: IFilterSelected): string => {
+  const queryString = new URLSearchParams();
+
+  if (filterSeleted?.states?.length) filterSeleted.states.map(item => queryString.append('states[]', item.value));
+  if (filterSeleted?.cities?.length) filterSeleted.cities.map(item => queryString.append('cities[]', item.value));
+  if (filterSeleted?.neighborhoods?.length) filterSeleted.neighborhoods.map(item => queryString.append('neighborhoods[]', item.value));
+  if (filterSeleted?.types?.length) filterSeleted.types.map(item => queryString.append('types[]', item.value));
+  if (filterSeleted?.bedrooms?.length) filterSeleted.bedrooms.map(item => queryString.append('bedrooms[]', item.value));
+  if (filterSeleted?.garages?.length) filterSeleted.garages.map(item => queryString.append('garages[]', item.value));
+  if (filterSeleted?.price?.value) {
+    queryString.append('priceMin', filterSeleted.price.value.split('-')[0]);
+    queryString.append('priceMax',  filterSeleted.price.value.split('-')[1]);
+  }
+  
+  // if (filterSeleted.orderBy) queryString.append('orderBy', orderBy);
+
+  return queryString.toString()
 }
 
 export const getHostname = () => {

@@ -1,24 +1,27 @@
 import { PropertiesPage } from '@/layouts'
-import { listPropertiesFiltered } from '@/services'
+import { listGeneralOptions, listPropertiesFiltered, listStateOptions } from '@/services'
 import { buildPropertiesFilteredParams } from '@/utils'
 import { GetServerSideProps } from 'next'
 import { ICPage } from './types'
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
-  // const pageProps = MyApp.getInitialProps(context)
+  const buildedUrl = buildPropertiesFilteredParams({ query: context.query });
 
-  const query = context.query || null
+  const [statesOptions, generalOptions, responseProperties] = await Promise.all([
+    listStateOptions(),
+    listGeneralOptions(),
+    listPropertiesFiltered(buildedUrl)
+  ]);
 
-  const buildedUrl = buildPropertiesFilteredParams({ query });
-  const response = await listPropertiesFiltered(buildedUrl);
-
-  return { props: { data: response || null, url: { buildedUrl }, anyFuckingProps: {} } }
+  return { props: {
+    data: responseProperties || null, 
+    filterOptions: { statesOptions, generalOptions }
+  } }
 }
 
-export default function Page({ data, url, anyFuckingProps }: ICPage) {
-  console.log('DEBUG url:', url)
-  console.log('DEBUG data(response):', data)
-  console.log('DEBUG anyFuckingProps:', anyFuckingProps)
+export default function Page({ data, filterOptionsInitial }: ICPage) {
+  console.log('DEBUG data(response):', data);
+  console.log('DEBUG filterOptionsInitial:', filterOptionsInitial);
 
-  return <PropertiesPage data={data} />
+  return <PropertiesPage data={data} filterOptionsInitial={filterOptionsInitial} />
 }

@@ -1,3 +1,5 @@
+import { IFilterOptionsInitial } from "@/types/filter";
+
 export interface IGlobalPage {
-  filterOptions: any
+  filterInitial: IFilterOptionsInitial
 }

@@ -3,15 +3,15 @@ import { FilterAdvanced, Tab } from '@/components/template-one'
 import { TabType } from '@/components/_common/Tab/types'
 import { SearchOne } from '@/components/template-one/filter/Search'
 
-import { IFilterOptions } from '@/types/filter'
 import { Container } from './styles'
+import { ITabsOne } from './types'
 
-export const Tabs: React.FC<IFilterOptions> = ({ filterOptions }) => {
+export const Tabs: React.FC<ITabsOne> = ({ filterOptionsInitial }) => {
   const tabs: TabType[] = [
     {
       id: 0,
       title: 'Filtrar Imóveis',
-      content: <FilterAdvanced filterOptions={filterOptions} />,
+      content: <FilterAdvanced filterOptionsInitial={filterOptionsInitial} />,
     },
     {
       id: 1,

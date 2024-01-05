@@ -5,11 +5,13 @@ import { SelectCommon } from '@/components/_common'
 import { ButtonOne } from '@/components/template-one/Button'
 import { listCitiesLocal, listNeighborhoodLocal } from '@/services'
 import { IFilterOptions, IFilterSelected, IGroupedOption } from '@/types/filter'
+import { buildFilterOptions } from '@/utils'
 import { useRouter } from 'next/router'
 import { Column, FormWrapper, Row, formatGroupLabel } from './styled'
+import { IFilterAdvancedOne } from './types'
 
-export const FilterAdvanced: React.FC<IFilterOptions> = ({ filterOptions: filterOptionsParams }): React.ReactElement => {
-  console.log('DEBUG -> filterOptionsParams:', filterOptionsParams);
+export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({ filterOptionsInitial }): React.ReactElement => {
+  console.log('DEBUG -> filterOptionsInitial:', filterOptionsInitial);
 
   const router = useRouter();
 
@@ -18,16 +20,16 @@ export const FilterAdvanced: React.FC<IFilterOptions> = ({ filterOptions: filter
   */
   const [filterSelected, setFilterSelected] = useState<IFilterSelected>();
 
-  const initialStates = filterOptionsParams?.statesOptions?.data || []
+  const initialStates = filterOptionsInitial?.statesOptions?.data || []
   const { 
     types: initialTypes, 
     bedrooms: initialBedrooms, 
     garages: initialGarages 
-  } = filterOptionsParams?.generalOptions?.data?.options || {}
+  } = filterOptionsInitial?.generalOptions?.data?.options || {}
 
   const states = initialStates.length ? initialStates.map((item: any) => ({ value: item.id, label: item.abbr })) : [];
   const types = initialTypes?.length ? initialTypes.map((item: any) => ({ value: item.tipo, label: item.tipo })) : [];
-  const bedrooms = initialBedrooms.length ? initialBedrooms.map((item: any) => ({ value: item.dormitorio, label: item.dormitorio })) : [];
+  const bedrooms = initialBedrooms?.length ? initialBedrooms.map((item: any) => ({ value: item.dormitorio, label: item.dormitorio })) : [];
   const garages = initialGarages?.length ? initialGarages.map((item: any) => ({ value: item.garagem, label: item.garagem })) : [];
 
   const [filterOptions, setFilterOptions] = useState<IFilterOptions>({
@@ -155,9 +157,8 @@ export const FilterAdvanced: React.FC<IFilterOptions> = ({ filterOptions: filter
   */
   const handleSubmit = () => {
     try {
-      const mockedUrl = '/c?states%5B%5D=43&states%5B%5D=42&cities%5B%5D=5300112&cities%5B%5D=5300112&cities%5B%5D=5300113&neighborhoods%5B%5D=190&neighborhoods%5B%5D=191&types%5B%5D=Apartamento&types%5B%5D=Apartamento+Cobertura&bedrooms%5B%5D=1&bedrooms%5B%5D=3&garages%5B%5D=2&garages%5B%5D=4&priceMin=300000&priceMax=1000000&orderBy=created_at%40DESC%5B%5D=5300112&neighborhoods%5B%5D=190&types%5B%5D=Apartamento&bedrooms%5B%5D=1&garages%5B%5D=2&priceMin=300000&priceMax=1000000';
-
-      router.push(mockedUrl);
+      const buildedUrl = buildFilterOptions(filterSelected as IFilterSelected);
+      router.push(`/c?${buildedUrl}`);
     } catch (error) {
       console.log(error);
     }

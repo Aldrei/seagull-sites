@@ -1,10 +1,8 @@
 import { IOption } from "@/components/_common/Select/types"
 
-export interface IFilterOptions {
-  filterOptions: {
-    statesOptions?: any
-    generalOptions?: any
-  }
+export interface IFilterOptionsInitial {
+  statesOptions?: any
+  generalOptions?: any
 }
 
 export interface IFilterSelected {
@@ -14,7 +12,7 @@ export interface IFilterSelected {
   types: IOption[]
   bedrooms: IOption[]
   garages: IOption[]
-  price: IOption[]
+  price: IOption
 }
 
 export interface IFilterOptions {
