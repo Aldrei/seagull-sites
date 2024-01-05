@@ -1,4 +1,10 @@
-import { getPhotoProperty, shouldShowBedroomInfo, shouldShowBuildedArea, shouldShowGarageInfo, shouldShowTotalArea } from '@/utils'
+import {
+  getPhotoProperty,
+  shouldShowBedroomInfo,
+  shouldShowBuildedArea,
+  shouldShowGarageInfo,
+  shouldShowTotalArea,
+} from '@/utils'
 import React from 'react'
 import {
   Button,
@@ -35,23 +41,31 @@ export const BoxCommon: React.FC<IBoxCommon> = ({
       <Content>
         <Title className="title">{property.title}</Title>
         <Subtitle>
-          <LocationIcon /> {property?.neighborhood?.data?.city?.data?.long_desc},{' '}
-          {property?.neighborhood?.data?.nome}
+          <LocationIcon /> {property?.neighborhood?.data?.city?.data?.long_desc}
+          , {property?.neighborhood?.data?.nome}
         </Subtitle>
         <Description>{property.descGeral}</Description>
         <Info>
-          {shouldShowTotalArea(property) && (<InfoItem>
-            {property.areaTotal}
-            <span>m²</span>
-            <span className='total-area'>Total</span>
-          </InfoItem>)}
-          {shouldShowBuildedArea(property) && (<InfoItem>
-            {property.areaConstruida}
-            <span>m²</span>
-            <span className='total-area'>Const.</span>
-          </InfoItem>)}
-          {shouldShowGarageInfo(property) && (<InfoItem>{property.garagem} carro(s)</InfoItem>)}
-          {shouldShowBedroomInfo(property) && (<InfoItem>{property.dormitorio} dorm(s)</InfoItem>)}
+          {shouldShowTotalArea(property) && (
+            <InfoItem>
+              {property.areaTotal}
+              <span>m²</span>
+              <span className="total-area">Total</span>
+            </InfoItem>
+          )}
+          {shouldShowBuildedArea(property) && (
+            <InfoItem>
+              {property.areaConstruida}
+              <span>m²</span>
+              <span className="total-area">Const.</span>
+            </InfoItem>
+          )}
+          {shouldShowGarageInfo(property) && (
+            <InfoItem>{property.garagem} carro(s)</InfoItem>
+          )}
+          {shouldShowBedroomInfo(property) && (
+            <InfoItem>{property.dormitorio} dorm(s)</InfoItem>
+          )}
         </Info>
         <Button className="go-button">Conhecer +</Button>
       </Content>

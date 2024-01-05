@@ -1,4 +1,4 @@
-import { IOption } from "@/components/_common/Select/types"
+import { IOption } from '@/components/_common/Select/types'
 
 export interface IFilterOptionsInitial {
   statesOptions?: any
@@ -26,6 +26,6 @@ export interface IFilterOptions {
 }
 
 export interface IGroupedOption {
-  label: string;
-  options: IOption[];
+  label: string
+  options: IOption[]
 }

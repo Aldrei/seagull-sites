@@ -1,4 +1,3 @@
-
 export interface ISelectCommon {
   label?: string
 }

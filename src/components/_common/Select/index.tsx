@@ -13,7 +13,7 @@ export const SelectCommon: React.FC<ISelectCommon & Props> = ({
   onChange,
   isMulti,
   isDisabled,
-  className
+  className,
 }): React.ReactElement => {
   return (
     <Container className={className}>
@@ -28,10 +28,10 @@ export const SelectCommon: React.FC<ISelectCommon & Props> = ({
         isMulti={isMulti}
         isDisabled={isDisabled}
         styles={{
-          option: (styles) => ({
+          option: styles => ({
             ...styles,
-            color: '#000'
-          })
+            color: '#000',
+          }),
         }}
       />
     </Container>

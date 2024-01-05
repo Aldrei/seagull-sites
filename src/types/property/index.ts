@@ -179,9 +179,9 @@ type StatusProperty =
   | 'Suspenso'
   | 'Vendendo'
   | 'Vendido'
-  | 'Vendido por outro agente';
+  | 'Vendido por outro agente'
 
-type CategoriaProperty = 'Comercial' | 'Industrial' | 'Residencial' | 'Rural';
+type CategoriaProperty = 'Comercial' | 'Industrial' | 'Residencial' | 'Rural'
 
 export enum TypeProperty {
   Apartamento = 'Apartamento',
@@ -208,4 +208,4 @@ export enum TypeProperty {
   Terreno = 'Terreno',
 }
 
-type NascerDoSolProperty = 'Frente' | 'Fundos' | 'Direita' | 'Esquerda';
+type NascerDoSolProperty = 'Frente' | 'Fundos' | 'Direita' | 'Esquerda'

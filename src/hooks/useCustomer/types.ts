@@ -76,7 +76,7 @@ export interface ICustomerData {
   }
   layout: {
     nav: string
-  },
+  }
   infos?: {
     times?: string
   }

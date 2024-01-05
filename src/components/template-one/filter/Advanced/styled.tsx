@@ -1,4 +1,4 @@
-import { CSSProperties, styled } from 'styled-components';
+import { CSSProperties, styled } from 'styled-components'
 
 export const FormWrapper = styled.div``
 
@@ -25,12 +25,12 @@ export const Column = styled.div`
 
 /**
  * Select
-*/
+ */
 export const groupStyles = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-};
+}
 
 export const groupBadgeStyles: CSSProperties = {
   backgroundColor: '#EBECF0',
@@ -43,11 +43,11 @@ export const groupBadgeStyles: CSSProperties = {
   minWidth: 1,
   padding: '0.16666666666667em 0.5em',
   textAlign: 'center',
-};
+}
 
 export const formatGroupLabel = (data: any) => (
   <div style={groupStyles}>
     <span>{data.label}</span>
     <span style={groupBadgeStyles}>{data.options.length}</span>
   </div>
-);
+)

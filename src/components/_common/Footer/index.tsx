@@ -16,7 +16,7 @@ import {
 } from './styles'
 import { IFooterCommon } from './types'
 
-import { MdChat, MdWatchLater } from "react-icons/md"
+import { MdChat, MdWatchLater } from 'react-icons/md'
 
 import * as u from '@/utils'
 import { FaEnvelope, FaPhoneAlt } from 'react-icons/fa'
@@ -26,15 +26,17 @@ export const FooterCommon: React.FC<IFooterCommon> = ({
 }): React.ReactElement => {
   const { customerData: customer, contactList } = useContext(CustomerContext)
 
-  console.log('DEBUG contactList:', contactList);
-  
+  console.log('DEBUG contactList:', contactList)
 
   const renderContactInfo = () => {
     if (contactList?.length)
       return contactList.map((item, i) => {
         if (item?.link_external)
           return (
-            <Link key={String(i)} href={`mailto:${String(customer?.social?.email_1?.desc)}`}>
+            <Link
+              key={String(i)}
+              href={`mailto:${String(customer?.social?.email_1?.desc)}`}
+            >
               <FaEnvelope /> {String(customer?.social?.email_1?.desc)}
             </Link>
           )
@@ -66,10 +68,7 @@ export const FooterCommon: React.FC<IFooterCommon> = ({
           {renderContactInfo()}
         </ContactInfo>
         <LogoContainer>
-          <Image
-            src={String(customer?.logo)}
-            alt={String(customer?.name)}
-          />
+          <Image src={String(customer?.logo)} alt={String(customer?.name)} />
         </LogoContainer>
       </InfosContainer>
       <CopyContainer>

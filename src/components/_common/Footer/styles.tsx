@@ -51,7 +51,7 @@ export const Text = styled.p`
   margin: 5px 0;
   text-shadow: ${props => props.theme.textShadow.first};
   color: ${props => props.theme.color.white};
-  font-size: calc(${props => props.theme.spaces.xl}/1.75);
+  font-size: calc(${props => props.theme.spaces.xl} / 1.75);
 
   svg {
     margin-right: ${props => props.theme.spaces.xs};
@@ -66,7 +66,7 @@ export const Link = styled.a`
   text-decoration: none;
   text-shadow: ${props => props.theme.textShadow.first};
   color: ${props => props.theme.color.white};
-  font-size: calc(${props => props.theme.spaces.xl}/1.75);
+  font-size: calc(${props => props.theme.spaces.xl} / 1.75);
 
   &:hover {
     text-decoration: underline;

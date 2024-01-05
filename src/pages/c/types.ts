@@ -1,4 +1,4 @@
-import { IFilterOptionsInitial } from "@/types/filter"
+import { IFilterOptionsInitial } from '@/types/filter'
 
 export interface ICPage {
   data?: any

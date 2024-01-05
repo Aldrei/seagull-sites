@@ -8,12 +8,12 @@ import { FilterContainer, PageContainer, ResultContainer } from './styles'
 
 export const PropertiesPage: React.FC<IPropertiesPageProps> = ({
   data,
-  filterOptionsInitial
+  filterOptionsInitial,
 }) => {
-  console.log('DEBUG data:', data);
+  console.log('DEBUG data:', data)
 
-  const properties = data?.data?.paginate?.data;
-  console.log('DEBUG properties:', properties);
+  const properties = data?.data?.paginate?.data
+  console.log('DEBUG properties:', properties)
 
   return (
     <>

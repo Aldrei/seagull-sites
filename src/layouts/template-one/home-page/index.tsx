@@ -17,7 +17,7 @@ import { FeaturesContainer, FilterTabsContainer } from './styles'
 
 export const HomePage: React.FC<PropsWithChildren<IHomeProps>> = ({
   slideData,
-  filterOptionsInitial
+  filterOptionsInitial,
 }: PropsWithChildren<IHomeProps>) => {
   const { banners } = slideData || {}
 

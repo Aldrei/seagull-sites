@@ -71,7 +71,7 @@ const useCustomer = (): ICustomer => {
     },
     infos: {
       times: process.env.NEXT_PUBLIC_CUSTOMER_INFO_TIMES,
-    }
+    },
   }
 
   const menuData: IMenuData[] = []
@@ -94,24 +94,24 @@ const useCustomer = (): ICustomer => {
 
     if (process.env.NEXT_PUBLIC_PHONE_1_DESC)
       contactList.push({
-        desc: process.env.NEXT_PUBLIC_PHONE_1_DESC
+        desc: process.env.NEXT_PUBLIC_PHONE_1_DESC,
       })
 
     if (process.env.NEXT_PUBLIC_PHONE_2_DESC)
       contactList.push({
-        desc: process.env.NEXT_PUBLIC_PHONE_2_DESC
+        desc: process.env.NEXT_PUBLIC_PHONE_2_DESC,
       })
 
     if (process.env.NEXT_PUBLIC_EMAIL_1_DESC)
       contactList.push({
         desc: process.env.NEXT_PUBLIC_EMAIL_1_DESC,
-        link_external: process.env.NEXT_PUBLIC_EMAIL_1_DEVICE_LINK
+        link_external: process.env.NEXT_PUBLIC_EMAIL_1_DEVICE_LINK,
       })
 
     if (process.env.NEXT_PUBLIC_EMAIL_2_DESC)
       contactList.push({
         desc: process.env.NEXT_PUBLIC_EMAIL_2_DESC,
-        link_external: process.env.NEXT_PUBLIC_EMAIL_2_DEVICE_LINK
+        link_external: process.env.NEXT_PUBLIC_EMAIL_2_DEVICE_LINK,
       })
   }
 
