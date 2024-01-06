@@ -110,3 +110,17 @@ export const listNeighborhood = async () => {
     return { error } as IRequestError
   }
 }
+
+export const listBanners = async () => {
+  try {
+    const response = await fetch(`
+      ${process.env.NEXT_PUBLIC_API_BASE_URL}/pub/${getHostname()}/banners
+    `, {
+      method: 'GET'
+    })
+
+    return response.json()
+  } catch (error) {
+    return { error } as IRequestError
+  }
+}

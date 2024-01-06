@@ -19,7 +19,6 @@ export const SlideCommon: React.FC<ISlideCommon> = ({ banners, ...props }) => {
     animationEnded(s) {
       setCurrentSlide(s.track.details.rel)
     },
-
     loop: true,
     initial: 0,
   })
@@ -80,7 +79,6 @@ export const SlideCommon: React.FC<ISlideCommon> = ({ banners, ...props }) => {
     [ThumbnailPlugin(instanceRef)],
   )
 
-  // TODO: Return something friendly here...
   if (!banners?.length) return null
 
   return (
