@@ -12,12 +12,12 @@ import {
 import { IMAGES } from '@/images/template-one'
 import { IHomeProps } from '@/pages/types'
 
-import { propertyMock } from '@/mocks/property'
 import { FeaturesContainer, FilterTabsContainer } from './styles'
 
 export const HomePage: React.FC<PropsWithChildren<IHomeProps>> = ({
   slideData,
   filterOptionsInitial,
+  propertiesFeaturedList
 }: PropsWithChildren<IHomeProps>) => {
   const { banners } = slideData || {}
 
@@ -33,7 +33,9 @@ export const HomePage: React.FC<PropsWithChildren<IHomeProps>> = ({
         <FilterTabs filterOptionsInitial={filterOptionsInitial} />
       </FilterTabsContainer>
       <FeaturesContainer>
-        <BoxOne property={propertyMock} orientation="row" />
+        {propertiesFeaturedList?.length && propertiesFeaturedList.map((item) => (
+          <BoxOne property={item} orientation="row" />
+        ))}
       </FeaturesContainer>
       <FooterOne />
     </>

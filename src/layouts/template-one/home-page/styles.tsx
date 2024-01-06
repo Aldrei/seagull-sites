@@ -4,6 +4,10 @@ export const FeaturesContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 ${props => props.theme.spaces.xl};
+
+  > div {
+    margin-bottom: ${props => props.theme.spaces.xl};
+  }
 `
 
 export const FilterTabsContainer = styled.div`

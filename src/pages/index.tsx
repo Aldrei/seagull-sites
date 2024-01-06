@@ -1,12 +1,13 @@
 import { HomePage } from '@layouts/index'
 
-import { listBanners, listPropertiesFiltered } from '@/services'
+import { listBanners, listPropertiesFeatured, listPropertiesFiltered } from '@/services'
 import { IHomeProps } from './types'
 
 export async function getServerSideProps() {
-  const [propertiesList, bannersList] = await Promise.all([
+  const [propertiesList, bannersList, propertiesFeaturedList] = await Promise.all([
     listPropertiesFiltered(''),
-    listBanners()
+    listBanners(),
+    listPropertiesFeatured()
   ])
 
   const options = propertiesList?.data?.search?.options
@@ -16,6 +17,7 @@ export async function getServerSideProps() {
     props: {
       slideData: { banners: bannersList?.data || [] },
       filterOptionsInitial: { options, selectedOptions },
+      propertiesFeaturedList: propertiesFeaturedList?.data || []
     },
   }
 }
@@ -24,12 +26,18 @@ export default function Home({
   children,
   slideData,
   filterOptionsInitial,
+  propertiesFeaturedList
 }: IHomeProps) {
   console.log('DEBUG Home page slideData:', slideData)
   console.log('DEBUG Home filterOptionsInitial:', filterOptionsInitial)
+  console.log('DEBUG Home propertiesFeaturedList:', propertiesFeaturedList)
 
   return (
-    <HomePage slideData={slideData} filterOptionsInitial={filterOptionsInitial}>
+    <HomePage 
+      slideData={slideData} 
+      filterOptionsInitial={filterOptionsInitial}
+      propertiesFeaturedList={propertiesFeaturedList}
+    >
       {children}
     </HomePage>
   )
