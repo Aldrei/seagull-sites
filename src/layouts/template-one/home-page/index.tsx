@@ -33,8 +33,8 @@ export const HomePage: React.FC<PropsWithChildren<IHomeProps>> = ({
         <FilterTabs filterOptionsInitial={filterOptionsInitial} />
       </FilterTabsContainer>
       <FeaturesContainer>
-        {propertiesFeaturedList?.length && propertiesFeaturedList.map((item) => (
-          <BoxOne property={item} orientation="row" />
+        {propertiesFeaturedList?.length && propertiesFeaturedList.map((item, i) => (
+          <BoxOne key={String(i)} property={item} orientation="row" />
         ))}
       </FeaturesContainer>
       <FooterOne />

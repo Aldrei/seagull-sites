@@ -1,3 +1,4 @@
+import { IProperty } from '@/types/property'
 import { getHostname } from '@/utils'
 import { IRequestError } from './types'
 
@@ -132,6 +133,34 @@ export const listPropertiesFeatured = async () => {
     `, {
       method: 'GET'
     })
+
+    return response.json()
+  } catch (error) {
+    return { error } as IRequestError
+  }
+}
+
+export const listPropertiesByCode = async (code: Pick<IProperty, 'code'>) => {
+  try {
+    const response = await fetch(`
+      ${process.env.NEXT_PUBLIC_API_BASE_URL}/pub/${getHostname()}/property/search/${code}
+    `, {
+      method: 'GET'
+    })
+
+    return response.json()
+  } catch (error) {
+    return { error } as IRequestError
+  }
+}
+
+export const listPropertiesByCodeLocal = async (code: Pick<IProperty, 'code'>) => {
+  try {
+    const response = await fetch(
+      `
+      ${process.env.NEXT_PUBLIC_API_LOCAL_BASE_URL}/properties/search/${code}`,
+      { method: 'GET' },
+    )
 
     return response.json()
   } catch (error) {
