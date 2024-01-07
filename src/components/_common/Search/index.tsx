@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react'
 
 import { listPropertiesByCodeLocal } from '@/services'
+import { ITimer } from '@/types/others'
 import { IProperty } from '@/types/property'
 import { Card, CardContent, CardDescription, CardImage, CardTitle, Container, DetailsButton, ListContainer, SearchInput } from './styles'
 import { ISearchCommon } from './types'
+
+const timer: ITimer = {
+  timeoutID: 0,
+  delay: 1500
+}
 
 export const SearchCommon: React.FC<ISearchCommon> = ({
   ...props
@@ -11,24 +17,29 @@ export const SearchCommon: React.FC<ISearchCommon> = ({
   const [loading, setLoading] = useState<boolean>(false)
   const [searchValue, setSearchValue] = useState<any>()
   const [property, setProperty] = useState<IProperty | null>()
+  const [message, setMessage] = useState<string | null>()
 
   useEffect(() => {
     handleSearch()
   }, [searchValue])
 
   const handleSearch = async () => {
-    /**
-     * TODO: Make the timeout here to avoid overflow requests.
-    */
-    if (searchValue) {
-      setLoading(true)
-      const response = await listPropertiesByCodeLocal(searchValue)
-      setLoading(false)
+    setLoading(true)
+    setProperty(null)
+    setMessage(null)
 
-      if (response?.data?.property) setProperty(response.data.property)
-      else setProperty(null);
+    if (searchValue) {
+      if (timer.timeoutID) clearTimeout(timer.timeoutID)
+
+      timer.timeoutID = setTimeout(async () => {
+        const response = await listPropertiesByCodeLocal(searchValue)
+        setLoading(false)
+
+        if (response?.data?.property) setProperty(response.data.property)
+        else setMessage(response?.status)
+      }, timer.delay)
     } else {
-      setProperty(null)
+      setLoading(false)
     }
   }
 
@@ -54,10 +65,10 @@ export const SearchCommon: React.FC<ISearchCommon> = ({
         </ListContainer>
       );
 
-    if (!property && searchValue) 
+    if (message) 
       return (
         <ListContainer>
-          <p>"{searchValue}" não está publicado no site.</p>
+          <p>{message}</p>
         </ListContainer>
       )
 
