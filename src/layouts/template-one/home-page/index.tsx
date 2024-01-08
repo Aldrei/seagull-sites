@@ -6,13 +6,13 @@ import {
   FilterTabs,
   FooterOne,
   Header,
-  SlideOne,
+  SlideOne
 } from '@/components/template-one'
 
 import { IMAGES } from '@/images/template-one'
 import { IHomeProps } from '@/pages/types'
 
-import { FeaturesContainer, FilterTabsContainer } from './styles'
+import { AllPropertiesBtn, FeaturesContainer, FilterTabsContainer, ListAllPropertiesBtbContainer } from './styles'
 
 export const HomePage: React.FC<PropsWithChildren<IHomeProps>> = ({
   slideData,
@@ -37,6 +37,9 @@ export const HomePage: React.FC<PropsWithChildren<IHomeProps>> = ({
           <BoxOne key={String(i)} property={item} orientation="row" />
         ))}
       </FeaturesContainer>
+      <ListAllPropertiesBtbContainer>
+        <AllPropertiesBtn href={'/c'} title="Conferir todos os imóveis!">Conferir todos os imóveis!</AllPropertiesBtn>
+      </ListAllPropertiesBtbContainer>
       <FooterOne />
     </>
   )
