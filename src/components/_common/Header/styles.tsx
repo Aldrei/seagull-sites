@@ -1,6 +1,7 @@
 import { styled } from 'styled-components'
 
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const Container = styled.div``
 
@@ -15,7 +16,7 @@ export const HeaderWrapper = styled.header`
   }
 `
 
-export const LogoWrapper = styled('div')``
+export const LogoWrapper = styled(Link)``
 
 export const Logo = styled(Image)`
   position: absolute;

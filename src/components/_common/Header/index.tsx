@@ -32,7 +32,7 @@ export const HeaderCommon: React.FC<IHeaderCommon> = ({
   return (
     <Container className={className} {...props}>
       <HeaderWrapper>
-        <LogoWrapper>
+        <LogoWrapper href={'/'} title='Ir para Home page'>
           <Logo src={logo} alt="Logo" />
         </LogoWrapper>
         <NavWrapper>
