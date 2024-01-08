@@ -5,7 +5,10 @@ export const FormWrapper = styled.div``
 export const Row = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+
+  &:last-child {
+    margin-top: ${props => props.theme.spaces.md}
+  }
 `
 
 export const Column = styled.div`

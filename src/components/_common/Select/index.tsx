@@ -1,11 +1,11 @@
 import React, { useId } from 'react'
 
-import Select, { Props } from 'react-select'
+import Select from 'react-select'
 
 import { Container, Label } from './styles'
 import { ISelectCommon } from './types'
 
-export const SelectCommon: React.FC<ISelectCommon & Props> = ({
+export const SelectCommon: React.FC<ISelectCommon> = ({
   options,
   name,
   label,
@@ -14,6 +14,7 @@ export const SelectCommon: React.FC<ISelectCommon & Props> = ({
   isMulti,
   isDisabled,
   className,
+  styles,
 }): React.ReactElement => {
   return (
     <Container className={className}>
@@ -27,12 +28,7 @@ export const SelectCommon: React.FC<ISelectCommon & Props> = ({
         value={value}
         isMulti={isMulti}
         isDisabled={isDisabled}
-        styles={{
-          option: styles => ({
-            ...styles,
-            color: '#000',
-          }),
-        }}
+        styles={styles}
       />
     </Container>
   )

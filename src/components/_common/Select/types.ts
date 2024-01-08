@@ -1,4 +1,6 @@
-export interface ISelectCommon {
+import { Props } from "react-select"
+
+export interface ISelectCommon extends Props {
   label?: string
 }
 

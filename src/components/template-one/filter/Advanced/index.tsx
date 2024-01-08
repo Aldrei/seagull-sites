@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { SelectCommon } from '@/components/_common'
-
-import { ButtonOne } from '@/components/template-one/Button'
+import { ButtonOne, SelectOne } from '@/components/template-one'
 import { listCitiesLocal, listNeighborhoodLocal } from '@/services'
 import { IFilterOptions, IFilterSelected } from '@/types/filter'
 import { buildFilterOptions, buildGroupedOptionsFromSelectedOptionsByApi, buildObjArrToGroupedSelect, buildOptionsFromSelectedOptionsByApi } from '@/utils'
@@ -200,7 +198,7 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
   return (
     <FormWrapper>
       <Row>
-        <SelectCommon
+        <SelectOne
           name="type"
           label="Tipo(opcional)"
           onChange={handleChangeType}
@@ -211,7 +209,7 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
       </Row>
       <Row>
         <Column>
-          <SelectCommon
+          <SelectOne
             name="bedroom"
             label="Dormitório(opcional)"
             onChange={handleChangeBedroom}
@@ -221,7 +219,7 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
           />
         </Column>
         <Column>
-          <SelectCommon
+          <SelectOne
             name="garage"
             label="Garagem(opcional)"
             onChange={handleChangeGarage}
@@ -232,7 +230,7 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
         </Column>
       </Row>
       <Row>
-        <SelectCommon
+        <SelectOne
           name="state"
           label="Estado(opcional)"
           onChange={handleChangeState}
@@ -242,7 +240,7 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
         />
       </Row>
       <Row>
-        <SelectCommon
+        <SelectOne
           name="city"
           label="Cidades(opcional)"
           onChange={handleChangeCity}
@@ -254,7 +252,7 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
         />
       </Row>
       <Row>
-        <SelectCommon
+        <SelectOne
           name="neighborhood"
           label="Bairro(opcional)"
           onChange={handleChangeNeighborhood}
@@ -266,7 +264,7 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
         />
       </Row>
       <Row>
-        <SelectCommon
+        <SelectOne
           name="price"
           label="Faixa de preço"
           onChange={handleChangePrice}
