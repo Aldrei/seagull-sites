@@ -7,6 +7,7 @@ export interface ISlideCommon {
 export interface IBanner {
   thumb: string
   normal: string
+  titulo: string
   descGeral: string
   id: number
   img: string
