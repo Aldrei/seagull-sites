@@ -31,7 +31,7 @@ export const BoxCommon: React.FC<IBoxCommon> = ({
 
   return (
     <Card $orientation={orientation} {...props}>
-      <Price className="price">{`Cód ${property.code} - ${property.valor}`}</Price>
+      <Price className="price">{`Cód ${property.codePretty} - ${property.valor}`}</Price>
       <ImageContainer>
         <Image
           src={String(getPhotoProperty(property, 'thumb'))}
