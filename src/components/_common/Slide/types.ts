@@ -12,6 +12,8 @@ export interface IBanner {
   id: number
   img: string
   posicao: number
-  property: IProperty
+  property: {
+    data: IProperty
+  }
   property_id: number
 }

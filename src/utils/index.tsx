@@ -211,3 +211,47 @@ export const buildGroupedOptionsFromSelectedOptionsByApi = (options: IGroupedOpt
     })
   return result
 }
+
+export const removeSpecialCharactersAndAccents = (str: string): string => {
+  try {
+    if (!str) return ''
+
+    return str
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-zA-Z0-9 ]/g, '')
+  } catch (error) {
+    console.log(error)
+    return ''
+  }
+}
+
+export const buildTextSeo = (property: IProperty) => {
+  try {
+    const dorm = Number(property.dormitorio) ? `${property.dormitorio} dorm` : ''
+    const dormChecked = dorm ? ` ${dorm}` : ''
+
+    const parking = Number(property.garagem) ? `${property.garagem} carros` : ''
+    const parkingChecked = parking ? ` ${parking}` : ''
+
+    const type = removeSpecialCharactersAndAccents(property.tipo)
+    const city = removeSpecialCharactersAndAccents(String(property?.neighborhood?.data?.city?.data?.name))
+    const name = removeSpecialCharactersAndAccents(property.nomeImovel)
+
+    let friendlyPiece = `${type} ${city}${dormChecked}${parkingChecked}`
+    if (name) friendlyPiece = name
+
+    return friendlyPiece
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const buildUrlSeo = (property: IProperty): string => {
+  try {
+    return `/p/${buildTextSeo(property)}/${property.code}`.toLowerCase().replaceAll(' ', '-')
+  } catch (error) {
+    console.log(error)
+    return ''
+  }
+}

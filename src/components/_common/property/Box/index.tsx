@@ -1,4 +1,6 @@
 import {
+  buildTextSeo,
+  buildUrlSeo,
   getPhotoProperty,
   shouldShowBedroomInfo,
   shouldShowBuildedArea,
@@ -67,7 +69,7 @@ export const BoxCommon: React.FC<IBoxCommon> = ({
             <InfoItem>{property.dormitorio} dorm(s)</InfoItem>
           )}
         </Info>
-        <Button className="go-button">Conhecer +</Button>
+        <Button title={buildTextSeo(property)} href={buildUrlSeo(property)} className="go-button">Conhecer +</Button>
       </Content>
     </Card>
   )

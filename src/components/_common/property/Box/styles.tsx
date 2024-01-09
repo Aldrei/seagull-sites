@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { LiaLocationArrowSolid } from 'react-icons/lia'
 import { css, styled } from 'styled-components'
 
@@ -140,7 +141,7 @@ export const Icon = styled.span`
   margin-right: 8px;
 `
 
-export const Button = styled.button`
+export const Button = styled(Link)`
   width: 100%;
   text-align: center;
   background: ${props => props.theme.background.button};

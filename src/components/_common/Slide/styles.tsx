@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { styled } from 'styled-components'
 
 export const Container = styled.div``
@@ -44,7 +45,7 @@ export const DescInfo = styled.p`
   opacity: .9;
 `
 
-export const ButtonInfo = styled.a`
+export const ButtonInfo = styled(Link)`
   width: 215px;
   text-align: center;
   background: ${props => props.theme.background.button};
