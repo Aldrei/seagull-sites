@@ -95,7 +95,7 @@ const BORDER = {
  */
 const BOX_SHADOW = {
   first: '3px 3px 15px 0 rgba(0,0,0,.75)',
-  second: '',
+  second: '1px 1px 10px 0 rgba(0,0,0,.35)',
   third: '',
 }
 

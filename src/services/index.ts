@@ -167,3 +167,17 @@ export const listPropertiesByCodeLocal = async (code: Pick<IProperty, 'code'>) =
     return { error } as IRequestError
   }
 }
+
+export const getPropertyByCode = async (code: Pick<IProperty, 'code'>) => {
+  try {
+    const response = await fetch(`
+      ${process.env.NEXT_PUBLIC_API_BASE_URL}/pub/${getHostname()}/property-new-show/${code}
+    `, {
+      method: 'GET'
+    })
+
+    return response.json()
+  } catch (error) {
+    return { error } as IRequestError
+  }
+}

@@ -1,4 +1,4 @@
-import { IProperty } from '@/types/property'
+import { IProperty, TypeProperty } from '@/types/property'
 
 export const propertyMock: IProperty = {
   id: 1,
@@ -23,7 +23,7 @@ export const propertyMock: IProperty = {
   exclusividadePeriodoFim: 'exclusividadePeriodoFim',
   finalidade: 'finalidade',
   categoria: 'Residencial',
-  tipo: 'Apartamento',
+  tipo: 'Apartamento' as TypeProperty,
   status: 'Alugando Temporada',
   aluguelPeriodoInicio: 'aluguelPeriodoInicio',
   aluguelPeriodoFim: 'aluguelPeriodoFim',
@@ -120,10 +120,5 @@ export const propertyMock: IProperty = {
     data: {
       nome: 'adipisci velit',
     },
-  },
-  city: {
-    data: {
-      name: 'Lorem ipsum dolor sit',
-    },
-  },
+  }
 }

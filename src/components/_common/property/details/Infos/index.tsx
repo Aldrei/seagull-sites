@@ -44,7 +44,7 @@ export const InfosDetailsCommon: React.FC<IInfosDetailsCommon> = ({
           <InfoText>{property.areaDireita} (direita)</InfoText>
         </InfoBlock>
       </InfoSection>
-      <Footer>{property.city?.data.long_desc}</Footer>
+      <Footer>{property?.neighborhood?.data.city?.data?.long_desc}</Footer>
     </PropertyContainer>
   )
 }

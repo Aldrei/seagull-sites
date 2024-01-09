@@ -1,6 +1,5 @@
-// eslint-disable-next-line import/named
-import { PhotoProps } from 'react-photo-gallery'
+import { IPhoto } from "@/types/property";
 
-export interface IGalleryCommon {
-  photos?: PhotoProps[]
+export interface IGalleryCommon extends React.HTMLAttributes<HTMLDivElement> {
+  photos?: IPhoto[]
 }

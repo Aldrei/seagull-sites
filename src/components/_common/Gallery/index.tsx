@@ -1,16 +1,23 @@
 import React from 'react'
 
-/**
- * React Photo Gallery http://neptunian.github.io/react-photo-gallery/examples/basic-rows.html
- */
-import Gallery from 'react-photo-gallery'
+import { Image, ImageContainer } from './styles'
+
+import { GalleryContainer } from './styles'
 import { IGalleryCommon } from './types'
 
 export const GalleryCommon: React.FC<IGalleryCommon> = ({
   photos,
-  ...props
+  className,
 }): React.ReactElement | null => {
   if (!photos) return null
 
-  return <Gallery photos={photos} {...props} />
+  return (
+    <GalleryContainer className={className}>
+      {photos.map((item, i) => (
+        <ImageContainer key={i}>
+          <Image src={item.thumb} alt={item.name} />
+        </ImageContainer>
+      ))}
+    </GalleryContainer>
+  )
 }
