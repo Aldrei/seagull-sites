@@ -48,7 +48,7 @@ const useCustomer = (): ICustomer => {
         title: process.env.NEXT_PUBLIC_WHATSAPP_TITLE,
         desc: process.env.NEXT_PUBLIC_WHATSAPP_DESC,
         link: process.env.NEXT_PUBLIC_WHATSAPP_LINK,
-        link_device: process.env.NEXT_PUBLIC_WHATSAPP_DEVICE_LINK,
+        link_device: process.env.NEXT_PUBLIC_WHATSAPP_LINK_EXTERNAL,
         alt: process.env.NEXT_PUBLIC_WHATSAPP_ALT,
       },
       phone_1: {
