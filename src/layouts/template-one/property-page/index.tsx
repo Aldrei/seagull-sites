@@ -4,6 +4,7 @@ import {
   Header,
   InfosDetailsOne,
   MapOne,
+  TopSectionOne,
 } from '@/components/template-one'
 import { MoreDetailsOne } from '@/components/template-one/contact/MoreDetails'
 import { WhatsAppOne } from '@/components/template-one/contact/Whatsapp'
@@ -20,6 +21,7 @@ export const PropertyPage: React.FC<IPropertyPage> = ({ photos, property }) => {
         <meta property="og:title" content="My page title" key="title" />
       </Head>
       <Header title="TEMPLATE-ONE" logo={IMAGES.LOGO} />
+      <TopSectionOne property={property} />
       <GalleryContainer>
         <GalleryOne photos={photos} />
       </GalleryContainer>

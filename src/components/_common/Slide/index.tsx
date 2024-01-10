@@ -96,7 +96,7 @@ export const SlideCommon: React.FC<ISlideCommon> = ({ banners, ...props }) => {
               <InfosContainer>
                 <TitleInfo>{banner.titulo}</TitleInfo>
                 <DescInfo>{banner.descGeral}</DescInfo>
-                <ButtonInfo title={buildTextSeo(banner.property.data)} href={buildUrlSeo(banner.property.data)}>Gostei, mais detalhes!</ButtonInfo>
+                <ButtonInfo title={buildTextSeo({ property: banner.property.data, normalize: true, separatorChar: ', ' })} href={buildUrlSeo(banner.property.data)}>Gostei, mais detalhes!</ButtonInfo>
               </InfosContainer>
             </Banner>
         ))}

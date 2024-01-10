@@ -1,6 +1,7 @@
 import { IOption } from '@/components/_common/Select/types'
 import { IFilterSelected, IGroupedOption } from '@/types/filter'
 import { IPhoto, IProperty, TypeProperty } from '@/types/property'
+import { IBuildTextSeo } from './types'
 
 export const isServer = () => typeof window === 'undefined'
 
@@ -226,22 +227,28 @@ export const removeSpecialCharactersAndAccents = (str: string): string => {
   }
 }
 
-export const buildTextSeo = (property: IProperty) => {
+export const buildTextSeo = ({ property, normalize = false, separatorChar = ' ' }: IBuildTextSeo) => {
   try {
     const dorm = Number(property.dormitorio) ? `${property.dormitorio} dorm` : ''
-    const dormChecked = dorm ? ` ${dorm}` : ''
+    const dormChecked = dorm ? `${separatorChar}${dorm}` : ''
 
     const parking = Number(property.garagem) ? `${property.garagem} carros` : ''
-    const parkingChecked = parking ? ` ${parking}` : ''
+    const parkingChecked = parking ? `${separatorChar}${parking}` : ''
 
-    const type = removeSpecialCharactersAndAccents(property.tipo)
-    const city = removeSpecialCharactersAndAccents(String(property?.neighborhood?.data?.city?.data?.name))
-    const name = removeSpecialCharactersAndAccents(property.nomeImovel)
+    const type = normalize 
+      ? removeSpecialCharactersAndAccents(property.tipo) 
+      : property.tipo
+    const city = normalize 
+      ? removeSpecialCharactersAndAccents(String(property?.neighborhood?.data?.city?.data?.name)) 
+      : String(property?.neighborhood?.data?.city?.data?.name) 
+    const name = normalize 
+      ? removeSpecialCharactersAndAccents(property.nomeImovel) 
+      : property.nomeImovel
 
-    let friendlyPiece = `${type} ${city}${dormChecked}${parkingChecked}`
+    let friendlyPiece = `${type}${separatorChar}${city}${dormChecked}${parkingChecked}`
     if (name) friendlyPiece = name
 
-    return friendlyPiece
+    return friendlyPiece.toUpperCase()
   } catch (error) {
     console.log(error)
   }
@@ -249,7 +256,7 @@ export const buildTextSeo = (property: IProperty) => {
 
 export const buildUrlSeo = (property: IProperty): string => {
   try {
-    return `/p/${buildTextSeo(property)}/${property.code}`.toLowerCase().replaceAll(' ', '-')
+    return `/p/${buildTextSeo({ property, normalize: true, separatorChar: '-' })}/${property.code}`.replaceAll(' ', '-').toLowerCase()
   } catch (error) {
     console.log(error)
     return ''
