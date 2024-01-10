@@ -6,7 +6,7 @@ export const PropertyContainer = styled.div`
   overflow: hidden;
   width: 100%;
   max-width: 600px; // Adjust the width as necessary
-  margin: 50px auto 0 auto;
+  margin: calc(${props => props.theme.spaces.md}*2) auto 0 auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `
 
