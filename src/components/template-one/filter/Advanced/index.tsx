@@ -107,7 +107,7 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
   // Dynamic fields
   useEffect(() => {
     const handleListCities = async () => {
-      const response = await listCitiesLocal()
+      const response = await listCitiesLocal(filterSelected)
 
       setFilterOptions({
         ...filterOptions,

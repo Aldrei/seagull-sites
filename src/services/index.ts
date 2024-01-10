@@ -1,5 +1,6 @@
+import { IFilterSelected } from '@/types/filter'
 import { IProperty } from '@/types/property'
-import { getHostname } from '@/utils'
+import { buildFilterOptions, getHostname } from '@/utils'
 import { IRequestError } from './types'
 
 export const listPropertiesFiltered = async (params: string) => {
@@ -46,11 +47,13 @@ export const listGeneralOptions = async () => {
   }
 }
 
-export const listCitiesLocal = async () => {
+export const listCitiesLocal = async (filterSelected: IFilterSelected) => {
   try {
+    const buildedUrl = buildFilterOptions(filterSelected)
+
     const response = await fetch(
       `
-      ${process.env.NEXT_PUBLIC_API_LOCAL_BASE_URL}/cities`,
+      ${process.env.NEXT_PUBLIC_API_LOCAL_BASE_URL}/cities?${buildedUrl}`,
       { method: 'GET' },
     )
 
@@ -60,7 +63,7 @@ export const listCitiesLocal = async () => {
   }
 }
 
-export const listCities = async () => {
+export const listCities = async (params: string) => {
   try {
     /**
      * TODO: Receive states queryString as a param
@@ -69,7 +72,7 @@ export const listCities = async () => {
       `
       ${
         process.env.NEXT_PUBLIC_API_BASE_URL
-      }/pub/${getHostname()}/cities?states%5B%5D=43`,
+      }/pub/${getHostname()}/cities?${params}`,
       { method: 'GET' },
     )
 
