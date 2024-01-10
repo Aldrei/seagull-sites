@@ -65,9 +65,6 @@ export const listCitiesLocal = async (filterSelected: IFilterSelected) => {
 
 export const listCities = async (params: string) => {
   try {
-    /**
-     * TODO: Receive states queryString as a param
-     */
     const response = await fetch(
       `
       ${
@@ -82,11 +79,13 @@ export const listCities = async (params: string) => {
   }
 }
 
-export const listNeighborhoodLocal = async () => {
+export const listNeighborhoodLocal = async (filterSelected: IFilterSelected) => {
   try {
+    const buildedUrl = buildFilterOptions(filterSelected)
+
     const response = await fetch(
       `
-      ${process.env.NEXT_PUBLIC_API_LOCAL_BASE_URL}/neighborhoods`,
+      ${process.env.NEXT_PUBLIC_API_LOCAL_BASE_URL}/neighborhoods?${buildedUrl}`,
       { method: 'GET' },
     )
 
@@ -96,16 +95,13 @@ export const listNeighborhoodLocal = async () => {
   }
 }
 
-export const listNeighborhood = async () => {
+export const listNeighborhood = async (params: string) => {
   try {
-    /**
-     * TODO: Receive neighborhoods queryString as a param
-     */
     const response = await fetch(
       `
       ${
         process.env.NEXT_PUBLIC_API_BASE_URL
-      }/pub/${getHostname()}/neighborhoods?cities%5B%5D=5300113&cities%5B%5D=5300112`,
+      }/pub/${getHostname()}/neighborhoods?${params}`,
       { method: 'GET' },
     )
 

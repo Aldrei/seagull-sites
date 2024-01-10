@@ -122,7 +122,7 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
 
   useEffect(() => {
     const handleChange = async () => {
-      const response = await listNeighborhoodLocal()
+      const response = await listNeighborhoodLocal(filterSelected)
       setFilterOptions({ ...filterOptions, neighborhoods: buildObjArrToGroupedSelect(response?.neighborhoods?.data, 'name', 'id') })
     }
 
