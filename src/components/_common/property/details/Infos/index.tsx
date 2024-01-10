@@ -1,3 +1,4 @@
+import { renderLocation, renderPrice } from '@/utils'
 import React from 'react'
 import {
   Footer,
@@ -6,6 +7,7 @@ import {
   InfoBlock,
   InfoSection,
   InfoText,
+  LocationIcon,
   Price,
   PropertyContainer,
   Title,
@@ -20,7 +22,7 @@ export const InfosDetailsCommon: React.FC<IInfosDetailsCommon> = ({
     <PropertyContainer {...props}>
       <Header>
         <Title>{property.tipo}</Title>
-        <Price>{property.valor}</Price>
+        <Price>{renderPrice(property)}</Price>
       </Header>
       <InfoSection>
         <InfoBlock>
@@ -44,7 +46,9 @@ export const InfosDetailsCommon: React.FC<IInfosDetailsCommon> = ({
           <InfoText>{property.areaDireita} (direita)</InfoText>
         </InfoBlock>
       </InfoSection>
-      <Footer>{property?.neighborhood?.data.city?.data?.long_desc}</Footer>
+      <Footer>
+        <LocationIcon /> {renderLocation(property)}
+      </Footer>
     </PropertyContainer>
   )
 }

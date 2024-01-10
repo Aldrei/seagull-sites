@@ -262,3 +262,12 @@ export const buildUrlSeo = (property: IProperty): string => {
     return ''
   }
 }
+
+export const renderPrice = (property: IProperty) => {
+  if (Boolean(property.sitePublicarValor)) return `R$ ${property.valor}`
+  return ''
+}
+
+export const renderLocation = (property: IProperty) => {
+  return `${property?.neighborhood?.data.city?.data?.long_desc}, ${property?.neighborhood?.data?.nome}`
+}
