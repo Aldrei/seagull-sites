@@ -1,3 +1,4 @@
+import { ICONS_ONE } from '@/icons/template-one/icons'
 import { styled } from 'styled-components'
 
 export const PropertyContainer = styled.div`
@@ -15,6 +16,7 @@ export const Header = styled.div`
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `
 
 export const Title = styled.h2`
@@ -53,8 +55,18 @@ export const InfoText = styled.span`
 `
 
 export const Footer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   background: #d9d9d9;
   padding: 1rem;
   text-align: center;
   color: #000;
+`
+
+export const LocationIcon = styled(ICONS_ONE.LocationIcon)`
+  transform: rotate(45deg);
+  font-size: ${props => props.theme.spaces.xl};
+  margin-right: calc(${props => props.theme.spaces.xs} / 2);
 `
