@@ -8,6 +8,7 @@ export const GalleryContainer = styled.div`
 
 export const ImageContainer = styled.div`
   margin: calc(${props => props.theme.spaces.xs}/2);
+  border: 1px solid ${props => props.theme.color.seventh};
 `
 
 export const Image = styled.img`
