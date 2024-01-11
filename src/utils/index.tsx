@@ -273,14 +273,20 @@ export const renderLocation = (property: IProperty) => {
 }
 
 export const isValidNumberForNumberPropertyFlag = (property: IProperty, flag: keyof IProperty) => Number(property[flag])
+export const isValidValueForStrPropertyFlag = (property: IProperty, flag: keyof IProperty) => Boolean(property[flag]) && String(property[flag])
 
-export const shouldRenderArea = (property: IProperty, flag: keyof IProperty) => {
+export const renderArea = (property: IProperty, flag: keyof IProperty) => {
   if (isValidNumberForNumberPropertyFlag(property, flag)) return `${property[flag]}m²`
   return ''
 }
 
-export const shouldRenderParking = (property: IProperty) => {
+export const renderParking = (property: IProperty) => {
   const label = Number(property.garagem) > 1 ? 'carros' : 'carro' 
   if (isValidNumberForNumberPropertyFlag(property, 'garagem')) return `${property.garagem} ${label}`
+  return ''
+}
+
+export const renderSunriseSideParking = (property: IProperty) => {
+  if (isValidValueForStrPropertyFlag(property, 'nascerDoSol')) return `${property.nascerDoSol}`
   return ''
 }

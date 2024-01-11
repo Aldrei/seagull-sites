@@ -1,4 +1,4 @@
-import { renderLocation, renderPrice, shouldRenderArea, shouldRenderParking } from '@/utils'
+import { renderArea, renderLocation, renderParking, renderPrice, renderSunriseSideParking } from '@/utils'
 import React from 'react'
 import {
   Footer,
@@ -25,33 +25,37 @@ export const InfosDetailsCommon: React.FC<IInfosDetailsCommon> = ({
       </Header>
       <InfoSection>
         <InfoBlock>
-          {shouldRenderParking(property) && <LocationTextWrapper>
+          {renderSunriseSideParking(property) && <LocationTextWrapper>
             <span>Garagem</span>
-            {shouldRenderParking(property)}
+            {renderSunriseSideParking(property)}
           </LocationTextWrapper>}
-          {shouldRenderArea(property, 'areaTotal') && <LocationTextWrapper>
-            <span>Total</span>
-            {shouldRenderArea(property, 'areaTotal')}
+          {renderParking(property) && <LocationTextWrapper>
+            <span>Garagem</span>
+            {renderParking(property)}
           </LocationTextWrapper>}
-          {shouldRenderArea(property, 'areaConstruida') && <LocationTextWrapper>
+          {renderArea(property, 'areaTotal') && <LocationTextWrapper>
             <span>Total</span>
-            {shouldRenderArea(property, 'areaConstruida')}
+            {renderArea(property, 'areaTotal')}
           </LocationTextWrapper>}
-          {shouldRenderArea(property, 'areaFrente') && <LocationTextWrapper>
+          {renderArea(property, 'areaConstruida') && <LocationTextWrapper>
             <span>Total</span>
-            {shouldRenderArea(property, 'areaFrente')}
+            {renderArea(property, 'areaConstruida')}
           </LocationTextWrapper>}
-          {shouldRenderArea(property, 'areaFundos') && <LocationTextWrapper>
+          {renderArea(property, 'areaFrente') && <LocationTextWrapper>
             <span>Total</span>
-            {shouldRenderArea(property, 'areaFundos')}
+            {renderArea(property, 'areaFrente')}
           </LocationTextWrapper>}
-          {shouldRenderArea(property, 'areaEsquerda') && <LocationTextWrapper>
+          {renderArea(property, 'areaFundos') && <LocationTextWrapper>
             <span>Total</span>
-            {shouldRenderArea(property, 'areaEsquerda')}
+            {renderArea(property, 'areaFundos')}
           </LocationTextWrapper>}
-          {shouldRenderArea(property, 'areaDireita') && <LocationTextWrapper>
+          {renderArea(property, 'areaEsquerda') && <LocationTextWrapper>
             <span>Total</span>
-            {shouldRenderArea(property, 'areaDireita')}
+            {renderArea(property, 'areaEsquerda')}
+          </LocationTextWrapper>}
+          {renderArea(property, 'areaDireita') && <LocationTextWrapper>
+            <span>Total</span>
+            {renderArea(property, 'areaDireita')}
           </LocationTextWrapper>}
         </InfoBlock>
       </InfoSection>
