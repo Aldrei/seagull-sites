@@ -13,9 +13,7 @@ export const ContactWhatsContent = styled('div')`
   height: 100%;
   height: 100%;
   margin: 0 auto;
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55);
-  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.55);
+  box-shadow: ${props => props.theme.boxShadow.second};
 
   @media (min-width: 1024px) {
     .ContactWhatsContent {
@@ -28,7 +26,7 @@ export const ContactWhatsHeader = styled('div')`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: #ededed;
+  background-color: ${props => props.theme.background.whatsappCard.header};
   padding: 10px 16px;
   border-bottom: 1px solid #ccc;
 `
@@ -57,7 +55,7 @@ export const ContactWhatsHeaderDescStatus = styled('p')`
 `
 
 export const ContactWhatsBody = styled('div')`
-  background-image: url(${props => props.theme.background.whatsapp});
+  background-image: url(${props => props.theme.background.whatsappCard.body});
   background-size: auto;
   display: flex;
   align-items: center;

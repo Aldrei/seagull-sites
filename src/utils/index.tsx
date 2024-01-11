@@ -290,3 +290,8 @@ export const renderSunriseSideParking = (property: IProperty) => {
   if (isValidValueForStrPropertyFlag(property, 'nascerDoSol')) return `${property.nascerDoSol}`
   return ''
 }
+
+export const renderCodePretty = (property: IProperty) => {
+  return `Cód. ${property.codePretty}`
+}
+

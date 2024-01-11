@@ -1,6 +1,7 @@
-import { renderArea, renderLocation, renderParking, renderPrice, renderSunriseSideParking } from '@/utils'
+import { renderArea, renderCodePretty, renderLocation, renderParking, renderPrice, renderSunriseSideParking } from '@/utils'
 import React from 'react'
 import {
+  Code,
   Footer,
   Header,
   InfoBlock,
@@ -20,6 +21,7 @@ export const InfosDetailsCommon: React.FC<IInfosDetailsCommon> = ({
   return (
     <PropertyContainer {...props}>
       <Header>
+        <Code>{renderCodePretty(property)}</Code>
         <Title>{property.tipo}</Title>
         <Price>{renderPrice(property)}</Price>
       </Header>

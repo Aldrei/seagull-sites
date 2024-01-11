@@ -2,21 +2,19 @@ import { ICONS_ONE } from '@/icons/template-one/icons'
 import { styled } from 'styled-components'
 
 export const PropertyContainer = styled.div`
-  border: 1px solid #ccc;
+  border: 1px solid ${props => props.theme.color.eighth};
   border-radius: 4px;
   overflow: hidden;
   width: 100%;
-  max-width: 600px; // Adjust the width as necessary
-  margin: calc(${props => props.theme.spaces.md}*2) auto 0 auto;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `
 
 export const Header = styled.div`
-  background: #f0f0f0;
+  background: ${props => props.theme.background.infosCard.header};
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid ${props => props.theme.color.seventh};
 `
 
 export const Title = styled.h2`
@@ -32,8 +30,8 @@ export const Price = styled.span`
 `
 
 export const InfoSection = styled.section`
-  padding: 1rem;
-  background: #e9e9e9;
+  padding: ${props => props.theme.spaces.md};
+  background: ${props => props.theme.background.infosCard.header};;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -64,7 +62,7 @@ export const Footer = styled.h3`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: #d9d9d9;
+  background: ${props => props.theme.background.infosCard.footer};;
   padding: 1rem;
   margin: 0;
   text-align: center;
@@ -87,4 +85,11 @@ export const LocationTextWrapper = styled('div')`
   > span {
     font-size: ${props => props.theme.spaces.xs};
   }
+`
+
+export const Code = styled('span')`
+  color: ${props => props.theme.color.third};
+  font-weight: 500;
+  border-bottom: 1px solid ${props => props.theme.color.third};
+  padding: ${props => props.theme.spaces.sm};
 `

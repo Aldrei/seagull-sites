@@ -96,7 +96,7 @@ const BORDER = {
 const BOX_SHADOW = {
   first: '3px 3px 15px 0 rgba(0,0,0,.75)',
   second: '1px 1px 10px 0 rgba(0,0,0,.35)',
-  third: '',
+  third: '0 2px 4px rgba(0, 0, 0, 0.1)',
 }
 
 const GRADIENT = {
@@ -123,7 +123,15 @@ const TEXT_OPACITY = {
  * https://developer.mozilla.org/en-US/docs/Web/CSS/background
  */
 const BACKGROUND = {
-  whatsapp: 'http://sgimoveis.imb.br/site/whats-bg.png',
+  whatsappCard: {
+    header: COLOR.eighth,
+    body: 'http://sgimoveis.imb.br/site/whats-bg.png'
+  },
+  infosCard: {
+    header: COLOR.eighth,
+    body: COLOR.eighth,
+    footer: COLOR.eighth
+  },
   header: GRADIENT.second,
   filter: COLOR.eighth,
   tab_button: GRADIENT.second,
@@ -131,6 +139,7 @@ const BACKGROUND = {
   label_price: GRADIENT.second,
   input: GRADIENT.second,
   footer: GRADIENT.second,
+  gallery: COLOR.eighth
 }
 
 /**
