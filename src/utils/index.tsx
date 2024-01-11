@@ -271,3 +271,16 @@ export const renderPrice = (property: IProperty) => {
 export const renderLocation = (property: IProperty) => {
   return `${property?.neighborhood?.data.city?.data?.long_desc}, ${property?.neighborhood?.data?.nome}`
 }
+
+export const isValidNumberForNumberPropertyFlag = (property: IProperty, flag: keyof IProperty) => Number(property[flag])
+
+export const shouldRenderArea = (property: IProperty, flag: keyof IProperty) => {
+  if (isValidNumberForNumberPropertyFlag(property, flag)) return `${property[flag]}m²`
+  return ''
+}
+
+export const shouldRenderParking = (property: IProperty) => {
+  const label = Number(property.garagem) > 1 ? 'carros' : 'carro' 
+  if (isValidNumberForNumberPropertyFlag(property, 'garagem')) return `${property.garagem} ${label}`
+  return ''
+}

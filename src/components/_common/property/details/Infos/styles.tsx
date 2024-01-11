@@ -42,11 +42,16 @@ export const InfoSection = styled.section`
 export const InfoBlock = styled.div`
   display: flex;
   align-items: center;
+
+  > div {
+    margin-left: ${props => props.theme.spaces.md};
+  }
 `
 
-export const Icon = styled.span`
-  margin-right: 0.5rem;
-  // Here you would include styles for your icons
+export const Icon = styled(ICONS_ONE.RulerIcon)`
+  font-size: ${props => props.theme.spaces.md};
+  margin-right: calc(${props => props.theme.spaces.xs}/2);
+  color: #000;
 `
 
 export const InfoText = styled.span`
@@ -54,13 +59,14 @@ export const InfoText = styled.span`
   color: #000;
 `
 
-export const Footer = styled.div`
+export const Footer = styled.h3`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   background: #d9d9d9;
   padding: 1rem;
+  margin: 0;
   text-align: center;
   color: #000;
 `
@@ -68,5 +74,17 @@ export const Footer = styled.div`
 export const LocationIcon = styled(ICONS_ONE.LocationIcon)`
   transform: rotate(45deg);
   font-size: ${props => props.theme.spaces.xl};
-  margin-right: calc(${props => props.theme.spaces.xs} / 2);
+`
+
+export const LocationTextWrapper = styled('div')`
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: end;
+
+  > span {
+    font-size: ${props => props.theme.spaces.xs};
+  }
 `

@@ -1,5 +1,6 @@
-import { LiaLocationArrowSolid } from "react-icons/lia";
+import { LiaLocationArrowSolid, LiaRulerVerticalSolid } from "react-icons/lia";
 
 export const ICONS_COMMON = {
-  LocationIcon: LiaLocationArrowSolid
+  LocationIcon: LiaLocationArrowSolid,
+  RulerIcon: LiaRulerVerticalSolid
 }
