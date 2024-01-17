@@ -11,6 +11,7 @@ const useCustomer = (): ICustomer => {
    *
    */
   const PHOTO_NORMAL = `${process.env.NEXT_PUBLIC_CDN_URL}/photos/normal/`
+  const SEO_URL = `${process.env.NEXT_PUBLIC_PROTOCOL}${process.env.NEXT_PUBLIC_CUSTOMER_DOMAIN}`
 
   const customerData: ICustomerData = {
     domain: process.env.NEXT_PUBLIC_CUSTOMER_DOMAIN,
@@ -20,10 +21,11 @@ const useCustomer = (): ICustomer => {
     times: process.env.NEXT_PUBLIC_CUSTOMER_TIMES,
     adornment: `${PHOTO_NORMAL}${process.env.NEXT_PUBLIC_CUSTOMER_ADORNMENT}`,
     limitPhotosShow: 4,
+    seo_canonical_base: SEO_URL,
+    whatsapp_picture: `${PHOTO_NORMAL}${process.env.NEXT_PUBLIC_CUSTOMER_BROKER_1_PICTURE}`,
     recaptcha: {
       api_public_key: process.env.NEXT_PUBLIC_GOOGLE_RECAPTHA,
     },
-    whatsapp_picture: `${PHOTO_NORMAL}${process.env.NEXT_PUBLIC_CUSTOMER_BROKER_1_PICTURE}`,
     social: {
       instagram: {
         title: process.env.NEXT_PUBLIC_INSTAGRAM_TITLE,

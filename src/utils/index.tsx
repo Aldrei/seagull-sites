@@ -236,7 +236,7 @@ export const buildTextSeo = ({ property, normalize = false, separatorChar = ' ' 
     const parkingChecked = parking ? `${separatorChar}${parking}` : ''
 
     const type = normalize 
-      ? removeSpecialCharactersAndAccents(property.tipo) 
+      ? removeSpecialCharactersAndAccents(property.tipo)
       : property.tipo
     const city = normalize 
       ? removeSpecialCharactersAndAccents(String(property?.neighborhood?.data?.city?.data?.name)) 
@@ -295,3 +295,14 @@ export const renderCodePretty = (property: IProperty) => {
   return `Cód. ${property.codePretty}`
 }
 
+export const buildCanonicalSeo = (seo_canonical_base: string, property: IProperty) => {
+  return `${seo_canonical_base}/site/imovel/${property.code}`
+}
+
+export const buildDescriptionSeo = (property: IProperty) => {
+  return `${property.descGeral}`
+}
+
+export const buildImageSeo = (property: IProperty) => {
+  return `${property?.photo?.data.thumb}`
+}

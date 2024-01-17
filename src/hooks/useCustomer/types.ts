@@ -12,10 +12,11 @@ export interface ICustomerData {
   times?: string
   limitPhotosShow?: number
   adornment?: string
+  whatsapp_picture?: string
+  seo_canonical_base: string
   recaptcha?: {
     api_public_key?: string
   }
-  whatsapp_picture?: string
   social?: {
     instagram?: {
       desc?: string
