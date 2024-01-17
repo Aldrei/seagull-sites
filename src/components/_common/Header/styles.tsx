@@ -1,6 +1,5 @@
 import { styled } from 'styled-components'
 
-import Image from 'next/image'
 import Link from 'next/link'
 
 export const Container = styled.div``
@@ -18,10 +17,10 @@ export const HeaderWrapper = styled.header`
 
 export const LogoWrapper = styled(Link)``
 
-export const Logo = styled(Image)`
+export const Logo = styled('img')`
   position: absolute;
-  top: 75px;
-  max-width: 250px;
+  top: 55px;
+  max-width: 165px;
   box-shadow: ${props => props.theme.boxShadow.first};
   z-index: 9;
 `

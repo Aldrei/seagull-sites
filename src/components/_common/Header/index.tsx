@@ -33,7 +33,7 @@ export const HeaderCommon: React.FC<IHeaderCommon> = ({
     <Container className={className} {...props}>
       <HeaderWrapper>
         <LogoWrapper href={'/'} title='Ir para Home page'>
-          <Logo src={logo} alt="Logo" />
+          <Logo src={customer.logo} alt="Logo" />
         </LogoWrapper>
         <NavWrapper>
           {customer.social?.whatsapp?.desc && (

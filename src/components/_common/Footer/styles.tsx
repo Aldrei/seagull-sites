@@ -103,7 +103,7 @@ export const LogoContainer = styled.div`
 `
 
 export const CopyContainer = styled.div`
-  margin-top: calc(${props => props.theme.spaces.md}*2);
+  margin-top: calc(${props => props.theme.spaces.sm});
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,4 +117,5 @@ export const Adornment = styled.img`
 export const CopyText = styled.p`
   color: ${props => props.theme.textOpacity.first};
   font-size: ${props => props.theme.spaces.sm};
+  margin-top: ${props => props.theme.spaces.md};
 `

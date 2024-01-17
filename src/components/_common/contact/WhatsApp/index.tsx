@@ -22,7 +22,7 @@ export const WhatsAppCommon: React.FC = ({ ...props }): React.ReactElement => {
       <ContactWhatsContent>
         <ContactWhatsHeader>
           <ContactWhatsHeaderAvatar
-            src={customer?.broker_1_picture}
+            src={customer?.whatsapp_picture}
             alt="Foto do corretor de imóveis"
           />
           <ContactWhatsHeaderDesc>

@@ -10,18 +10,20 @@ const useCustomer = (): ICustomer => {
    *    But for now return by .env: .
    *
    */
+  const PHOTO_NORMAL = `${process.env.NEXT_PUBLIC_CDN_URL}/photos/normal/`
+
   const customerData: ICustomerData = {
     domain: process.env.NEXT_PUBLIC_CUSTOMER_DOMAIN,
     name: process.env.NEXT_PUBLIC_CUSTOMER_NAME,
     abbr: process.env.NEXT_PUBLIC_CUSTOMER_ABBR,
-    logo: process.env.NEXT_PUBLIC_CUSTOMER_LOGO,
+    logo: `${PHOTO_NORMAL}${process.env.NEXT_PUBLIC_CUSTOMER_LOGO}`,
     times: process.env.NEXT_PUBLIC_CUSTOMER_TIMES,
-    adornment: process.env.NEXT_PUBLIC_CUSTOMER_ADORNMENT,
+    adornment: `${PHOTO_NORMAL}${process.env.NEXT_PUBLIC_CUSTOMER_ADORNMENT}`,
     limitPhotosShow: 4,
     recaptcha: {
       api_public_key: process.env.NEXT_PUBLIC_GOOGLE_RECAPTHA,
     },
-    broker_1_picture: process.env.NEXT_PUBLIC_CUSTOMER_BROKER_1_PICTURE,
+    whatsapp_picture: `${PHOTO_NORMAL}${process.env.NEXT_PUBLIC_CUSTOMER_BROKER_1_PICTURE}`,
     social: {
       instagram: {
         title: process.env.NEXT_PUBLIC_INSTAGRAM_TITLE,

@@ -15,7 +15,7 @@ export interface ICustomerData {
   recaptcha?: {
     api_public_key?: string
   }
-  broker_1_picture?: string
+  whatsapp_picture?: string
   social?: {
     instagram?: {
       desc?: string
