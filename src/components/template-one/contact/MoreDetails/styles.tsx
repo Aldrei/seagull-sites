@@ -6,5 +6,6 @@ export const Container = styled.div`
 
   > div {
     margin: 5px 0;
+    margin-bottom: ${props => props.theme.spaces.md};
   }
 `

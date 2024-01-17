@@ -273,7 +273,7 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
         />
       </Row>
       <Row>
-        <ButtonOne text="Filtrar" handleClick={handleSubmit} />
+        <ButtonOne text="Filtrar" onClick={handleSubmit} />
       </Row>
     </FormWrapper>
   )

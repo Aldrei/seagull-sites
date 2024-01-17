@@ -5,6 +5,6 @@ import { IInputOne } from './types'
 
 export const InputOne: React.FC<
   IInputOne
-> = ({}: IInputOne): React.ReactElement => {
-  return <InputCustom />
+> = (props: IInputOne): React.ReactElement => {
+  return <InputCustom {...props} />
 }

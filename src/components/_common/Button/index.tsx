@@ -5,13 +5,15 @@ import { IButtonCommon } from './types'
 
 export const ButtonCommon: React.FC<IButtonCommon> = ({
   text,
-  handleClick,
+  onClick,
   className,
+  disabled,
   ...props
 }): React.ReactElement => (
   <GradientButton
-    onClick={handleClick}
+    onClick={onClick}
     className={`button-common ${className}`}
+    disabled={disabled}
     {...props}
   >
     {text}

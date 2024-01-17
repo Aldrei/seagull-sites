@@ -9,12 +9,15 @@ export const InputCommon: React.FC<IInputCommon> = ({
   placeholder,
   onChange,
   value,
+  defaultValue,
+  className,
+  disabled,
   ...props
 }: IInputCommon): React.ReactElement => {
   return (
-    <Container {...props}>
+    <Container {...props} className={className}>
       <Label htmlFor={name}>{label}</Label>
-      <Input name={name} placeholder={placeholder} onChange={onChange} value={value} />
+      <Input name={name} placeholder={placeholder} onChange={onChange} value={value} defaultValue={defaultValue} disabled={disabled} />
     </Container>
   )
 }

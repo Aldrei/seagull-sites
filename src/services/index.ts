@@ -1,7 +1,12 @@
 import { IFilterSelected } from '@/types/filter'
 import { IProperty } from '@/types/property'
 import { buildFilterOptions, getHostname } from '@/utils'
-import { IRequestError } from './types'
+import { EMethods, IRequestError } from './types'
+
+export const headerDefault = new Headers({
+  'Accept': 'application/json',
+  'Content-Type': 'application/json'
+})
 
 export const listPropertiesFiltered = async (params: string) => {
   try {
@@ -10,7 +15,7 @@ export const listPropertiesFiltered = async (params: string) => {
       ${
         process.env.NEXT_PUBLIC_API_BASE_URL
       }/pub/${getHostname()}/properties/filtered?${params}`,
-      { method: 'GET' },
+      { method: EMethods.GET },
     )
 
     return response.json()
@@ -24,7 +29,7 @@ export const listStateOptions = async () => {
     const response = await fetch(
       `
       ${process.env.NEXT_PUBLIC_API_BASE_URL}/pub/${getHostname()}/states`,
-      { method: 'GET' },
+      { method: EMethods.GET },
     )
 
     return response.json()
@@ -38,7 +43,7 @@ export const listGeneralOptions = async () => {
     const response = await fetch(
       `
       ${process.env.NEXT_PUBLIC_API_BASE_URL}/pub/${getHostname()}/filter`,
-      { method: 'GET' },
+      { method: EMethods.GET },
     )
 
     return response.json()
@@ -54,7 +59,7 @@ export const listCitiesLocal = async (filterSelected: IFilterSelected) => {
     const response = await fetch(
       `
       ${process.env.NEXT_PUBLIC_API_LOCAL_BASE_URL}/cities?${buildedUrl}`,
-      { method: 'GET' },
+      { method: EMethods.GET },
     )
 
     return response.json()
@@ -70,7 +75,7 @@ export const listCities = async (params: string) => {
       ${
         process.env.NEXT_PUBLIC_API_BASE_URL
       }/pub/${getHostname()}/cities?${params}`,
-      { method: 'GET' },
+      { method: EMethods.GET },
     )
 
     return response.json()
@@ -86,7 +91,7 @@ export const listNeighborhoodLocal = async (filterSelected: IFilterSelected) => 
     const response = await fetch(
       `
       ${process.env.NEXT_PUBLIC_API_LOCAL_BASE_URL}/neighborhoods?${buildedUrl}`,
-      { method: 'GET' },
+      { method: EMethods.GET },
     )
 
     return response.json()
@@ -102,7 +107,7 @@ export const listNeighborhood = async (params: string) => {
       ${
         process.env.NEXT_PUBLIC_API_BASE_URL
       }/pub/${getHostname()}/neighborhoods?${params}`,
-      { method: 'GET' },
+      { method: EMethods.GET },
     )
 
     return response.json()
@@ -116,7 +121,7 @@ export const listBanners = async () => {
     const response = await fetch(`
       ${process.env.NEXT_PUBLIC_API_BASE_URL}/pub/${getHostname()}/banners
     `, {
-      method: 'GET'
+      method: EMethods.GET
     })
 
     return response.json()
@@ -130,7 +135,7 @@ export const listPropertiesFeatured = async () => {
     const response = await fetch(`
       ${process.env.NEXT_PUBLIC_API_BASE_URL}/pub/${getHostname()}/properties/featured
     `, {
-      method: 'GET'
+      method: EMethods.GET
     })
 
     return response.json()
@@ -144,7 +149,7 @@ export const listPropertiesByCode = async (code: Pick<IProperty, 'code'>) => {
     const response = await fetch(`
       ${process.env.NEXT_PUBLIC_API_BASE_URL}/pub/${getHostname()}/property/search/${code}
     `, {
-      method: 'GET'
+      method: EMethods.GET
     })
 
     return response.json()
@@ -158,7 +163,7 @@ export const listPropertiesByCodeLocal = async (code: Pick<IProperty, 'code'>) =
     const response = await fetch(
       `
       ${process.env.NEXT_PUBLIC_API_LOCAL_BASE_URL}/properties/search/${code}`,
-      { method: 'GET' },
+      { method: EMethods.GET },
     )
 
     return response.json()
@@ -172,7 +177,39 @@ export const getPropertyByCode = async (code: Pick<IProperty, 'code'>) => {
     const response = await fetch(`
       ${process.env.NEXT_PUBLIC_API_BASE_URL}/pub/${getHostname()}/property-new-show/${code}
     `, {
-      method: 'GET'
+      method: EMethods.GET
+    })
+
+    return response.json()
+  } catch (error) {
+    return { error } as IRequestError
+  }
+}
+
+export const sendMessage = async (data: any) => {
+  try {
+    const response = await fetch(`
+      ${process.env.NEXT_PUBLIC_API_BASE_URL}/pub/${getHostname()}/messages
+    `, {
+      method: EMethods.POST,
+      headers: headerDefault,
+      body: JSON.stringify(data)
+    })
+
+    return response.json()
+  } catch (error) {
+    return { error } as IRequestError
+  }
+}
+
+export const sendMessageLocal = async (data: any) => {
+  try {
+    const response = await fetch(`
+      ${process.env.NEXT_PUBLIC_API_LOCAL_BASE_URL}/message
+    `, {
+      method: EMethods.POST,
+      headers: headerDefault,
+      body: JSON.stringify(data)
     })
 
     return response.json()

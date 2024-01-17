@@ -28,7 +28,7 @@ export const PropertyPage: React.FC<IPropertyPage> = ({ photos, property }) => {
       <InfosDetailsOne property={property} />
       <MapOne property={property} />
       <WhatsAppOne />
-      <MoreDetailsOne />
+      <MoreDetailsOne property={property} />
       <FooterOne />
     </>
   )

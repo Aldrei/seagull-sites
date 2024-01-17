@@ -40,23 +40,23 @@ export const InfosDetailsCommon: React.FC<IInfosDetailsCommon> = ({
             {renderArea(property, 'areaTotal')}
           </LocationTextWrapper>}
           {renderArea(property, 'areaConstruida') && <LocationTextWrapper>
-            <span>Total</span>
+            <span>Const.</span>
             {renderArea(property, 'areaConstruida')}
           </LocationTextWrapper>}
           {renderArea(property, 'areaFrente') && <LocationTextWrapper>
-            <span>Total</span>
+            <span>Frente</span>
             {renderArea(property, 'areaFrente')}
           </LocationTextWrapper>}
           {renderArea(property, 'areaFundos') && <LocationTextWrapper>
-            <span>Total</span>
+            <span>Fundos</span>
             {renderArea(property, 'areaFundos')}
           </LocationTextWrapper>}
           {renderArea(property, 'areaEsquerda') && <LocationTextWrapper>
-            <span>Total</span>
+            <span>Esq.</span>
             {renderArea(property, 'areaEsquerda')}
           </LocationTextWrapper>}
           {renderArea(property, 'areaDireita') && <LocationTextWrapper>
-            <span>Total</span>
+            <span>Dir.</span>
             {renderArea(property, 'areaDireita')}
           </LocationTextWrapper>}
         </InfoBlock>

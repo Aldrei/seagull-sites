@@ -2,18 +2,18 @@ import { styled } from 'styled-components'
 
 export const Container = styled('div')`
   &.error {
-    input {
+    textarea {
       border: 1px solid red;
     }
   }
 `
 
-export const Input = styled('input')`
+export const Textarea = styled('textarea')`
   width: 100%;
-  min-height: 38px;
+  height: auto;
   color: #000;
   background: none;
-  padding: ${props => props.theme.spaces.md};
+  padding: 8px 12px;
   border: 1px solid hsl(0, 0%, 80%);
 
   &::placeholder {
