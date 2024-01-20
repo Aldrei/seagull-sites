@@ -10,10 +10,10 @@ export async function getServerSideProps(ctx: any) {
   const id = ctx.query.id
 
   const response = await getPropertyByCode(id as unknown as Pick<IProperty, 'code'>)
-  const property = response?.data.property || null
+  const property = response?.data?.property || null
   const photos = response?.data?.property?.photos?.data || null
 
-  return { props: { photos, property: property } }
+  return { props: { photos, property: property }, notFound: !property }
 }
 
 export default function Page({ photos, property }: IPageProps) {
