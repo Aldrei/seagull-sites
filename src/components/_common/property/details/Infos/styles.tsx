@@ -12,15 +12,23 @@ export const Header = styled.div`
   background: ${props => props.theme.background.infosCard.header};
   padding: 1rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid ${props => props.theme.color.seventh};
+
+  ${props => props.theme.media.IPAD_MINI} {
+    flex-direction: row;
+    padding: 0 calc(${props => props.theme.spaces.md}*10);
+  }
 `
 
 export const Title = styled.h2`
-  font-size: 1.5rem;
+  font-size: ${props => props.theme.spaces.xl};
   margin: 0;
   color: #000;
+  margin-top: ${props => props.theme.spaces.lg};
+  margin-bottom: ${props => props.theme.spaces.lg};
 `
 
 export const Price = styled.span`
