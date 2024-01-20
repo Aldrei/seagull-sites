@@ -11,6 +11,7 @@ export const SlideStyled = styled(SlideCommon)`
     > div {
       width: auto !important;
       min-width: auto !important;
+      background: ${props => props.theme.color.fourth};
     }
   }
 `

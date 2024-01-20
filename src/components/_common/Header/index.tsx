@@ -51,7 +51,7 @@ export const HeaderCommon: React.FC<IHeaderCommon> = ({
           )}
           {menuData.length && (
             <Fragment>
-              <Nav>
+              <Nav className='desktop-menu'>
                 {menuData.map((item, i) => (
                   <NavLink
                     key={String(i)}
@@ -63,7 +63,7 @@ export const HeaderCommon: React.FC<IHeaderCommon> = ({
                   </NavLink>
                 ))}
               </Nav>
-              <MenuIcon onClick={() => setMenuOpen(!isMenuOpen)}>
+              <MenuIcon onClick={() => setMenuOpen(!isMenuOpen)} className='mobile-menu'>
                 <Bar />
                 <Bar />
                 <Bar />
@@ -73,7 +73,7 @@ export const HeaderCommon: React.FC<IHeaderCommon> = ({
         </NavWrapper>
       </HeaderWrapper>
       {menuData.length && (
-        <MobileMenu $isOpen={isMenuOpen}>
+        <MobileMenu $isOpen={isMenuOpen} className='menu-options'>
           {menuData.map((item, i) => (
             <NavLink
               key={String(i)}

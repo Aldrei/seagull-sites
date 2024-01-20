@@ -77,7 +77,7 @@ export const MobileMenu = styled.div<{ $isOpen: boolean }>`
   top: 111px;
   left: 0;
   right: 0;
-  background: #007bff;
+  background: ${props => props.theme.color.fourth};
   border-top: 1px solid #eaeaea;
   padding: 16px;
   z-index: 9;
@@ -92,7 +92,7 @@ export const CloseIcon = styled.div``
 export const Bar = styled.div`
   width: 20px;
   height: 2px;
-  background-color: #007bff;
+  background-color: ${props => props.theme.color.fourth};
   margin: 4px 0;
 `
 
