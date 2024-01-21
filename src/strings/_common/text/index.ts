@@ -1,0 +1,4 @@
+export const TEXT = {
+  FILTER_BUTTON_CONFIRM: '',
+  FILTER_SELECT_CITIES: ''
+}

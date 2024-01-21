@@ -9,7 +9,7 @@ export default function Page({ data }: ICPage) {
   const dataRoute = useProperties()
   console.log('DEBUG dataRoute:', dataRoute)
 
-  return <PropertiesPage properties={data} />
+  return <PropertiesPage properties={data} filterOptionsInitial={{}} />
 }
 
 export { getServerSideProps }
