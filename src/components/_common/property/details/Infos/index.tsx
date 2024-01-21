@@ -1,4 +1,11 @@
-import { renderArea, renderCodePretty, renderLocation, renderParking, renderPrice, renderSunriseSideParking } from '@/utils'
+import {
+  renderArea,
+  renderCodePretty,
+  renderLocation,
+  renderParking,
+  renderPrice,
+  renderSunriseSideParking,
+} from '@/utils'
 import React from 'react'
 import {
   Code,
@@ -10,7 +17,7 @@ import {
   LocationTextWrapper,
   Price,
   PropertyContainer,
-  Title
+  Title,
 } from './styles'
 import { IInfosDetailsCommon } from './types'
 
@@ -27,38 +34,54 @@ export const InfosDetailsCommon: React.FC<IInfosDetailsCommon> = ({
       </Header>
       <InfoSection>
         <InfoBlock>
-          {renderSunriseSideParking(property) && <LocationTextWrapper>
-            <span>Garagem</span>
-            {renderSunriseSideParking(property)}
-          </LocationTextWrapper>}
-          {renderParking(property) && <LocationTextWrapper>
-            <span>Garagem</span>
-            {renderParking(property)}
-          </LocationTextWrapper>}
-          {renderArea(property, 'areaTotal') && <LocationTextWrapper>
-            <span>Total</span>
-            {renderArea(property, 'areaTotal')}
-          </LocationTextWrapper>}
-          {renderArea(property, 'areaConstruida') && <LocationTextWrapper>
-            <span>Const.</span>
-            {renderArea(property, 'areaConstruida')}
-          </LocationTextWrapper>}
-          {renderArea(property, 'areaFrente') && <LocationTextWrapper>
-            <span>Frente</span>
-            {renderArea(property, 'areaFrente')}
-          </LocationTextWrapper>}
-          {renderArea(property, 'areaFundos') && <LocationTextWrapper>
-            <span>Fundos</span>
-            {renderArea(property, 'areaFundos')}
-          </LocationTextWrapper>}
-          {renderArea(property, 'areaEsquerda') && <LocationTextWrapper>
-            <span>Esq.</span>
-            {renderArea(property, 'areaEsquerda')}
-          </LocationTextWrapper>}
-          {renderArea(property, 'areaDireita') && <LocationTextWrapper>
-            <span>Dir.</span>
-            {renderArea(property, 'areaDireita')}
-          </LocationTextWrapper>}
+          {renderSunriseSideParking(property) && (
+            <LocationTextWrapper>
+              <span>Garagem</span>
+              {renderSunriseSideParking(property)}
+            </LocationTextWrapper>
+          )}
+          {renderParking(property) && (
+            <LocationTextWrapper>
+              <span>Garagem</span>
+              {renderParking(property)}
+            </LocationTextWrapper>
+          )}
+          {renderArea(property, 'areaTotal') && (
+            <LocationTextWrapper>
+              <span>Total</span>
+              {renderArea(property, 'areaTotal')}
+            </LocationTextWrapper>
+          )}
+          {renderArea(property, 'areaConstruida') && (
+            <LocationTextWrapper>
+              <span>Const.</span>
+              {renderArea(property, 'areaConstruida')}
+            </LocationTextWrapper>
+          )}
+          {renderArea(property, 'areaFrente') && (
+            <LocationTextWrapper>
+              <span>Frente</span>
+              {renderArea(property, 'areaFrente')}
+            </LocationTextWrapper>
+          )}
+          {renderArea(property, 'areaFundos') && (
+            <LocationTextWrapper>
+              <span>Fundos</span>
+              {renderArea(property, 'areaFundos')}
+            </LocationTextWrapper>
+          )}
+          {renderArea(property, 'areaEsquerda') && (
+            <LocationTextWrapper>
+              <span>Esq.</span>
+              {renderArea(property, 'areaEsquerda')}
+            </LocationTextWrapper>
+          )}
+          {renderArea(property, 'areaDireita') && (
+            <LocationTextWrapper>
+              <span>Dir.</span>
+              {renderArea(property, 'areaDireita')}
+            </LocationTextWrapper>
+          )}
         </InfoBlock>
       </InfoSection>
       <Footer>

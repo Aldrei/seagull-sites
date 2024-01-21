@@ -17,7 +17,7 @@ export const Title = styled.h1`
 `
 
 export const DescriptionContainer = styled.div`
-  margin-top: ${props => props.theme.spaces.sm};;
+  margin-top: ${props => props.theme.spaces.sm};
 `
 
 export const Description = styled.p`

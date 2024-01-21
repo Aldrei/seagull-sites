@@ -3,7 +3,12 @@ import React, { useEffect, useState } from 'react'
 import { ButtonOne, SelectOne } from '@/components/template-one'
 import { listCitiesLocal, listNeighborhoodLocal } from '@/services'
 import { IFilterOptions, IFilterSelected } from '@/types/filter'
-import { buildFilterOptions, buildGroupedOptionsFromSelectedOptionsByApi, buildObjArrToGroupedSelect, buildOptionsFromSelectedOptionsByApi } from '@/utils'
+import {
+  buildFilterOptions,
+  buildGroupedOptionsFromSelectedOptionsByApi,
+  buildObjArrToGroupedSelect,
+  buildOptionsFromSelectedOptionsByApi,
+} from '@/utils'
 import { useRouter } from 'next/router'
 import { Column, FormWrapper, Row, formatGroupLabel } from './styled'
 import { IFilterAdvancedOne } from './types'
@@ -30,7 +35,7 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
   const states = initialStates?.length
     ? initialStates.map((item: any) => ({ value: item.id, label: item.abbr }))
     : []
-    // *Grouped options, doesn't have length flag
+  // *Grouped options, doesn't have length flag
   const cities = initialCities
     ? buildObjArrToGroupedSelect(initialCities, 'name', 'id')
     : []
@@ -93,12 +98,29 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
 
   const [filterSelected, setFilterSelected] = useState<IFilterSelected>({
     types: buildOptionsFromSelectedOptionsByApi(types, selectedTypes as any[]),
-    bedrooms: buildOptionsFromSelectedOptionsByApi(bedrooms, selectedBedrooms as any[]),
-    garages: buildOptionsFromSelectedOptionsByApi(garages, selectedGarages as any[]),
-    states: buildOptionsFromSelectedOptionsByApi(states, selectedStates as any[]),
-    cities: buildGroupedOptionsFromSelectedOptionsByApi(cities, selectedCities as any[]),
-    neighborhoods: buildGroupedOptionsFromSelectedOptionsByApi(neighborhoods, selectedNeighborhoods as any[]),
-    price: price.find((item) => item.value === `${selectedPriceMin}-${selectedPriceMax}`)
+    bedrooms: buildOptionsFromSelectedOptionsByApi(
+      bedrooms,
+      selectedBedrooms as any[],
+    ),
+    garages: buildOptionsFromSelectedOptionsByApi(
+      garages,
+      selectedGarages as any[],
+    ),
+    states: buildOptionsFromSelectedOptionsByApi(
+      states,
+      selectedStates as any[],
+    ),
+    cities: buildGroupedOptionsFromSelectedOptionsByApi(
+      cities,
+      selectedCities as any[],
+    ),
+    neighborhoods: buildGroupedOptionsFromSelectedOptionsByApi(
+      neighborhoods,
+      selectedNeighborhoods as any[],
+    ),
+    price: price.find(
+      item => item.value === `${selectedPriceMin}-${selectedPriceMax}`,
+    ),
   } as IFilterSelected)
 
   /**
@@ -111,7 +133,11 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
 
       setFilterOptions({
         ...filterOptions,
-        cities: buildObjArrToGroupedSelect(response?.cities?.data, 'name', 'id'),
+        cities: buildObjArrToGroupedSelect(
+          response?.cities?.data,
+          'name',
+          'id',
+        ),
         neighborhoods: [],
       })
     }
@@ -123,7 +149,14 @@ export const FilterAdvanced: React.FC<IFilterAdvancedOne> = ({
   useEffect(() => {
     const handleChange = async () => {
       const response = await listNeighborhoodLocal(filterSelected)
-      setFilterOptions({ ...filterOptions, neighborhoods: buildObjArrToGroupedSelect(response?.neighborhoods?.data, 'name', 'id') })
+      setFilterOptions({
+        ...filterOptions,
+        neighborhoods: buildObjArrToGroupedSelect(
+          response?.neighborhoods?.data,
+          'name',
+          'id',
+        ),
+      })
     }
 
     if (filterSelected?.cities?.length) handleChange()

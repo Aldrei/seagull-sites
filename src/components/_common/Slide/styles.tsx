@@ -29,8 +29,8 @@ export const TitleInfo = styled.strong`
   text-transform: uppercase;
   color: #fff;
   font-size: 2.1rem;
-  text-shadow: 1px 1px 0 rgba(0,0,0,.9);
-  opacity: .9;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.9);
+  opacity: 0.9;
   width: max-content;
 `
 
@@ -39,10 +39,10 @@ export const DescInfo = styled.p`
   padding: calc(${props => props.theme.spaces.md}*2);
   margin-bottom: ${props => props.theme.spaces.sm};
   color: #fff;
-  text-shadow: 1px 1px 0 rgba(0,0,0,.8);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8);
   line-height: 23px;
   font-size: 16px;
-  opacity: .9;
+  opacity: 0.9;
 `
 
 export const ButtonInfo = styled(Link)`

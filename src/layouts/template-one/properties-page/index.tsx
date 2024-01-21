@@ -18,14 +18,17 @@ export const PropertiesPage: React.FC<IPropertiesPageProps> = ({
 
   /**
    * TODO: Improve SEO:
-   *        
+   *
    *       1. Implement friendly URL.
    *       2. Implement dynamic meta tags.
-  */
-  const TITLE = `${customer.name} - ${process.env.NEXT_PUBLIC_SEO_CATEGORIES_TITLE}`.toUpperCase()
-  const KEYWORDS = process.env.NEXT_PUBLIC_SEO_CATEGORIES_KEYWORDS?.toString()?.toUpperCase()
+   */
+  const TITLE =
+    `${customer.name} - ${process.env.NEXT_PUBLIC_SEO_CATEGORIES_TITLE}`.toUpperCase()
+  const KEYWORDS =
+    process.env.NEXT_PUBLIC_SEO_CATEGORIES_KEYWORDS?.toString()?.toUpperCase()
   const CANONICAL = `${customer.seo_canonical_base}/c`
-  const DESCRIPTION = `${customer.name} ${process.env.NEXT_PUBLIC_SEO_CATEGORIES_DESCRIPTION}`.toUpperCase()
+  const DESCRIPTION =
+    `${customer.name} ${process.env.NEXT_PUBLIC_SEO_CATEGORIES_DESCRIPTION}`.toUpperCase()
   const IMAGE = `${customer.logo}`
 
   return (
@@ -40,7 +43,7 @@ export const PropertiesPage: React.FC<IPropertiesPageProps> = ({
         <meta property="og:description" content={DESCRIPTION} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={CANONICAL} />
-        <meta property="og:image" itemProp="image"  content={IMAGE} />
+        <meta property="og:image" itemProp="image" content={IMAGE} />
       </Head>
       <Header title="TEMPLATE-ONE" logo={IMAGES.LOGO} />
       <PageContainer>

@@ -1,1 +1,1 @@
-export * from '@/icons/_common/icons';
+export * from '@/icons/_common/icons'

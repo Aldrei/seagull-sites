@@ -3,12 +3,22 @@ import React, { useEffect, useState } from 'react'
 import { listPropertiesByCodeLocal } from '@/services'
 import { ITimer } from '@/types/others'
 import { IProperty } from '@/types/property'
-import { Card, CardContent, CardDescription, CardImage, CardTitle, Container, DetailsButton, ListContainer, SearchInput } from './styles'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardImage,
+  CardTitle,
+  Container,
+  DetailsButton,
+  ListContainer,
+  SearchInput,
+} from './styles'
 import { ISearchCommon } from './types'
 
 const timer: ITimer = {
   timeoutID: 0,
-  delay: 1500
+  delay: 1500,
 }
 
 export const SearchCommon: React.FC<ISearchCommon> = ({
@@ -44,7 +54,7 @@ export const SearchCommon: React.FC<ISearchCommon> = ({
   }
 
   const renderPropertyItem = () => {
-    if (loading) 
+    if (loading)
       return (
         <ListContainer>
           <p>Loading...</p>
@@ -55,17 +65,22 @@ export const SearchCommon: React.FC<ISearchCommon> = ({
       return (
         <ListContainer>
           <Card>
-            <CardImage src={property?.photo?.data.thumb} alt={property?.nomeImovel} />
+            <CardImage
+              src={property?.photo?.data.thumb}
+              alt={property?.nomeImovel}
+            />
             <CardContent>
-              <CardTitle>({property.codePretty}) - {property?.nomeImovel}</CardTitle>
+              <CardTitle>
+                ({property.codePretty}) - {property?.nomeImovel}
+              </CardTitle>
               <CardDescription>{property?.descGeral}</CardDescription>
               <DetailsButton>Mais detalhes</DetailsButton>
             </CardContent>
           </Card>
         </ListContainer>
-      );
+      )
 
-    if (message) 
+    if (message)
       return (
         <ListContainer>
           <p>{message}</p>
@@ -73,16 +88,15 @@ export const SearchCommon: React.FC<ISearchCommon> = ({
       )
 
     return null
-  };
+  }
 
-  console.log('DEBUG property:', property);
-  
+  console.log('DEBUG property:', property)
 
   return (
     <Container {...props}>
-      <SearchInput 
-        placeholder="Ex: AP080" 
-        onChange={(input) => setSearchValue(input.currentTarget.value)} 
+      <SearchInput
+        placeholder="Ex: AP080"
+        onChange={input => setSearchValue(input.currentTarget.value)}
         value={searchValue}
       />
       {renderPropertyItem()}

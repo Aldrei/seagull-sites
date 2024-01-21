@@ -120,5 +120,5 @@ export const propertyMock: IProperty = {
     data: {
       nome: 'adipisci velit',
     },
-  }
+  },
 }

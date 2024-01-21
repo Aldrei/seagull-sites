@@ -7,7 +7,7 @@ export const Row = styled.div`
   justify-content: space-between;
 
   &:last-child {
-    margin-top: ${props => props.theme.spaces.md}
+    margin-top: ${props => props.theme.spaces.md};
   }
 `
 

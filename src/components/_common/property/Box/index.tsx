@@ -69,7 +69,17 @@ export const BoxCommon: React.FC<IBoxCommon> = ({
             <InfoItem>{property.dormitorio} dorm(s)</InfoItem>
           )}
         </Info>
-        <Button title={buildTextSeo({ property, normalize: true, separatorChar: ', ' })} href={buildUrlSeo(property)} className="go-button">Conhecer +</Button>
+        <Button
+          title={buildTextSeo({
+            property,
+            normalize: true,
+            separatorChar: ', ',
+          })}
+          href={buildUrlSeo(property)}
+          className="go-button"
+        >
+          Conhecer +
+        </Button>
       </Content>
     </Card>
   )

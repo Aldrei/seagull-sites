@@ -39,28 +39,28 @@ export const Card = styled.div`
   overflow: hidden;
   align-items: center;
   justify-content: flex-start;
-`;
+`
 
 export const CardImage = styled.img`
   width: 175px;
   height: auto;
-`;
+`
 
 export const CardContent = styled.div`
   padding: 16px;
   flex-grow: 1;
-`;
+`
 
 export const CardTitle = styled.h2`
   font-size: ${props => props.theme.spaces.lg};
   color: #333;
   margin: 0 0 8px 0;
-`;
+`
 
 export const CardCode = styled.p`
   font-size: ${props => props.theme.spaces.sm};
   color: #666;
-`;
+`
 
 export const CardDescription = styled.p`
   font-size: ${props => props.theme.spaces.md};
@@ -71,7 +71,7 @@ export const CardDescription = styled.p`
   overflow: hidden;
   white-space: nowrap;
   max-width: calc(${props => props.theme.spaces.xl}*16);
-`;
+`
 
 export const DetailsButton = styled.button`
   padding: 10px 16px;
@@ -85,4 +85,4 @@ export const DetailsButton = styled.button`
   &:hover {
     background-color: #bbb;
   }
-`;
+`

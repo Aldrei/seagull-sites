@@ -14,4 +14,3 @@ export { BoxCommon } from './property/Box'
 export { GridCommon } from './property/Grid'
 export { InfosDetailsCommon } from './property/details/Infos'
 export { TopSectionCommon } from './property/details/TopSection'
-

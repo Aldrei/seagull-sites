@@ -18,7 +18,7 @@ export const SelectOne: React.FC<ISelectCommon> = ({
     control: (styles: any) => ({
       ...styles,
       borderRadius: 0,
-      padding: '.50rem'
+      padding: '.50rem',
     }),
     option: (styles: any) => ({
       ...styles,
@@ -26,18 +26,20 @@ export const SelectOne: React.FC<ISelectCommon> = ({
     }),
     multiValueRemove: (styles, { data }) => ({
       ...styles,
-      color: 'gray'
+      color: 'gray',
     }),
   }
 
-  return <SelectStyled 
-    name={name}
-    className="select-common"
-    options={options}
-    onChange={onChange}
-    value={value}
-    isMulti={isMulti}
-    isDisabled={isDisabled}
-    styles={styles}
-  />
+  return (
+    <SelectStyled
+      name={name}
+      className="select-common"
+      options={options}
+      onChange={onChange}
+      value={value}
+      isMulti={isMulti}
+      isDisabled={isDisabled}
+      styles={styles}
+    />
+  )
 }

@@ -154,28 +154,34 @@ export const shouldShowTotalArea = (property: IProperty) => {
   return true
 }
 
-export const buildQueryStrToSelectedOptions = (queryParams: URLSearchParams) => {
+export const buildQueryStrToSelectedOptions = (
+  queryParams: URLSearchParams,
+) => {
   try {
     const queryParamsObj = {} as any
 
     for (const [originalKey, value] of queryParams.entries()) {
       const key = originalKey.replace('[]', '')
-      
+
       if (!queryParamsObj?.[key]?.length) {
         queryParamsObj[key] = [value]
       } else {
-        queryParamsObj[key].push(value);
+        queryParamsObj[key].push(value)
       }
     }
 
-    return queryParamsObj;
+    return queryParamsObj
   } catch (error) {
-    console.log(error);
+    console.log(error)
     return []
   }
 }
 
-export const buildObjArrToGroupedSelect = (data: Object, labelFlag: any, valueFlag: any) => {
+export const buildObjArrToGroupedSelect = (
+  data: Object,
+  labelFlag: any,
+  valueFlag: any,
+) => {
   try {
     const groupedOptions: IGroupedOption[] = []
 
@@ -198,16 +204,25 @@ export const buildObjArrToGroupedSelect = (data: Object, labelFlag: any, valueFl
   }
 }
 
-export const buildOptionsFromSelectedOptionsByApi = (options: IOption[], selectedOptions: any[]) => {
-  return options.filter((item: any) => selectedOptions?.includes(String(item.value) as any))
+export const buildOptionsFromSelectedOptionsByApi = (
+  options: IOption[],
+  selectedOptions: any[],
+) => {
+  return options.filter(
+    (item: any) => selectedOptions?.includes(String(item.value) as any),
+  )
 }
 
-export const buildGroupedOptionsFromSelectedOptionsByApi = (options: IGroupedOption[], selectedOptions: any[]) => {
+export const buildGroupedOptionsFromSelectedOptionsByApi = (
+  options: IGroupedOption[],
+  selectedOptions: any[],
+) => {
   const result: IOption[] = []
   if (options)
     options.forEach((item: IGroupedOption) => {
-      item.options.forEach((item) => {
-        if (selectedOptions?.includes(String(item.value) as any)) result.push(item);
+      item.options.forEach(item => {
+        if (selectedOptions?.includes(String(item.value) as any))
+          result.push(item)
       })
     })
   return result
@@ -218,7 +233,7 @@ export const removeSpecialCharactersAndAccents = (str: string): string => {
     if (!str) return ''
 
     return str
-      .normalize("NFD")
+      .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '')
       .replace(/[^a-zA-Z0-9 ]/g, '')
   } catch (error) {
@@ -227,22 +242,30 @@ export const removeSpecialCharactersAndAccents = (str: string): string => {
   }
 }
 
-export const buildTextSeo = ({ property, normalize = false, separatorChar = ' ' }: IBuildTextSeo) => {
+export const buildTextSeo = ({
+  property,
+  normalize = false,
+  separatorChar = ' ',
+}: IBuildTextSeo) => {
   try {
-    const dorm = Number(property.dormitorio) ? `${property.dormitorio} dorm` : ''
+    const dorm = Number(property.dormitorio)
+      ? `${property.dormitorio} dorm`
+      : ''
     const dormChecked = dorm ? `${separatorChar}${dorm}` : ''
 
     const parking = Number(property.garagem) ? `${property.garagem} carros` : ''
     const parkingChecked = parking ? `${separatorChar}${parking}` : ''
 
-    const type = normalize 
+    const type = normalize
       ? removeSpecialCharactersAndAccents(property.tipo)
       : property.tipo
-    const city = normalize 
-      ? removeSpecialCharactersAndAccents(String(property?.neighborhood?.data?.city?.data?.name)) 
-      : String(property?.neighborhood?.data?.city?.data?.name) 
-    const name = normalize 
-      ? removeSpecialCharactersAndAccents(property.nomeImovel) 
+    const city = normalize
+      ? removeSpecialCharactersAndAccents(
+          String(property?.neighborhood?.data?.city?.data?.name),
+        )
+      : String(property?.neighborhood?.data?.city?.data?.name)
+    const name = normalize
+      ? removeSpecialCharactersAndAccents(property.nomeImovel)
       : property.nomeImovel
 
     let friendlyPiece = `${type}${separatorChar}${city}${dormChecked}${parkingChecked}`
@@ -256,7 +279,13 @@ export const buildTextSeo = ({ property, normalize = false, separatorChar = ' ' 
 
 export const buildUrlSeo = (property: IProperty): string => {
   try {
-    return `/p/${buildTextSeo({ property, normalize: true, separatorChar: '-' })}/${property.code}`.replaceAll(' ', '-').toLowerCase()
+    return `/p/${buildTextSeo({
+      property,
+      normalize: true,
+      separatorChar: '-',
+    })}/${property.code}`
+      .replaceAll(' ', '-')
+      .toLowerCase()
   } catch (error) {
     console.log(error)
     return ''
@@ -272,22 +301,31 @@ export const renderLocation = (property: IProperty) => {
   return `${property?.neighborhood?.data.city?.data?.long_desc}, ${property?.neighborhood?.data?.nome}`
 }
 
-export const isValidNumberForNumberPropertyFlag = (property: IProperty, flag: keyof IProperty) => Number(property[flag])
-export const isValidValueForStrPropertyFlag = (property: IProperty, flag: keyof IProperty) => Boolean(property[flag]) && String(property[flag])
+export const isValidNumberForNumberPropertyFlag = (
+  property: IProperty,
+  flag: keyof IProperty,
+) => Number(property[flag])
+export const isValidValueForStrPropertyFlag = (
+  property: IProperty,
+  flag: keyof IProperty,
+) => Boolean(property[flag]) && String(property[flag])
 
 export const renderArea = (property: IProperty, flag: keyof IProperty) => {
-  if (isValidNumberForNumberPropertyFlag(property, flag)) return `${property[flag]}m²`
+  if (isValidNumberForNumberPropertyFlag(property, flag))
+    return `${property[flag]}m²`
   return ''
 }
 
 export const renderParking = (property: IProperty) => {
-  const label = Number(property.garagem) > 1 ? 'carros' : 'carro' 
-  if (isValidNumberForNumberPropertyFlag(property, 'garagem')) return `${property.garagem} ${label}`
+  const label = Number(property.garagem) > 1 ? 'carros' : 'carro'
+  if (isValidNumberForNumberPropertyFlag(property, 'garagem'))
+    return `${property.garagem} ${label}`
   return ''
 }
 
 export const renderSunriseSideParking = (property: IProperty) => {
-  if (isValidValueForStrPropertyFlag(property, 'nascerDoSol')) return `${property.nascerDoSol}`
+  if (isValidValueForStrPropertyFlag(property, 'nascerDoSol'))
+    return `${property.nascerDoSol}`
   return ''
 }
 
@@ -295,7 +333,10 @@ export const renderCodePretty = (property: IProperty) => {
   return `Cód. ${property.codePretty}`
 }
 
-export const buildCanonicalSeo = (seo_canonical_base: string, property: IProperty) => {
+export const buildCanonicalSeo = (
+  seo_canonical_base: string,
+  property: IProperty,
+) => {
   return `${seo_canonical_base}/site/imovel/${property.code}`
 }
 

@@ -9,7 +9,15 @@ import {
 import 'keen-slider/keen-slider.min.css'
 
 import { buildTextSeo, buildUrlSeo } from '@/utils'
-import { Banner, ButtonInfo, Container, DescInfo, Image, InfosContainer, TitleInfo } from './styles'
+import {
+  Banner,
+  ButtonInfo,
+  Container,
+  DescInfo,
+  Image,
+  InfosContainer,
+  TitleInfo,
+} from './styles'
 import { ISlideCommon } from './types'
 
 export const SlideCommon: React.FC<ISlideCommon> = ({ banners, ...props }) => {
@@ -86,19 +94,28 @@ export const SlideCommon: React.FC<ISlideCommon> = ({ banners, ...props }) => {
     <Container {...props}>
       <div ref={sliderRef} className="keen-slider banners">
         {banners.map((banner, i) => (
-            <Banner
-              key={i}
-              className={`keen-slider__slide lazy__slide number-slide${i}`}
-              style={{
-                background: `url(${banner.normal})`,
-              }}
-            >
-              <InfosContainer>
-                <TitleInfo>{banner.titulo}</TitleInfo>
-                <DescInfo>{banner.descGeral}</DescInfo>
-                <ButtonInfo title={buildTextSeo({ property: banner.property.data, normalize: true, separatorChar: ', ' })} href={buildUrlSeo(banner.property.data)}>Gostei, mais detalhes!</ButtonInfo>
-              </InfosContainer>
-            </Banner>
+          <Banner
+            key={i}
+            className={`keen-slider__slide lazy__slide number-slide${i}`}
+            style={{
+              background: `url(${banner.normal})`,
+            }}
+          >
+            <InfosContainer>
+              <TitleInfo>{banner.titulo}</TitleInfo>
+              <DescInfo>{banner.descGeral}</DescInfo>
+              <ButtonInfo
+                title={buildTextSeo({
+                  property: banner.property.data,
+                  normalize: true,
+                  separatorChar: ', ',
+                })}
+                href={buildUrlSeo(banner.property.data)}
+              >
+                Gostei, mais detalhes!
+              </ButtonInfo>
+            </InfosContainer>
+          </Banner>
         ))}
       </div>
       <div ref={thumbnailRef} className="keen-slider thumbnail">

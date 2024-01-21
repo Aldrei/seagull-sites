@@ -1,1 +1,1 @@
-export * from '@/icons/template-one';
+export * from '@/icons/template-one'

@@ -12,8 +12,8 @@ export const mockedBanners: IBanner[] = [
     img: '',
     posicao: 0,
     property: {
-      data: propertyMock
-    }
+      data: propertyMock,
+    },
   },
   {
     thumb: `${process.env.NEXT_PUBLIC_CDN_URL}\/photos\/thumb\/871ad47b0e23e874e212f374f0e7bc78.jpeg`,
@@ -25,8 +25,8 @@ export const mockedBanners: IBanner[] = [
     img: '',
     posicao: 0,
     property: {
-      data: propertyMock
-    }
+      data: propertyMock,
+    },
   },
   {
     thumb: `${process.env.NEXT_PUBLIC_CDN_URL}\/photos\/thumb\/2caa36b4fba7074b39514c8bfa05602e.jpeg`,
@@ -38,7 +38,7 @@ export const mockedBanners: IBanner[] = [
     img: '',
     posicao: 0,
     property: {
-      data: propertyMock
-    }
+      data: propertyMock,
+    },
   },
 ]

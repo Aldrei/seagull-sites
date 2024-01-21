@@ -17,7 +17,14 @@ export const InputCommon: React.FC<IInputCommon> = ({
   return (
     <Container {...props} className={className}>
       <Label htmlFor={name}>{label}</Label>
-      <Input name={name} placeholder={placeholder} onChange={onChange} value={value} defaultValue={defaultValue} disabled={disabled} />
+      <Input
+        name={name}
+        placeholder={placeholder}
+        onChange={onChange}
+        value={value}
+        defaultValue={defaultValue}
+        disabled={disabled}
+      />
     </Container>
   )
 }

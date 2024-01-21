@@ -125,12 +125,12 @@ const TEXT_OPACITY = {
 const BACKGROUND = {
   whatsappCard: {
     header: COLOR.eighth,
-    body: 'http://sgimoveis.imb.br/site/whats-bg.png'
+    body: 'http://sgimoveis.imb.br/site/whats-bg.png',
   },
   infosCard: {
     header: COLOR.eighth,
     body: COLOR.eighth,
-    footer: COLOR.eighth
+    footer: COLOR.eighth,
   },
   header: GRADIENT.second,
   filter: COLOR.eighth,
@@ -139,7 +139,7 @@ const BACKGROUND = {
   label_price: GRADIENT.second,
   input: GRADIENT.second,
   footer: GRADIENT.second,
-  gallery: COLOR.eighth
+  gallery: COLOR.eighth,
 }
 
 /**

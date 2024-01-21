@@ -9,7 +9,9 @@ import { IProperty } from '@/types/property'
 export async function getServerSideProps(ctx: any) {
   const id = ctx.query.id
 
-  const response = await getPropertyByCode(id as unknown as Pick<IProperty, 'code'>)
+  const response = await getPropertyByCode(
+    id as unknown as Pick<IProperty, 'code'>,
+  )
   const property = response?.data?.property || null
   const photos = response?.data?.property?.photos?.data || null
 

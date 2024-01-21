@@ -1,6 +1,6 @@
-import { IProperty } from "@/types/property"
+import { IProperty } from '@/types/property'
 
-export interface IBuildTextSeo { 
+export interface IBuildTextSeo {
   property: IProperty
   normalize?: boolean
   separatorChar?: string

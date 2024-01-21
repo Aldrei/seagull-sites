@@ -39,7 +39,7 @@ export const Price = styled.span`
 
 export const InfoSection = styled.section`
   padding: ${props => props.theme.spaces.md};
-  background: ${props => props.theme.background.infosCard.header};;
+  background: ${props => props.theme.background.infosCard.header};
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -56,7 +56,7 @@ export const InfoBlock = styled.div`
 
 export const Icon = styled(ICONS_ONE.RulerIcon)`
   font-size: ${props => props.theme.spaces.md};
-  margin-right: calc(${props => props.theme.spaces.xs}/2);
+  margin-right: calc(${props => props.theme.spaces.xs} / 2);
   color: #000;
 `
 
@@ -70,7 +70,7 @@ export const Footer = styled.h3`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: ${props => props.theme.background.infosCard.footer};;
+  background: ${props => props.theme.background.infosCard.footer};
   padding: 1rem;
   margin: 0;
   text-align: center;

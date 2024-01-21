@@ -4,5 +4,5 @@ export interface IRequestError {
 
 export enum EMethods {
   GET = 'GET',
-  POST = 'POST'
+  POST = 'POST',
 }
