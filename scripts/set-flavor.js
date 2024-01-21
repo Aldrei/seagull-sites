@@ -1,10 +1,8 @@
 import * as fs from 'fs'
-import { writeFile, message, flavorConfigPath } from './utils'
+import { flavorConfigPath, message, writeFile } from './utils'
 
 const flavoredFiles = [
-  'src/styles/colors/index.ts',
   'src/images/index.ts',
-  'src/styles/button-variants/index.ts',
   'src/fonts/index.ts',
   'src/layouts/index.ts',
   'src/components/index.ts',
