@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 
 import { PropertyPage } from '@/layouts'
-import { IPageProps } from './types'
+import { IPageProps } from '@/types/pages'
 
 import { getPropertyByCode } from '@/services'
 import { IProperty } from '@/types/property'

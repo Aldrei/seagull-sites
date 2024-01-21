@@ -10,7 +10,7 @@ import {
 } from '@/components/template-one'
 
 import { IMAGES } from '@/images/template-one'
-import { IHomeProps } from '@/pages/types'
+import { IHomeProps } from '@/types/pages'
 
 import { CustomerContext } from '@/hooks/useCustomer'
 import {

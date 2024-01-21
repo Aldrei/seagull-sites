@@ -1,8 +1,8 @@
 import { PropertiesPage } from '@/layouts'
 import { listPropertiesFiltered } from '@/services'
+import { ICPage } from '@/types/pages'
 import { buildPropertiesFilteredParams } from '@/utils'
 import { GetServerSideProps } from 'next'
-import { ICPage } from './types'
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const queryParams = buildPropertiesFilteredParams({ query: context.query })

@@ -5,7 +5,7 @@ import {
   listPropertiesFeatured,
   listPropertiesFiltered,
 } from '@/services'
-import { IHomeProps } from './types'
+import { IHomeProps } from '@/types/pages'
 
 export async function getServerSideProps() {
   const [propertiesList, bannersList, propertiesFeaturedList] =
