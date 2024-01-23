@@ -1,0 +1,17 @@
+name: Semantic Releaser
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [ closed ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Semantic Releaser
+        # You may pin to the exact commit or the version.
+        # uses: brpaz/action-semantic-release@978dcc77b36b45f08f55e8deaee1666585bba193
+        uses: brpaz/action-semantic-release@v1
+          
