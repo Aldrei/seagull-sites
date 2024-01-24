@@ -10,8 +10,8 @@
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore .",
     "prepare": "husky install",
-    "run-script": "yarn ts-node",
-    "prepare:env": "yarn run-script scripts/prepare-env.js"
+    "run-script": "npm ts-node",
+    "prepare:env": "npm run-script scripts/prepare-env.js"
   },
   "dependencies": {
     "keen-slider": "^6.8.6",
