@@ -8,23 +8,20 @@ It's using [Styled-Component](https://styled-components.com/) to create UIX comp
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# First install the dependencies
+npm install
+# Set the template and the environment
+npm prepare:env -f template-one -e dev
+# Launch the application in development mode
+npm dev
+# Then check the code prettier pattern
+npm format:fix
+# Then make your commits run the build to check issues
+npm build
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Deploy
-
-Next step...
 
 ## Commit Message Convention
 
@@ -51,3 +48,11 @@ Next step...
 - Example
 
   - fix(auth): check life time token
+
+## CI/CD on GitHub Actions
+
+- https://github.com/Aldrei/seagull/actions
+
+## Deploy
+
+- Via GitHub Actions to Digital Ocean App
