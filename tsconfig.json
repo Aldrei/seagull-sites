@@ -26,21 +26,21 @@
       "@mocks": ["./src/mocks/*"],
       "@utils": ["./src/utils/*"],
       "@pages": ["./src/pages/*"],
-      "@services": ["./src/services/*"]
+      "@services": ["./src/services/*"],
     },
     "incremental": true,
     "plugins": [
       {
-        "name": "next"
-      }
-    ]
+        "name": "next",
+      },
+    ],
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"],
   "ts-node": {
     "require": ["tsconfig-paths/register"],
     "compilerOptions": {
-      "module": "commonjs"
-    }
-  }
+      "module": "commonjs",
+    },
+  },
 }
