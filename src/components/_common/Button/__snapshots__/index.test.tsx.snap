@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Common components renders the ButtonCommon 1`] = `
+<body>
+  <div>
+    <button
+      class="sc-44c70c92-0 jlqeCN button-common undefined"
+    >
+      test
+    </button>
+  </div>
+</body>
+`;
