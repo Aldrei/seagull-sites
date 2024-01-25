@@ -24,6 +24,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Default
         uses: actions/checkout@v4
+      - run: |
+          echo ${{github.workspace}}
+          echo $GITHUB_WORKSPACE
 
       # Install Node v20.9.0
       - name: Set Node v20.9.0
