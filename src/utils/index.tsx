@@ -208,8 +208,8 @@ export const buildOptionsFromSelectedOptionsByApi = (
   options: IOption[],
   selectedOptions: any[],
 ) => {
-  return options.filter(
-    (item: any) => selectedOptions?.includes(String(item.value) as any),
+  return options.filter((item: any) =>
+    selectedOptions?.includes(String(item.value) as any),
   )
 }
 
