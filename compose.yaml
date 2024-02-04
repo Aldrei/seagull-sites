@@ -1,0 +1,12 @@
+services:
+  app:
+    # The name will automatically become a network alias, which will be useful when defining your MySQL service.
+    image: node:20-alpine
+    command: sh -c "yarn install && yarn prepare:env -e dev -f template-one && yarn run dev"
+    ports:
+      - 127.0.0.1:3000:3000
+    # working directory
+    working_dir: /seagull
+    # volume mapping
+    volumes:
+      - ./:/seagull
