@@ -34,7 +34,7 @@ export const WhatsAppCommon: React.FC = ({ ...props }): React.ReactElement => {
         </ContactWhatsHeader>
         <ContactWhatsBody>
           <ContactWhatsButton
-            href={customer.social?.whatsapp?.link_device}
+            href={customer?.social?.whatsapp?.link_device}
             target="_blank"
             title=""
           >
