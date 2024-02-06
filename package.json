@@ -1,5 +1,5 @@
 {
-  "name": "inherits-elements",
+  "name": "seagull",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,8 +11,8 @@
     "format:fix": "prettier --write --ignore-path .gitignore .",
     "clean": "rm -rf .next && rm -rf node_modules",
     "prepare": "husky install",
-    "run-script": "npm ts-node",
-    "prepare:env": "npm run-script scripts/prepare-env.js",
+    "run-script": "yarn ts-node",
+    "prepare:env": "yarn run-script scripts/prepare-env.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:clean": "rm -rf coverage && jest clean"
