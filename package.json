@@ -9,11 +9,13 @@
     "lint": "next lint",
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore .",
+    "clean": "rm -rf .next && rm -rf node_modules",
     "prepare": "husky install",
     "run-script": "yarn ts-node",
     "prepare:env": "yarn run-script scripts/prepare-env.js",
-    "test": "jest --no-watchman",
-    "test:cover": "jest --no-watchman --coverage"
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:clean": "rm -rf coverage && jest clean"
   },
   "dependencies": {
     "keen-slider": "^6.8.6",
