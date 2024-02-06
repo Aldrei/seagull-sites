@@ -62,7 +62,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "yarn prettier:fix",
+      "prettier --write --ignore-path .gitignore .",
       "git add"
     ]
   }
