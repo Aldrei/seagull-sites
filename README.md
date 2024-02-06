@@ -16,7 +16,7 @@ npm prepare:env -f template-one -e dev
 # Launch the application in development mode
 npm dev
 # Then check the code prettier pattern
-npm format:fix
+npm prettier:fix
 # Then make your commits run the build to check issues
 npm build
 ```
