@@ -21,7 +21,10 @@ export async function getServerSideProps() {
   return {
     props: {
       slideData: { banners: bannersList?.data || [] },
-      filterOptionsInitial: { options: options || {}, selectedOptions: selectedOptions || {} },
+      filterOptionsInitial: {
+        options: options || {},
+        selectedOptions: selectedOptions || {},
+      },
       propertiesFeaturedList: propertiesFeaturedList?.data || [],
     },
   }
