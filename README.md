@@ -11,8 +11,8 @@ It's using [Styled-Component](https://styled-components.com/) to create UIX comp
 ```bash
 # First install the dependencies
 npm install
-# Set the template and the environment
-npm prepare:env -f template-one -e dev
+# Set the template and the environment(yarn required)
+yarn prepare:env -f template-one -e dev
 # Launch the application in development mode
 npm dev
 # Then check the code prettier pattern
