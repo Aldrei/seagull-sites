@@ -1,6 +1,6 @@
 import { IOption } from '@/components/_common/Select/types'
 import { IFilterSelected, IGroupedOption } from '@/types/filter'
-import { IPhoto, IProperty, TypeProperty } from '@/types/property'
+import { EPropertyStatus, IPhoto, IProperty, TypeProperty } from '@/types/property'
 import { IBuildTextSeo } from './types'
 
 export const isServer = () => typeof window === 'undefined'
@@ -112,6 +112,8 @@ export const getHostname = () => {
     console.log(error)
   }
 }
+
+export const shouldShowSold = (property: IProperty) => property.status === EPropertyStatus.VENDIDO
 
 export const shouldShowGarageInfo = (property: IProperty) => {
   const invalidTypes = new Array<TypeProperty>()

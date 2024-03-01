@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Common components renders the ButtonCommon 1`] = `
+exports[`Common components Render ButtonCommon 1`] = `
 <body>
   <div>
     <button

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Common component Render WhatsAppCommon 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-2865ade8-0 MMttG"
+    >
+      <div
+        class="sc-2865ade8-1 hbYeXh"
+      >
+        <div
+          class="sc-2865ade8-2 bhOnmI"
+        >
+          <img
+            alt="Foto do corretor de imóveis"
+            class="sc-2865ade8-3 huzkqc"
+          />
+          <div
+            class="sc-2865ade8-4 lhcFVZ"
+          >
+            <h2
+              class="sc-2865ade8-5 lcBAOE"
+            />
+            <p
+              class="sc-2865ade8-6 eGxYpV"
+            >
+              online
+            </p>
+          </div>
+        </div>
+        <div
+          class="sc-2865ade8-7 jghLkA"
+        >
+          <a
+            class="sc-2865ade8-8 bgnwey"
+            target="_blank"
+            title=""
+          >
+            Fale conosco
+            <svg
+              class="sc-2865ade8-9 eolila"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

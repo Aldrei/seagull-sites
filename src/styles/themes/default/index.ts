@@ -64,11 +64,15 @@ const COLOR = {
 
   eighth: '#EEE',
   eighthRgb: '',
-  eighthRgba: '',
+  eighthRgba: 'rgba(238, 238, 238, .7)',
 
   ninth: '#757575',
   ninthRgb: '',
   ninthRgba: '',
+
+  tenth: '#D92525',
+  tenthRgb: '',
+  tenthRgba: 'rgba(217, 37, 37, 1)',
 
   black: '#000',
   white: '#FFF',
@@ -140,6 +144,7 @@ const BACKGROUND = {
   input: GRADIENT.second,
   footer: GRADIENT.second,
   gallery: COLOR.eighth,
+  band_sold: 'rgba(255, 255, 255, .75)',
 }
 
 /**

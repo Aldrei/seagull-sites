@@ -24,7 +24,6 @@ export const Card = styled('div')<{ $orientation?: 'column' | 'row' }>`
 
         img {
           max-height: 300px;
-          margin-left: calc(${props => props.theme.spaces.md}*2.5);
           box-shadow: 0 4px 8px ${props => props.theme.color.second};
         }
 
@@ -46,8 +45,10 @@ export const Card = styled('div')<{ $orientation?: 'column' | 'row' }>`
 `
 
 export const ImageContainer = styled.div`
+  position: relative;
   display: flex;
   height: 265px;
+  margin-left: calc(${props => props.theme.spaces.md}*2.5);
 `
 
 export const Image = styled.img`
@@ -161,4 +162,17 @@ export const LocationIcon = styled(LiaLocationArrowSolid)`
   transform: rotate(45deg);
   font-size: ${props => props.theme.spaces.xl};
   margin-right: calc(${props => props.theme.spaces.xs} / 2);
+`
+
+export const Sold = styled.p`
+  border: 3px solid ${props => props.theme.color.tenthRgba};
+  position: absolute;
+  bottom: 0;
+  text-transform: uppercase;
+  font-size: 2rem;
+  width: 100%;
+  text-align: center;
+  color: ${props => props.theme.color.tenthRgba};
+  background: ${props => props.theme.background.band_sold};
+  padding: ${props => props.theme.spaces.xs};
 `
