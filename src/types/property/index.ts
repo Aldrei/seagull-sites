@@ -217,5 +217,5 @@ export enum EPropertyStatus {
   SUSPENSO = 'Suspenso',
   VENDENDO = 'Vendendo',
   VENDIDO = 'Vendido',
-  VENDIDO_POR_OUTRO_AGENTE = 'Vendido por outro agente'
+  VENDIDO_POR_OUTRO_AGENTE = 'Vendido por outro agente',
 }
