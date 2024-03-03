@@ -5,6 +5,7 @@ import {
   shouldShowBedroomInfo,
   shouldShowBuildedArea,
   shouldShowGarageInfo,
+  shouldShowSold,
   shouldShowTotalArea,
 } from '@/utils'
 import React from 'react'
@@ -19,6 +20,7 @@ import {
   InfoItem,
   LocationIcon,
   Price,
+  Sold,
   Subtitle,
   Title,
 } from './styles'
@@ -35,9 +37,10 @@ export const BoxCommon: React.FC<IBoxCommon> = ({
     <Card $orientation={orientation} {...props}>
       <Price className="price">{`Cód ${property.codePretty} - ${property.valor}`}</Price>
       <ImageContainer>
+        {shouldShowSold(property) && <Sold>{property.status}</Sold>}
         <Image
           src={String(getPhotoProperty(property, 'thumb'))}
-          alt={property.title}
+          alt={property.status}
         />
       </ImageContainer>
       <Content>

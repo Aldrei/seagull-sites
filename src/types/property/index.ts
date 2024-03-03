@@ -183,6 +183,8 @@ type StatusProperty =
 
 type CategoriaProperty = 'Comercial' | 'Industrial' | 'Residencial' | 'Rural'
 
+type NascerDoSolProperty = 'Frente' | 'Fundos' | 'Direita' | 'Esquerda'
+
 export enum TypeProperty {
   Apartamento = 'Apartamento',
   ApartamentoCobertura = 'Apartamento Cobertura',
@@ -208,4 +210,12 @@ export enum TypeProperty {
   Terreno = 'Terreno',
 }
 
-type NascerDoSolProperty = 'Frente' | 'Fundos' | 'Direita' | 'Esquerda'
+export enum EPropertyStatus {
+  ALUGADO = 'Alugado',
+  ALUGANDO = 'Alugando',
+  ALUGANDO_TEMPORADA = 'Alugando Temporada',
+  SUSPENSO = 'Suspenso',
+  VENDENDO = 'Vendendo',
+  VENDIDO = 'Vendido',
+  VENDIDO_POR_OUTRO_AGENTE = 'Vendido por outro agente',
+}

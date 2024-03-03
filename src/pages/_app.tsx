@@ -1,11 +1,14 @@
 import GlobalsStyle from '@/styles/globalStyle'
 
+import { ApolloProvider } from '@apollo/client'
+import client from '../config/gql'
+
 import App, { AppContext, AppInitialProps, AppProps } from 'next/app'
 
 import { CustomerProvider } from '@/hooks/useCustomer'
 import { ThemeProvider } from '@/hooks/useTheme'
 
-type AppOwnProps = { filter?: any }
+type AppOwnProps = { filter?: any; apollo?: any }
 
 MyApp.getInitialProps = async (
   context: AppContext,
@@ -16,17 +19,17 @@ MyApp.getInitialProps = async (
 }
 
 // This default export is required in a new `pages/_app.js` file.
-export default function MyApp({
-  Component,
-  pageProps,
-  filter,
-}: AppProps & AppOwnProps) {
+function MyApp({ Component, pageProps, filter }: AppProps & AppOwnProps) {
   return (
-    <CustomerProvider>
-      <ThemeProvider>
-        <Component filter={filter} {...pageProps} />
-      </ThemeProvider>
-      <GlobalsStyle />
-    </CustomerProvider>
+    <ApolloProvider client={client}>
+      <CustomerProvider>
+        <ThemeProvider>
+          <Component filter={filter} {...pageProps} />
+        </ThemeProvider>
+        <GlobalsStyle />
+      </CustomerProvider>
+    </ApolloProvider>
   )
 }
+
+export default MyApp
