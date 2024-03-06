@@ -1,12 +1,15 @@
 import GlobalsStyle from '@/styles/globalStyle'
 
 import { ApolloProvider } from '@apollo/client'
-import client from '../config/gql'
 
 import App, { AppContext, AppInitialProps, AppProps } from 'next/app'
 
+import { useApollo } from '@/config/gql'
 import { CustomerProvider } from '@/hooks/useCustomer'
 import { ThemeProvider } from '@/hooks/useTheme'
+import { appWithTranslation } from 'next-i18next'
+
+import NextI18nextConfig from '@/next-i18next.config'
 
 type AppOwnProps = { filter?: any; apollo?: any }
 
@@ -20,8 +23,10 @@ MyApp.getInitialProps = async (
 
 // This default export is required in a new `pages/_app.js` file.
 function MyApp({ Component, pageProps, filter }: AppProps & AppOwnProps) {
+  const apolloClient = useApollo(pageProps)
+
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider client={apolloClient}>
       <CustomerProvider>
         <ThemeProvider>
           <Component filter={filter} {...pageProps} />
@@ -32,4 +37,6 @@ function MyApp({ Component, pageProps, filter }: AppProps & AppOwnProps) {
   )
 }
 
-export default MyApp
+//i18n config https://github.com/isaachinman/next-i18next
+export default appWithTranslation(MyApp, NextI18nextConfig)
+// export default MyApp
