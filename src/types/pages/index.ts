@@ -18,4 +18,5 @@ export interface IHomeProps {
   slideData: ISlideCommon
   filterOptionsInitial: IFilterOptionsInitial
   propertiesFeaturedList: IProperty[]
+  gqlData?: any
 }
